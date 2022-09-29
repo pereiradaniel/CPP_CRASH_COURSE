@@ -6,5 +6,5 @@
 g++ -g file.cpp -o program
 ```
 
-*-g* debugging info!
+*-g* Use GDB for debugging!
 *-o* specify output file name!
