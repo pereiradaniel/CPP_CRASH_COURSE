@@ -16,8 +16,11 @@ int step_function(int x)
 
 int main()
 {
-    int value1 = step_function(100);  // value1 =  1
-    int value2 = step_function(0);    // value2 =  0
-    int value3 = step_function(-100); // value3 = -1
-    printf("value1: %d\nvalue2: %d\nvalue3: %d\n", value1, value2, value3);
+    int num1 = 100;
+    int num2 = 0;
+    int num3 = -100;
+    int value1 = step_function(num1);  // value1 =  1
+    int value2 = step_function(num2);    // value2 =  0
+    int value3 = step_function(num3); // value3 = -1
+    printf("num1: %d, value1: %d\nnum2: %d, value2: %d\nnum3: %d, value3: %d\n", num1, value1, num2, value2, num3, value3);
 }
