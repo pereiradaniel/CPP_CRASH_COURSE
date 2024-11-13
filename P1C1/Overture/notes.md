@@ -33,7 +33,7 @@ int main() {
 - Modern C++ compilers accommodate most C programming habits.
 - Super c IS *NOT* idiomatic C++.
 - In some environments (embedded software, some operating sytem kernels, heterogeneous computing), the available tool chains have incomplete C++ support.
-- Some C-supported constructs won't work in C++, see: [*C Constructs that Don't Work in C++*](https://lospi.net/c/c++/programming/developing/software/2019/04/28/c-constructs-that-dont-work-in-cpp.html) notes[#c-constructs-that-don't-work-in-c++]
+- Some C-supported constructs won't work in C++, see: [*C Constructs that Don't Work in C++*](https://lospi.net/c/c++/programming/developing/software/2019/04/28/c-constructs-that-dont-work-in-cpp.html) [notes](#c-constructs-that-don't-work-in-c++)
 
 
 
