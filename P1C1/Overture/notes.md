@@ -35,6 +35,27 @@ int main() {
 - In some environments (embedded software, some operating sytem kernels, heterogeneous computing), the available tool chains have incomplete C++ support.
 - Some C-supported constructs won't work in C++, see: [*C Constructs that Don't Work in C++*](https://lospi.net/c/c++/programming/developing/software/2019/04/28/c-constructs-that-dont-work-in-cpp.html) [notes](#c-constructs-that-don't-work-in-c++)
 
+## Function Overloading
+
+*Definition*
+- Functions can share names as long as their arguments differ.
+
+## References
+
+- Pointers are a crucial feature of C, and likewise in C++.
+- C++ has additional safety features against *null dereferences* and *unintentional pointer reassignments*.
+- References are a major improvement to handling pointers.
+
+Two syntactic differences between pointers and references:
+1. References are declared with _&_ rather than _*_.
+2. Members are interacted with by the dot operator (.) rather than the arrow operator (->).
+
+- Both references and pointers are zero-overhead abstraction, and the compiler produces similar code.
+
+References provide some safety over raw pointers at compile time because the cannot be *null*.
+
+
+
 
 
 
@@ -45,16 +66,21 @@ int main() {
 
 ## C Constructs that Don't Work in C++
 
-- C++ began life as a fork of C before C was even standardized, C++ compilers can often directly compile C programs.
+[source](https://lospi.net/c/c++/programming/developing/software/2019/04/28/c-constructs-that-dont-work-in-cpp.html)
 
-Three concpets that diverge from C++:
+- C++ began life as a fork of C before C was even standardized.
+- C++ compilers can often directly compile C programs.
+
+### Three concpets that diverge from C++:
+
 1. Weak pointer typing.
 2. *enum* values.
 3. Function prototypes without arguemnts.
 
 ## Pointer Typing
 
-- C++ regards poitners with stronger typing than C. You can't implicitly convert from _void*_.
+- C++ regards poitners with stronger typing than C.
+- You can't implicitly convert from _void*_.
 
 A common idiom when using *malloc* is to lean on implicit conversion:
 
@@ -64,9 +90,11 @@ A common idiom when using *malloc* is to lean on implicit conversion:
 int *value = malloc(sizeof(int) * 100);
 ```
 
-This code dynamically allocates enough space for 100 *int* objects. *malloc* returns a *void* pointer, which is implicitly cast to an *int* pointer and assigned-to value.
+- This code dynamically allocates enough space for 100 *int* objects.
+- *malloc* returns a *void* pointer, implicitly casting to an *int* pointer and assigned-to value.
+- In C++, this is not valid.
 
-In C++, this is not valid. You can provide an explicit cast, but you must be careful:
+You can carefully provide and explicit cast:
 
 ```cpp
 int *value = (int*)malloc(sizeof(int) * 100);
@@ -87,9 +115,11 @@ const int x = 100;
 int* x_ptr = &x;
 ```
 
-This is a constraint violation because you've implicitly shucked off the *const* protections on *x*. Some compilers will let this pass with a warning. C++ will instead produce an error.
+- This is a constraint violation because you've implicitly shucked off the *const* protections on *x*.
+- Some compilers will let this pass with a warning. C++ will instead produce an error.
+- In both C and C++, the remedy is to make the cast explicit.
 
-In both C and C++, the remedy is to make the cast explicit. In C++ you can either use an explicit C-style cast or use a *const_cast*.
+In C++ you can either use an explicit C-style cast or use a *const_cast*:
 
 ```cpp
 int* x_ptr_1 = (int*)&x;                // (1)
@@ -103,7 +133,8 @@ const int* x_ptr_3 = &x;                // (3)
 
 ## enum Values
 
-In C, an enum value must always be backed by an *int*, whereas in C++ they can be any C++ *integer types*. C++ has stronger typing requirements than C when handling *enum* values.
+- In C, an enum value must always be backed by an *int*, whereas in C++ they can be any C++ *integer types*.
+- C++ has stronger typing requirements than C when handling *enum* values.
 
 *Valid in C:*
 ```c
@@ -127,4 +158,81 @@ Implicit conversions are possible to and from *int* values in C.
 enum FooEnum foo == static_cas<(FooEnum>(2);
 ```
 
-In this case, a *static_cast* is still a sub-optimal approach from a C++ perspective. It would be better to assign from *FooEnum::c* directly (rather than use ist *int* equivalent, 2).
+- In this case, a *static_cast* is still a sub-optimal approach from a C++ perspective.
+- It would be better to assign from *FooEnum::c* directly (rather than use ist *int* equivalent, 2).
+
+## Function Prototypes without arguemnts
+
+Function prototypes that don't contain arguments are handled differently in C and C++.
+
+This will compile in C:
+```c
+void fun() {}
+
+int main() {
+    fn(42)
+}
+```
+
+This snippet won't compile in C++. The function must be specified with the correct parameter types.
+
+*Modify the function _fn()_ to take an _int_*
+```cpp
+void fun(int) {}
+```
+
+*_The handling of C's paramaterless functions has the potential to cause trouble._*
+
+## C99
+
+Some of the features introduced in the C99 standard made some improvements to C:
+
+### Designated Initializer
+
+```c
+struct Address {
+    char street[256];
+    char city[256];
+    char state[256];
+    int zip;
+};
+
+struct Address white_house = {
+    .street = "1600 Pennsylvania Avenue NW",
+    .city = "Washington",
+    .state = "District of Columbia",
+    .zip = 20500
+};
+```
+
+These improvements are not available in C++, but the *constructor* has similar functionality.
+
+C99 also introduced the keyword: *restrict*.
+- If pointer *x* is marked *restrict*, the programmer promises that no other pointer will refer to the object pointed to by *x*.
+- Can potentially enable the compiler to emit more efficient code.
+- This keyword *does not* exist in the C++ standard, but may be supported by some compilers.
+
+### Flexible Array members
+
+Since C99, it is valid to include a *dimensionless array* as the last member of a struct:
+
+```c
+struct Bar {
+  int x;
+  char y[]; // dimensionless array
+};
+
+void make_bar() {
+  struct Bar* bar = malloc(sizeof(int) + 256 * sizeof(char));
+  bar->y[255] = 42;
+  free(bar);
+}
+```
+
+- C++ *does not* support such members.
+- Some higher-level C++ constructs provide similar functionality with greater safety (STL cointainers and *std::unique_ptr*).
+
+# Conclusion
+
+- C++ largely supports well-written C programs.
+- There are some edge cases.
