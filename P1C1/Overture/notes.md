@@ -51,14 +51,93 @@ Two syntactic differences between pointers and references:
 2. Members are interacted with by the dot operator (.) rather than the arrow operator (->).
 
 - Both references and pointers are zero-overhead abstraction, and the compiler produces similar code.
+- References provide some safety over raw pointers at compile time because they cannot be *null*.
+- Referencves are like pointers with extra safety precautions.
 
-References provide some safety over raw pointers at compile time because the cannot be *null*.
+## *auto* Initialization
 
+In C++ you can express a variable's type just once by using the *auto* keyword.
 
+```cpp
+int  x = 42;
+auto y = 42;
+```
 
+The compiler can deduce the type for *y* because *42* is an *integer* literal. In this way, a variable can be initialized using a function's return value.
 
+## Namespaces and Implicit typedef of struct, union, and enum
 
+In C++ the *typedef* keyword is implicit:
 
+*C*
+```c
+typedef struct Jabberwock{
+    void* tulgey_wood;
+    int is_galumphing;
+} Jabberwock;
+```
+
+*CPP*
+```cpp
+struct Jabberwock{
+    void* tulgey_wood;
+    int is_galumphing;
+};
+```
+
+CPP allows programmers to declare a *namespace* to create different scopes for identifiers:
+
+```cpp
+#include <cstdio>
+
+namespace Creature {
+    struct Jabberwock{
+        void* tylgey_wood;
+        int is_galumphing;
+    };
+}
+
+namespace Func {
+    void Jabberwock() {
+        printf("Burble!");
+    }
+}
+
+\\ You can disambiguate which Jabberwock:
+Creature::Jabberwock x;
+Func::Jabberwock();
+```
+
+The *using* directive imports all the names in a *namespace* which removes the need to use the full element name:
+
+```cpp
+#include <cstdio>
+
+namespace Creature {
+    struct Jabberwock{
+        void* tylgey_wood;
+        int is_galumphing;
+    };
+}
+
+namespace Func {
+    void Jabberwock() {
+        printf("Burble!");
+    }
+}
+
+using namespace Creature;
+
+int main() {
+    Jabberwock x;
+    Func::Jabberwock(); // not part of the Creature namespace
+}
+```
+
+## Intermingling C and C++ Object Files
+
+- Possible for C and C++ code to coexist.
+- Sometimes it is necessary for a C compiler to link object files emitted by a C++ compiler and vice versa.
 
 ---
 
@@ -73,8 +152,10 @@ References provide some safety over raw pointers at compile time because the can
 
 ### Three concpets that diverge from C++:
 
+
 1. Weak pointer typing.
 2. *enum* values.
+
 3. Function prototypes without arguemnts.
 
 ## Pointer Typing
