@@ -1,6 +1,6 @@
-# Part I - The C++ Core Language
+# Part 1 - The C++ Core Language
 
-## Chapter 1 - Up and Running
+## Chapter 1 - _Up and Running_
 
 ### The Structure of a Basic C++ Program:
 
