@@ -25,6 +25,7 @@ Fundamental types...
 - Store whole numbers.
 
 Four types based on size:
+
 1. short int
 2. int
 3. long int
@@ -57,10 +58,12 @@ An unsigned integer can be printed in its hexadecimal or octal representations:
     - %x
     - %o
 
-See [nondecimal.cpp](./nondecimal.cpp).
+##### Examples:
+
+[int.cpp](./int.cpp)
+[nondecimal.cpp](./nondecimal.cpp)
 
 #### *Floating-Point Types*
-
 
 
 #### *Character Types*
