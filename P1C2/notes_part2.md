@@ -50,6 +50,13 @@ Four hardcoded *integer literal* representations:
 3. *decimal* - default
 4. *hexadecimal* - 0x
 
+> Integer literals can contain any number of single quotes for readability, these are ignored by the compiler.
+> 1'000'000 = 1000000
+
+An unsigned integer can be printed in its hexadecimal or octal representations:
+    - %x
+    - %o
+
 #### *Floating-Point Types*
 
 #### *Character Types*
