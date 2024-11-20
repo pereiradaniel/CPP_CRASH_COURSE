@@ -55,16 +55,15 @@ Four hardcoded *integer literal* representations:
 > 1'000'000 = 1000000
 
 An unsigned integer can be printed in its hexadecimal or octal representations:
-    - %x
-    - %o
+- %x
+- %o
 
 ##### Examples:
 
-[int.cpp](./int.cpp)
-[nondecimal.cpp](./nondecimal.cpp)
+- [int.cpp](./int.cpp)
+- [nondecimal.cpp](./nondecimal.cpp)
 
 #### *Floating-Point Types*
-
 
 #### *Character Types*
 
