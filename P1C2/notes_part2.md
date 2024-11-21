@@ -65,6 +65,44 @@ An unsigned integer can be printed in its hexadecimal or octal representations:
 
 #### *Floating-Point Types*
 
+- Store approximations of real numbers (any number with a decimal and fractional part).
+- It is not possible to represent an arbitrary real number in computer memory, only an approximation.
+- Take up a finite amount of memory (*precision*).
+- More precision is more accurate at approximating a real number.
+
+##### Three Levels of Precision in C++
+
+1. *float* - single precision
+2. *double* - double precision
+3. *long double* - extended precision
+
+##### Floating-Point Literals
+
+- Double precision by default.
+
+##### Floating-Point Format Specifiers
+
+```cpp
+#include<cstdio>
+
+int main() {
+    // declare and initialize a float
+    float x = 0.5F;
+    // declare and initialize a double
+    double y = 1.5;
+    
+    // displays a float with decimal digits
+    printf("%f\n", x);
+    // displays the same number in scientific notation
+    printf("%e\n", x);
+
+    // displays a double with decimal digits
+    printf("%lf\n", y);
+    // displays a double in scientific notation
+    printf("%le\n", y);
+}
+```
+
 #### *Character Types*
 
 #### *Logical Operators*
