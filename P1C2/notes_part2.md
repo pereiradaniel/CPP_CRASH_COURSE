@@ -88,9 +88,9 @@ loating-Point Types*
 
 int main() {
     // declare and initialize a float
-    float x = 0.5F;
+    float x = 0.521F;
     // declare and initialize a double
-    double y = 1.5;
+    double y = 1.525;
     
     // displays a float with decimal digits
     printf("%f\n", x);
