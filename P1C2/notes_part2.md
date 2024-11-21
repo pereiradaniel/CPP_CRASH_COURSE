@@ -63,7 +63,8 @@ An unsigned integer can be printed in its hexadecimal or octal representations:
 - [int.cpp](./int.cpp)
 - [nondecimal.cpp](./nondecimal.cpp)
 
-#### *Floating-Point Types*
+#### *F
+loating-Point Types*
 
 - Store approximations of real numbers (any number with a decimal and fractional part).
 - It is not possible to represent an arbitrary real number in computer memory, only an approximation.
@@ -102,6 +103,7 @@ int main() {
     printf("%le\n", y);
 }
 ```
+file: [floatformatspecifiers](./floatformatspecifiers.cpp)
 
 #### *Character Types*
 
