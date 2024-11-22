@@ -251,3 +251,83 @@ int main() {
 }
 ```
 file: [logicaloperators.cpp](./logicaloperators.cpp)
+
+#### *std:byte Type*
+
+- *raw memory:* Collection of bits without a type.
+- Use _std::byte_ to use this memory.
+- _std::byte_ is available from <cstddef>
+- Permits bitwise logical operations.
+
+#### *size_t Type*
+
+- Use from <cstddef> to encode the size of objects.
+- *size_t* objects guarantee that their maximum values are sufficient to represent the maximum size in bytes of all objects.
+
+##### sizeof
+
+- unary operator
+- takes a type operand and returns the size of that type in bytes: sizeof(float)
+
+##### Format Specifiers
+
+size_t:
+- %zu for decimal representation.
+- %zx for hexadecimal representation.
+
+*Note:* Windows and Linux/Mac have different sizes for long!
+
+```cpp
+// Check system's integer type sizes:
+#include <cstddef>
+#include <cstdio>
+int main() {
+    size_t size_c = sizeof(char);
+    printf("char: %zu\n", size_c);
+    
+    size_t size_s = sizeof(short);
+    printf("short: %zu\n", size_s);
+    
+    size_t size_i = sizeof(int);
+    printf("int: %zu\n", size_i);
+
+    size_t size_l = sizeof(long);
+    printf("long: %zu\n", size_l);
+
+    size_t size_ll = sizeof(longlong);
+    printf("long long: %zu\n", size_ll);
+    return 0;
+}
+
+// Compiled on Windows:
+///////////////////////
+
+// Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+// Copyright (C) Micosoft Corporation.  All rights reserved.
+//
+// checkinttypesizes.cpp
+// Microsoft (R) Incremental Linker Version 14.35.32215.0
+// Copyright (C) Microsoft Corporation.  All rights reserved.
+
+// /out:checkinttypesizes.exe
+// checkinttypesizes.obj
+
+// C:\Users\perei\source\repos\cpp_crash_course\P1C2>checkinttypesizes.exe
+// char: 1
+// short: 2
+// int: 4
+// long: 4
+// long long: 8
+
+// Compiled on Linux:
+/////////////////////
+
+// pereira@DESKTOP-HFSS3GK:/mnt/c/Users/perei/source/repos/cpp_crash_course/P1C2$ g++ -g checkinttypesizes.cpp -o checkinttypesizes
+// pereira@DESKTOP-HFSS3GK:/mnt/c/Users/perei/source/repos/cpp_crash_course/P1C2$ ./checkinttypesizes
+// char: 1
+// short: 2
+// int: 4
+// long: 8
+// long long: 8
+```
+file: [checkinttypesizes.cpp](./checkinttypesizes.cpp)
