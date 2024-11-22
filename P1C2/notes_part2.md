@@ -227,3 +227,27 @@ int main() {
 }
 ```
 file: [comparisonoperators.cpp](./comparisonoperators.cpp)
+
+#### *Logical Operators*
+
+- Evaluate Boolean logic on _bool_ types.
+
+*unary operator:* Single operand.
+*binary operator:* Two operands.
+*ternary operator:* Three operands.
+
+```cpp
+// Uses logical operators:
+#include<cstdio>
+int main() {
+    bool t = true;
+    bool f = false;
+    printf("!true: %d\n", !t);
+    printf("true && false: %d\n", t && f);
+    printf("true && !false: %d\n", t && !f);
+    printf("true || false: %d\n", t || f);
+    printf("false || false: %d\n", f || f);
+    return 0;
+}
+```
+file: [logicaloperators.cpp](./logicaloperators.cpp)
