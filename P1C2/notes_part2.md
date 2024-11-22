@@ -13,7 +13,7 @@ The most basic types of object:
 3. character
 4. boolean
 5. byte
-6. sinze_t
+6. size_t
 7. void
 
 Fundamental types...
