@@ -331,3 +331,10 @@ int main() {
 // long long: 8
 ```
 file: [checkinttypesizes.cpp](./checkinttypesizes.cpp)
+
+#### *void*
+
+- empty set of values
+- cannot hold a void
+- C++ disallows void objects
+- *void* is used in special situations (functions that do not return a value)
