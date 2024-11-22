@@ -107,6 +107,75 @@ file: [floatformatspecifiers](./floatformatspecifiers.cpp)
 
 #### *Character Types*
 
+- Store human language data.
+
+Six character types:
+1. char
+2. char16_t
+    - Used for 2-byte character sets. ex: UTF-16
+3. char32_t
+    - Used for 4-byte character sets. ex: UTF-32
+4. signed char
+    - Same as char but guaranteed signed.
+5. unsigned char
+    - Same as char but guaranteed unsigned.
+6. wchar_t
+    - Large enough to contain largest character of the implementation's locale.
+
+*narrow characters* - char, signed char, unsigned char.
+*wide characters* - char16_t. char32_t, wchar_t.
+
+##### Character Literals
+
+- Single, constant character.
+- Single quotation marks.
+- All char types other than just char must also have a prefix:
+    - L for wchar_t
+    - u for char16_t
+    - U for char32_t
+
+##### Escape Sequences
+
+\n - newline
+\t - horiz tab
+\v - vert tab
+\b - backspace
+\r - carriage return
+\f - form feed
+\a - alert
+\\ - backslash
+? or \? - question mark
+\' - single quote
+\" - double quote
+\0 - the null character
+
+##### Unicode Escape Characters
+
+Universal character names can be used:
+
+```
+\u0041
+```
+
+\u followed by four-digit code.
+
+##### Format Specifierse
+
+printf format specifier for char: %c, wchar_t: %lc
+
+```cpp
+// Initializes two character literals and
+// uses them in a printf() call:
+#include <cstdio>
+int main() {
+    char    x = 'M';
+    wchar_t y = L'Z'; // Note: Format specifier L.
+    printf("Windows binaries start with %c%lc.\n",x,y);  
+    return 0;
+}
+```
+file: [charformatspecifier.cpp](./charformatspecifier.cpp)
+
 #### *Logical Operators*
 
 #### *Format Specifiers*
