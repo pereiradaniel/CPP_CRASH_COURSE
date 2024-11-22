@@ -1,6 +1,6 @@
 # Part 1 - The C++ Core Language
 
-(*Back to readme.md*)[../readme.md]
+[*Back to readme.md*](../readme.md)
 
 ## Chapter 2 - _Types_
 
