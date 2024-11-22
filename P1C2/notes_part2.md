@@ -176,10 +176,34 @@ int main() {
 ```
 file: [charformatspecifier.cpp](./charformatspecifier.cpp)
 
-#### *Logical Operators*
+#### *Boolean Types*
 
-#### *Format Specifiers*
+- Have two states: _true_ and _false_.
+- *bool* and *integer* types can convert.
+    - _true_ converts to 1, and _false_ converts to 0.
+    - any non-zero integer converts to _true_, and 0 converts to _false_.
 
-#### *Arrays*
+##### Boolean Literals
 
-### *User-Defined Types*
+Two:
+1. true
+2. false
+
+##### Format Specifiers
+
+- No format specifier for bool.
+- Can use %d int specifier to output 0 for false or 1 for true.
+*Reason:* _printf()_ promotes any integral value smaller than an _int_ to an _int_.
+
+```cpp
+// Illustrates declaration of a Boolean and
+// how to inspect its value:
+#include <cstdio>
+int main() {
+    bool b1 = true;
+    bool b2 = false;
+    printf("%d%d\n",b1,b2);
+    return 0;
+}
+```
+file: [boolformatspecifier.cpp](./boolformatspecifier.cpp)
