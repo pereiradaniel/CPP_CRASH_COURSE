@@ -1,5 +1,7 @@
 # Part 1 - The C++ Core Language
 
+(*Back to readme.md*)[../readme.md]
+
 ## Chapter 2 - _Types_
 
 - A type declares how an object will be interpreted and used by the compiler.

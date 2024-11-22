@@ -1,5 +1,7 @@
 # Part 1 - The C++ Core Language
-[*Back to readme.md*](~/readme.md)
+
+[*Back to readme.md*](../readme.md)
+
 ## Chapter 1 - _Up and Running_
 
 ### The Structure of a Basic C++ Program:
