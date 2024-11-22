@@ -338,3 +338,39 @@ file: [checkinttypesizes.cpp](./checkinttypesizes.cpp)
 - cannot hold a void
 - C++ disallows void objects
 - *void* is used in special situations (functions that do not return a value)
+
+### Arrays
+
+- Sequences of identically typed variables.
+
+*Declaration syntax:*
+
+```cpp
+int my_array[100];
+```
+
+#### *Array Initialization*
+
+Shortcut:
+
+```cpp
+// Length of array can be omitted:
+int array[] = {1, 2, 3, 4};
+```
+
+#### *Accessing Array Elements*
+
+Use square brackets to enclosed the desierd index:
+
+```cpp
+// Reads and writes array elements:
+#include <cstdio>
+int main() {
+    int arr[] = {1, 2, 3, 4};
+    printf("Third element of arr[]: %d\n", arr[2]);
+    arr[2] = 100; // Writes to the third element of array arr[]
+    printf("Third element of arr[] has been updated: %d\n", arr[2]);
+    return 0;
+}
+```
+file: [readandwritearrayelements.cpp](./readandwritearrayelements.cpp)
