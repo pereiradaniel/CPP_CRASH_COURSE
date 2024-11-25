@@ -431,3 +431,47 @@ int main() {
 ```
 
 file: [rangebasedmaxarray.cpp](./rangebasedmaxarray.cpp)
+
+##### Number of Elements in an Array
+
+- *sizeof* obtains the total size in bytes of the array.
+
+```cpp
+short array[] = {5,10,15};
+size_t n_elements = sizeof(array) / sizeof(short);
+```
+
+#### *C-Style Strings*
+
+- c-style string or null-terminated string has a zero-byte appended.
+- Strings are contiguous blocks of chararcters.
+- Strings can be stored in arrays of character types.
+
+##### String Literals
+
+- Strings are declared by enclosing text in quotes.
+- The format strings of printf statements are string literals.
+
+##### Format Specifier
+
+- For narrow strings (char*): %s
+
+```cpp
+#include <stdio>
+int main() {
+    char house[] = "a house of gold";
+    printf("A book holds %s\n", house);
+
+}
+```
+file: [c_string.c](./c_string.c)
+
+```c
+#include <stdio.h>
+int main(int argv, char* argc[]) {
+    char house[] = "a house of gold";
+    printf("A book holds %s\n", house);
+    return 0;
+}
+```
+file: [c_string.cpp](./c_string.cpp)
