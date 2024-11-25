@@ -407,3 +407,27 @@ int main() {
 
 file: [maxarray.cpp](./maxarray.cpp)
 
+##### Range-Based for Loop
+
+```
+for(element-type; element-name; array-name)
+{
+    ...
+}
+```
+
+```cpp
+// maxarray.cpp refactored with range-based for loop
+#include <cstdio>
+int main() {
+    unsigned long maximum = 0;
+    unsigned long values[] = {10,50,20,40,0};
+    
+    for(unsigned long value : values)
+        if(value > maximum) maximum = value;
+
+    printf("The maximum value is %lu", maximum);
+}
+```
+
+file: [rangebasedmaxarray.cpp](./rangebasedmaxarray.cpp)
