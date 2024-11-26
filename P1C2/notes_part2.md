@@ -475,3 +475,49 @@ int main(int argv, char* argc[]) {
 }
 ```
 file: [c_string.cpp](./c_string.cpp)
+
+#### *User-Defined Types*
+
+- Types the user can define.
+
+Three main categories of user-defined types:
+
+1. Enumerations
+- Simplest.
+- Restricted to a set of possible values.
+- Good for modeling categorical concepts.
+
+2. Classes
+- Flexibility to pair data and functions.
+- Data-classes only hold data.
+
+3. Union
+- All members share the same memory location.
+- Dangerous and easy to misuse.
+
+##### Enumeration Types
+
+- Declared using *enum class*.
+
+```cpp
+enum class F1Team {
+    Alpine,
+    AstonMartin,
+    Ferrari,
+    Haas,
+    KickSauber,
+    McLaren,
+    Mercedes,
+    VCaRB,
+    RedBullRacing,
+    Williams
+}
+```
+
+Initialize an enumeration variable to a value:
+
+```cpp
+F1Team ferrari = F1Team::Ferrari;
+```
+
+##### Switch Statements
