@@ -576,3 +576,5 @@ int main() {
 }
 ```
 File:[enum_class.cpp](./enum_class.cpp)
+
+#### *Plain-Old-Data Classes*
