@@ -1,5 +1,6 @@
 // Uses an enum class with a switch statement:
 #include <cstdio>
+// Declares an enum class:
 enum class F1Team {
         Alpine,
         AstonMartin,
@@ -14,8 +15,9 @@ enum class F1Team {
     };
 
 int main() {
+    // Declare a var, myTeam and assign value:
     F1Team myTeam = F1Team::Ferrari;
-
+    // Uses switch statement to output name of selected team:
     switch (myTeam) {
         case F1Team::Alpine:
             printf("Alpine");

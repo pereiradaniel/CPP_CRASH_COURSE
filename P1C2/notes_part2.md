@@ -578,3 +578,50 @@ int main() {
 File:[enum_class.cpp](./enum_class.cpp)
 
 #### *Plain-Old-Data Classes*
+
+```cpp
+struct Book {
+    char name[256];
+    int year;
+    int pages;
+    bool hardcover;
+};
+```
+
+```cpp
+#include <cstdio>
+
+struct Book {
+    char name[256];
+    int year;
+    int pages;
+    bool harcover;
+};
+
+int main() {
+    Book lotr;
+    lotr.pages = 2000;
+    printf("The Lord Of The Rings has %d pages.", lotr.pages);
+}
+```
+File: [data_struct.cpp](./data_struct.cpp)
+
+```c
+#include <stdio.h>
+
+struct Book {
+    char name[256];
+    int year;
+    int pages;
+    // bool harcover;
+    int hardcover; // 0 false, 1 true
+};
+
+int main(int argc, char* argv[]) {
+    struct Book lotr;
+    lotr.pages = 2000;
+    printf("The Lord Of The Rings has %d pages.", lotr.pages);
+    return 0;
+}
+```
+File: [data_struct.c](./data_struct.c)
