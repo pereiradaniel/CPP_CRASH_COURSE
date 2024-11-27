@@ -671,3 +671,62 @@ int main(void)
 }
 ```
 Source: [devdocs.io/c/language/union](https://devdocs.io/c/language/union)
+
+### Fully Featured C++ Classes
+
+- Encapsulation is achieved by adding methods and access controls to class definitions.
+
+#### *Methods*
+
+- Member functions.
+
+```cpp
+#include <cstdio>
+
+struct F1Points {
+    int total_points;
+    
+    int first = 25;
+    int second = 18;
+    int third = 15;
+    int fourth = 12;
+    int fifth = 10;
+    int sixth = 8;
+    int seventh = 6;
+    int eighth = 4;
+    int ninth = 2;
+    int tenth = 1;
+
+    void feature_race_points(int position) {
+        if (position == 1)
+            total_points += first;
+        if (position == 2)
+            total_points += second;
+        if (position == 3)
+            total_points += third;
+        if (position == 4)
+            total_points += fourth;
+        if (position == 5)
+            total_points += fifth;
+        if (position == 6)
+            total_points += sixth;
+        if (position == 7)
+            total_points += seventh;
+        if (position == 8)
+            total_points += eigth;
+        if (position == 9)
+            total_points += ninth;
+        if (position == 10)
+            total_points += tenth;
+        }
+    }
+
+int main() {
+    F1Points verstappen;
+    
+    // Add 1st place finish points to list:
+    for (int i = 0; int i <= 3; ++i)
+        verstappen.feature_race_points(1);
+}
+
+```
