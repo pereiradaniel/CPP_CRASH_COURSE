@@ -28,13 +28,17 @@ const struct Points {
     int fastest_lap =1;
 } points;
 
+// Struct for a driver's total points over a season:
 struct F1DriverPoints {
     int total_points;   // Driver's total points
     
-    void fastest_lap () {
-        total_points += points.fastest_lap;
+    // Calculates the number of points awarded for fastest laps:
+    void fastest_lap (int multiplier) {
+        for (int i = 1; i <= multiplier; ++i)
+            total_points += points.fastest_lap;
     };
 
+    // Calculates how many points earned for finishing position in a Sprint Race:
     void sprint_race_points(int position) {
         if (position == 1)
             total_points += points.first_sprint;
@@ -54,6 +58,7 @@ struct F1DriverPoints {
             total_points += points.eighth_sprint; 
     }
 
+    // Calculates how many points earned for finishing position in a Feature Race:
     void feature_race_points(int position) {
         if (position == 1)
             total_points += points.first;
@@ -119,8 +124,9 @@ int main() {
     sr_add_points_to_driver(1, 4, verstappen);
 
     // Add points for number of fastest laps:
-    for (int i = 1; i <= 3; ++i)
-        verstappen.fastest_lap();
+    verstappen.fastest_lap(3);
 
     printf("Max Verstappen total points: %d\n", verstappen.total_points);
 }
+
+// Max Verstappen's points for 2024 season as of 27/Nov/2024 = 403
