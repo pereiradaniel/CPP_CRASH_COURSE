@@ -164,7 +164,7 @@ int main() {
     verstappen.fastest_lap(3);
 
     // Max Verstappen's points for 2024 season as of 27/Nov/2024 = 403
-    printf("Max Verstappen total points: %.2f\n", verstappen.get_total_points());
+    printf("Max Verstappen total points: %.1f\n", verstappen.get_total_points());
 
     
     // CALCULATE MAX VERSTAPPEN'S POINTS FROM 2015-2023
@@ -187,10 +187,10 @@ int main() {
     F1DriverPoints verstappen_career(verstappen_career_points, 9);
 
     // Displays Verstappen's total points from 2015-2023 using the get_total_points() getter:
-    printf("Max Verstappen's total F1 career points from 2015-2023: %.2f\n", verstappen_career.get_total_points());
+    printf("Max Verstappen's total F1 career points from 2015-2023: %.1f\n", verstappen_career.get_total_points());
     
     // Displays Verstappen's total career points from 2015-2024 by summing the results of two getter function calls:
-    printf("Max Verstappen's total F1 career points from 2015-2024: %.2f\n", (verstappen_career.get_total_points() + verstappen.get_total_points()));
+    printf("Max Verstappen's total F1 career points from 2015-2024: %.1f\n", (verstappen_career.get_total_points() + verstappen.get_total_points()));
 
     return 0;
 }
