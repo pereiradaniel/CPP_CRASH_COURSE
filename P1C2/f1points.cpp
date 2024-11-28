@@ -179,8 +179,6 @@ int main() {
     // 2017 = 168
     // 2016 = 204
     // 2015 = 49
-    // 948
-    // 1 351
 
     // Creates an array of points scores for the first nine season of Max Verstappen's career:
     float verstappen_career_points[9] = {49,204,168,249,278,214,395.5,454,575};
