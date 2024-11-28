@@ -730,3 +730,8 @@ int main() {
 }
 
 ```
+
+#### *Access Controls*
+
+- Restrict class-member access.
+
