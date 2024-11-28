@@ -1,3 +1,11 @@
+// Formula 1 Driver Points System
+// ------------------------------
+
+// This is a work in progress. A simple experiment to review C++ knowledge
+// and have fun with Formula 1 scoring data.
+
+// Daniel Pereira 2024
+
 #include <cstdio>
 
 // Data structure containing points scoring system:
