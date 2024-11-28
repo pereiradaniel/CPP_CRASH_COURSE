@@ -735,3 +735,7 @@ int main() {
 
 - Restrict class-member access.
 
+See -> File [f1points.cpp](./f1points.cpp) for private and public member functions.
+
+#### *Constructors*
+

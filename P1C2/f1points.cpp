@@ -25,15 +25,37 @@ const struct Points {
     int eighth_sprint = 1;
 
     // Fastest Lap points system:
-    int fastest_lap =1;
+    int fastest_lap = 1;
 } points;
 
 // Struct for a driver's total points over a season:
 struct F1DriverPoints {
-    private:
-        int total_points = 0;   // Driver's total points;
+    private:    // private members
+        float total_points;   // Driver's total points;
 
-    public:
+    public:     // public members
+
+        // Constructors
+        // With no arguments, total_points defaults to 0.
+        F1DriverPoints() {
+            total_points = 0;
+        }
+        
+        // Constructor that takes an existing and known amount of points to initialize a driver.
+        F1DriverPoints(float points) {
+            total_points += points;
+        }
+        
+        // Constructor that takes an array of points per season and an int to represent number of seasons.
+        F1DriverPoints(float points[], int size) {
+            float sum = 0;
+    
+            for (int i = 0; i <= size; ++i )
+                sum += points[i];
+    
+            total_points = sum;
+        }
+
         // Calculates the number of points awarded for fastest laps:
         // Takes parameter multiplier to represent number of times fastest lap has been awarded.
         void fastest_lap (int multiplier) {
@@ -101,7 +123,7 @@ struct F1DriverPoints {
         }
 
         // Getter for total_points.
-        int get_total_points() {
+        float get_total_points() {
             return total_points;
         }
 };
@@ -109,6 +131,8 @@ struct F1DriverPoints {
 int main() {
     // Create F1DriverPoints driver for Max Verstappen:
     F1DriverPoints verstappen;
+    
+    // CALCULATE MAX VERSTAPPEN'S 2024 FORMULA 1 POINTS:
     
     // FEATURE RACE POINTS TALLY
     // Add 1st place finish points:
@@ -139,7 +163,36 @@ int main() {
     // Add points for number of fastest laps:
     verstappen.fastest_lap(3);
 
-    printf("Max Verstappen total points: %d\n", verstappen.get_total_points());
-}
+    // Max Verstappen's points for 2024 season as of 27/Nov/2024 = 403
+    printf("Max Verstappen total points: %.2f\n", verstappen.get_total_points());
 
-// Max Verstappen's points for 2024 season as of 27/Nov/2024 = 403
+    
+    // CALCULATE MAX VERSTAPPEN'S POINTS FROM 2015-2023
+
+    // verstappen_career_points 2015-2023:
+    // 2023 = 575
+    // 2022 = 454
+    // 2021 = 395.5
+    // 2020 = 214
+    // 2019 = 278
+    // 2018 = 249
+    // 2017 = 168
+    // 2016 = 204
+    // 2015 = 49
+    // 948
+    // 1 351
+
+    // Creates an array of points scores for the first nine season of Max Verstappen's career:
+    float verstappen_career_points[9] = {49,204,168,249,278,214,395.5,454,575};
+    
+    // Initialize a points score for Verstappen's 2015-2023 career by using the array and the two-argument constructor:
+    F1DriverPoints verstappen_career(verstappen_career_points, 9);
+
+    // Displays Verstappen's total points from 2015-2023 using the get_total_points() getter:
+    printf("Max Verstappen's total F1 career points from 2015-2023: %.2f\n", verstappen_career.get_total_points());
+    
+    // Displays Verstappen's total career points from 2015-2024 by summing the results of two getter function calls:
+    printf("Max Verstappen's total F1 career points from 2015-2024: %.2f\n", (verstappen_career.get_total_points() + verstappen.get_total_points()));
+
+    return 0;
+}
