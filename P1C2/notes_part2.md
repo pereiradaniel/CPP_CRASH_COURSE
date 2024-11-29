@@ -740,3 +740,85 @@ See -> File [f1points.cpp](./f1points.cpp) for private and public member functio
 #### *Constructors*
 
 See -> File [f1points.cpp](./f1points.cpp) for Constructors.
+
+#### *Initialization*
+
+##### Initializing data structures
+
+```cpp
+#include <cstdint>
+
+struct PodStruct {
+    uint64_t a;
+    char b[256];
+    bool c;
+
+};
+
+int main() {
+    PodStruct initialized_pod1{};
+    PodStruct initialized_pod2 = {};
+
+    PodStruct initialized_pod3 {42, "Hello"};
+    PodStruct initialized_pod4 {42, "Hello", true};
+}
+```
+
+File: [initialize_pods.cpp](./initialize_pods.cpp)
+
+##### Fully Featured Classes
+
+- Always initialized.
+- One of the constructors always gets called during initialization.
+
+```cpp
+// Demonstrates various ways to initialize a fully featured class.
+// Demonstrates various ways to initialize a fully featured class.
+#include <cstdio>
+
+struct Taxonomist {
+    Taxonomist() {
+        printf("no argument\n");
+    }
+
+    Taxonomist(char x) {
+        printf("char: %c\n", x);
+    }
+
+    Taxonomist(int x) {
+        printf("int: %d\n", x);
+    }
+
+    Taxonomist(float x) {
+        printf("float: %f\n", x);
+    }
+};
+
+    int main() {
+        Taxonomist t1;
+        Taxonomist t2 {'c'};
+        Taxonomist t3 { 23423 };
+        Taxonomist t4 {6.02e23f};
+        Taxonomist t5 {'g'};
+        Taxonomist t6 = {'l'};
+        Taxonomist t7{};
+        Taxonomist t8();
+    };
+```
+
+File: [initialize_fully_featured_class.cpp](./initialize_fully_featured_class.cpp)
+
+#### *The Desttructor*
+
+- The destructor is an object's cleanup function.
+- Invoked before an object is destroyed.
+- Almost never called explicitly.
+
+```cpp
+struct Earth {
+    ~Earth() {
+        printf("Earth being destroyed.");
+    }
+}
+```
+
