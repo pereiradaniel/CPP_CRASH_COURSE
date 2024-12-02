@@ -134,6 +134,11 @@ struct F1DriverPoints {
         float get_total_points() {
             return total_points;
         }
+
+        // Setter for total_points.
+        void set_points(float points) {
+            total_points = points;
+        };
 };
 
 int main() {
@@ -199,6 +204,15 @@ int main() {
     
     // Displays Verstappen's total career points from 2015-2024 by summing the results of two getter function calls:
     printf("Max Verstappen's total F1 career points from 2015-2024: %.1f\n", (verstappen_career.get_total_points() + verstappen.get_total_points()));
+
+    // Uses the arrow operator to read total_points from an F1DriverPoints object:
+
+    F1DriverPoints verstappen_total_points;
+    F1DriverPoints* verstappen_ptr = &verstappen_total_points;
+
+    verstappen_ptr->set_points(403);
+
+    printf("Verstappen's total points: %.1f\n", verstappen_ptr->get_total_points());
 
     return 0;
 }
