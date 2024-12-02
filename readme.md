@@ -10,7 +10,7 @@ Navigate to the notes pages:
 
 1. [Part 1 notes.](./P1C1/notes_part1.md)
 2. [Part 2 notes.](./P1C2/notes_part2.md)
-2. [Part 3 notes.](./P1C2/notes_part3.md)
+2. [Part 3 notes.](./P1C3/notes_part3.md)
 
 ---
 
