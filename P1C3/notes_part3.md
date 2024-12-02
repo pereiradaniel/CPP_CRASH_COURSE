@@ -41,4 +41,4 @@ File: [f1points.cpp](../P1C2/f1points.cpp)
 - An array can decay into a pointer.
 - Decayed arrays lose their length information and converts the arrays first element to a pointer.
 
-File: (ptr_decay.cpp)[./ptr_decay.cpp]
+File: [ptr_decay.cpp](./ptr_decay)
