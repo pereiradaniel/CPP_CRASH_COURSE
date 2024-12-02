@@ -51,3 +51,29 @@ File: [ptr_decay.cpp](./ptr_decay.cpp)
 
 File: [ptr_decay2.cpp](./ptr_decay2.cpp)
 
+##### Pointer Arithmetic
+
+*First Option*
+Obtain with [] brackets and then use the address-of operator:
+
+```cpp
+College* third_college_ptr == &oxford[2];
+```
+
+*Second Option*
+Pointer arithmetic:
+
+```cpp
+College* third_college+ptr = oxford + 2;
+```
+
+#### *nullptr and Boolean Expressions*
+
+- nullptr doesn't point to anything.
+- Pointers implicitly convert to true if value is other than nullptr, whereas nullptr converts to false.
+
+##### References
+- Safer, more convenient versions of pointers.
+- Declared with the & operator.
+
+File: [reference.cpp](./reference.cpp)
