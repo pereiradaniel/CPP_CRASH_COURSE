@@ -17,3 +17,7 @@
 
 File: [get_address_of_int.cpp](./get_address_of_int.cpp)
 
+#### *Dereferencing Pointers*
+
+- * is a unary operator that accesses the object tot which a pointer refers.
+- Inverse of the & operator.
