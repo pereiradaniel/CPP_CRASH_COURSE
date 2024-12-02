@@ -43,3 +43,11 @@ File: [f1points.cpp](../P1C2/f1points.cpp)
 
 File: [ptr_decay.cpp](./ptr_decay.cpp)
 
+##### Handling Decay
+
+- Pass arrays as two arguments:
+    1. A pointer to the frist array element.
+    2. Array's length.
+
+File: [ptr_decay2.cpp](./ptr_decay2.cpp)
+
