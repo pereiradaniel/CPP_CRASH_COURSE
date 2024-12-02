@@ -821,4 +821,3 @@ struct Earth {
     }
 }
 ```
-
