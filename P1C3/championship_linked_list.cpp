@@ -1,4 +1,4 @@
-// Traverses a linked list of type Element:
+// Traverses a linked list of type Championship to display the World Driver's and Constructor's Championship along with the year:
 #include <cstdio>
 #include <cstring>
 
