@@ -101,5 +101,8 @@ struct Element {
     }
     char prefix[2];
     short operating_number;
-}
+};
 ```
+
+File: [championship_linked_list.cpp](./championship_linked_list.cpp)
+
