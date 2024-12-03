@@ -106,3 +106,8 @@ struct Element {
 
 File: [championship_linked_list.cpp](./championship_linked_list.cpp)
 
+### *Employing References*
+
+If the flexibility of a nullptr is not required, references are a better option than pointers.
+
+File: [employing_references.cpp](./employing_references.cpp)
