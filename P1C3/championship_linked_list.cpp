@@ -73,7 +73,6 @@ int main() {
     championship1998.set_year(1998);
 
     for (Championship *cursor = &championship1996; cursor; cursor = cursor->next) {
-        // printf("World Driver's Championship for %d was won by %s.\n", cursor->get_year(), cursor->get_champion());
         cursor->display();
     }
 
