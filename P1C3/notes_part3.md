@@ -77,3 +77,29 @@ College* third_college+ptr = oxford + 2;
 - Declared with the & operator.
 
 File: [reference.cpp](./reference.cpp)
+
+### *Forward-Linked Lists: The Canonical Pointer-Based Data Structure*
+
+- Simple data strcutre.
+- Made up of a series of elements.
+- Each element holds a pointer to the next element.
+- Last element holds a nullptr.
+- Efficient to insert elements.
+- Can be discontiguous in memory.
+
+```cpp
+struct Element {
+    // Each element has a pointer to the next element in the linked list:
+    Element* next{}; // initializes to nullptr
+
+    // Insert a new element using insert_after()
+    void insert_after(Element* new_element) {
+        // Sets the next member of the new_element to this.next:
+        new_element->next = next;
+        // Sets this.next to the new_element:
+        next = new_element;
+    }
+    char prefix[2];
+    short operating_number;
+}
+```
