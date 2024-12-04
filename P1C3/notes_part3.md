@@ -112,3 +112,8 @@ If the flexibility of a nullptr is not required, references are a better option 
 
 File: [employing_references.cpp](./employing_references.cpp)
 
+### *this Pointers*
+
+Is usually implicit but can be used to disamiguate (see insert_after()).
+
+File: [employing_references.cpp](./employing_references.cpp)
