@@ -2,7 +2,7 @@
 
 [*Back to readme.md*](../readme.md)
 
-## Chapter 2 - _Reference Types_
+## Chapter 3 - _Reference Types_
 
 ### Pointers
 
