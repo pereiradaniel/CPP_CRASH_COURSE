@@ -35,20 +35,21 @@ struct Championship {
     }
 
     // GETTERS
-    short get_year() {
+    // Use const to protect Class members:
+    short get_year() const {
         return championship_year;
     }
 
-    char* get_champion() {
+    const char* get_champion() {
         return champion;
     }
 
-    char* get_constructors_champion() {
+    const char* get_constructors_champion() {
         return constructors;
     }
 
     // Displays Element data:
-    void display() {
+    void display() const {
         printf("Year: %d\n", championship_year);
         printf("Constructor's champions: %s\n", constructors);
         printf("Driver's Champion: %s\n", champion);
