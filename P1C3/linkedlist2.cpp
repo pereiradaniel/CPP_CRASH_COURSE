@@ -6,7 +6,7 @@
 // Struct for F1 World Championship data for a year:
 struct Championship {
     Championship
-    (short year, std::string champ_name, std::string constructors_name, Championship* championship)
+    (short year, const char champ_name[], const char constructors_name[], Championship* championship)
     : championship_year{year}, champion{champ_name}, constructors{constructors_name} {
         this->insert_after(championship);
     }
@@ -15,9 +15,8 @@ struct Championship {
 
     private:
         short championship_year;    // year of championship
-        // Use std::string instead of c-style strings so that initializer member list does not generate error converting from const char*:
-        std::string champion;       // name of world driver's champion
-        std::string constructors;   // name of constructor's champion
+        char* champion;       // name of world driver's champion
+        char* constructors;   // name of constructor's champion
 
     public:
     // Each element has a pointer to the next element in the linked list:
