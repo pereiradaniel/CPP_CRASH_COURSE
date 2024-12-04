@@ -1,6 +1,5 @@
 // Traverses a linked list of type Championship to display the World Driver's and Constructor's Championship along with the year:
 #include <cstdio>
-#include <cstring>
 #include <string>
 
 // Struct for F1 World Championship data for a year:
