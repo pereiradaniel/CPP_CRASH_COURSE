@@ -120,6 +120,6 @@ File: [championship_linked_list.cpp](./championship_linked_list.cpp)
 
 ### *const Correctness*
 
-Protect Class members by using const arguments.
+Protect Class members and data by using const arguments, const.
 
 File [championship_linked_list.cpp](./championship_linked_list.cpp)

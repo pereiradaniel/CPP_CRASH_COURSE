@@ -22,6 +22,7 @@ struct Championship {
     }
 
     // SETTERS
+    // Use const arguments to protect data:
     void set_champion(const char champions_name[]) {
         std::strcpy(champion, champions_name);  
     }
