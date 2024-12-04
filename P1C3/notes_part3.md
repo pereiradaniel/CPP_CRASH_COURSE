@@ -116,4 +116,4 @@ File: [employing_references.cpp](./employing_references.cpp)
 
 Is usually implicit but can be used to disamiguate (see insert_after()).
 
-File: [employing_references.cpp](./employing_references.cpp)
+File: [championship_linked_list.cpp](./championship_linked_list.cpp)
