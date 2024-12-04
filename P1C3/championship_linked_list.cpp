@@ -16,9 +16,9 @@ struct Championship {
     // Insert a new element using insert_after()
     void insert_after(Championship* new_element) {
         // Sets the next member of the new_element to this.next:
-        new_element->next = next;
+        new_element->next = this->next; // uses 'this' pointer to disambiguate
         // Sets this.next to the new_element:
-        next = new_element;
+        this->next = new_element;
     }
 
     // SETTERS
