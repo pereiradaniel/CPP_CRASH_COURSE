@@ -4,12 +4,19 @@
 
 // Struct for F1 World Championship data for a year:
 struct Championship {
+    // Constructor that takes data and address of list to insert this after:
     Championship
     (short year, std::string champ_name, std::string constructors_name, Championship* championship)
     : championship_year{year}, champion{champ_name}, constructors{constructors_name} {
         this->insert_after(championship);
     }
     
+    // Constructor that takes data but no insertion into list:
+    Championship
+    (short year, std::string champ_name, std::string constructors_name)
+    : championship_year{year}, champion{champ_name}, constructors{constructors_name} {
+    }
+
     Championship() {};
 
     private:
@@ -85,7 +92,7 @@ int main() {
     championship1998.set_constructors_champion("McLaren-Mercedes");
     championship1998.set_year(1998);
 
-    for (Championship *cursor = &championship1995; cursor; cursor = cursor->next) {
+    for (auto *cursor = &championship1995; cursor; cursor = cursor->next) {
         cursor->display();
     }
 
