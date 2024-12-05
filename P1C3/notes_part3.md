@@ -123,3 +123,16 @@ File: [championship_linked_list.cpp](./championship_linked_list.cpp)
 Protect Class members and data by using const arguments, const.
 
 File: [championship_linked_list.cpp](./championship_linked_list.cpp)
+
+### *Initialization with auto*
+
+- The compiler can usually determine the correct type of an object using the initialization value.
+
+```cpp
+int  var  = 100;
+auto var2 = 100;
+```
+
+## Important links
+
+[CPP Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/)
