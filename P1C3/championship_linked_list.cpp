@@ -92,9 +92,8 @@ int main() {
     championship1998.set_constructors_champion("McLaren-Mercedes");
     championship1998.set_year(1998);
 
-    for (auto *cursor = &championship1995; cursor; cursor = cursor->next) {
+    for (auto *cursor = &championship1995; cursor; cursor = cursor->next)
         cursor->display();
-    }
 
     return 0;
 }
