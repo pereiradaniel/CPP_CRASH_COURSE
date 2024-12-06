@@ -29,7 +29,7 @@ Object Life Stages
 
 #### *Static Storage Duration*
 
-- Static object: Declared using the _static_ or _extern_ keyword.
+- Static object: Declared using the *static* or *extern* keyword.
 - Static objects with global scope have static storage duration.
 
 File: [storage_duration.cpp](./storage_duration.cpp)
