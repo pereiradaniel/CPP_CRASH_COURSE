@@ -49,3 +49,10 @@ File: [storage_duration.cpp](./storage_duration.cpp)
 - Static members must be initialized at global, not class scope.
 
 File: [storage_duration.cpp](./storage_duration.cpp)
+
+#### *Thread-Local Storage Duration*
+
+- Each program has one or more threads that can perform independent operations.
+
+*Thread of execution:* The sequence of instructions executed by a thread.
+
