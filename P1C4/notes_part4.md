@@ -56,3 +56,4 @@ File: [storage_duration.cpp](./storage_duration.cpp)
 
 *Thread of execution:* The sequence of instructions executed by a thread.
 
+File: [rat.cpp](./rat.cpp)
