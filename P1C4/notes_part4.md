@@ -2,7 +2,7 @@
 
 [*Back to readme.md*](../readme.md)
 
-## Chapter 4 - _The Object Life Cycle_
+## Chapter 4 - The Object Life Cycle
 
 ### An Object's Storage Duration
 
@@ -14,6 +14,7 @@
 - Lifetime: A runtime property bound by the object's storage duration.
 
 Object Life Stages
+
 1. Storage duration begins when storage is allocated.
 2. Object's constructor is called.
 3. Object's lifetime begins.
