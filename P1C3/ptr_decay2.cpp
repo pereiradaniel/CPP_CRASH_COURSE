@@ -1,3 +1,5 @@
+// Daniel Pereira 2024
+
 // Passing arrays as arguments:
 #include <cstdio>
 

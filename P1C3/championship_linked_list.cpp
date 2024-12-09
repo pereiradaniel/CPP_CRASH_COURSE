@@ -1,3 +1,5 @@
+// Daniel Pereira 2024
+
 // Traverses a linked list of type Championship to display the World Driver's and Constructor's Championship along with the year:
 #include <cstdio>
 #include <string>

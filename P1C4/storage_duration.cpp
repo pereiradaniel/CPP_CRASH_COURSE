@@ -1,3 +1,4 @@
+// Daniel Pereira 2024
 #include <cstdio>
 
 static int num_of_races;

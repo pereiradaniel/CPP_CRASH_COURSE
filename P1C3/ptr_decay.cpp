@@ -1,3 +1,5 @@
+// Daniel Pereira 2024
+
 // Illustrates an array decaying into a pointer
 #include <cstdio>
 

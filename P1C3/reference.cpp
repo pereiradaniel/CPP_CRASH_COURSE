@@ -1,3 +1,5 @@
+// Daniel Pereira 2024
+
 // Demonstrates use of reference instead of pointer:
 #include <cstdio>
 struct F1Team {
