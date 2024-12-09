@@ -1,51 +1,50 @@
 /* Demonstrates global scope of static variables and object lifetime of automatic variables.
 
-    # Static Storage Duration
+    Global Scope Variables:
+        - total_laps and total_laps_remaining are global scope variables.
+        - No scope operator is required to access them.
 
-        total_laps, total_laps_remaining
-
-    These are static global variables. Their lifetime begins and ends with the program. They can be accessed from everywhere in the program, as their scope is global.
-
-    # Automatic Storage Duration
-
-        total_laps_raced
-
-    This variable has an automatic storage duration. It begins and ends with the function call, so its value is not persistent between function calls.  
-
+    Static Method Members:
+        - race_lap and disaply_remaining_laps are static methods of RaceLapCounter.
+        - In the main() function a global scope operator is required to access them.
+        
 */
 
 #include <cstdio>
-// Static variables declared at global scope:
-static const int    total_laps           = 70;          // Constant reference for number of laps for the race.
-static int          total_laps_remaining = total_laps;  // Counter that tracks race progress.
+// Global Scope Variables:
+    const int total_laps           = 70;           // Constant reference for number of laps for the race.
+    int       total_laps_remaining = total_laps;   // Counter that tracks race progress.
 
 // Updates the race based on how many laps were just raced:
-void race_lap(int num_laps_raced) {
-    // Updates total_laps_remaining by subtracting the number of laps raced by the current function call:
-    total_laps_remaining -= num_laps_raced;
+struct RaceLapCounter {
+    // Static Methods:
+    static void race_lap(int num_laps_raced) {
+        // Updates total_laps_remaining by subtracting the number of laps raced by the current function call:
+        total_laps_remaining -= num_laps_raced;
 
-    // Initializes a variable and assigns to it the total laps raced so far:
-    const auto total_laps_raced = total_laps - total_laps_remaining; 
-    
-    // Prints warning to the screen when only one lap remains:
-    if(total_laps - total_laps_raced == 1)
-        printf("*** One lap remains! ***\n");
-}
+        // Initializes a variable and assigns to it the total laps raced so far:
+        const auto total_laps_raced = total_laps - total_laps_remaining; 
+        
+        // Prints warning to the screen when only one lap remains:
+        if(total_laps - total_laps_raced == 1)
+            printf("*** One lap remains! ***\n");
+    }
 
-// Displays number of remaining laps:
-void display_remaining_laps() {
-    printf("%d laps remain.\n", total_laps_remaining);
-}
+    // Displays number of remaining laps:
+    static void display_remaining_laps() {
+        printf("%d %s.\n", total_laps_remaining, total_laps_remaining > 1 ? "laps remain" : "lap remains");
+    }
+};
 
 int main() {
     printf("Race start: ");
-    display_remaining_laps();
-    race_lap(50);
+    RaceLapCounter::display_remaining_laps();
+    RaceLapCounter::race_lap(50);
  
     printf("Race middle: ");
-    display_remaining_laps();
-    race_lap(19);
+    RaceLapCounter::display_remaining_laps();
+    RaceLapCounter::race_lap(19);
  
     printf("Race end: ");
-    display_remaining_laps();
+    RaceLapCounter::display_remaining_laps();
 }

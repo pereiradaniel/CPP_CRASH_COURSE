@@ -33,3 +33,19 @@ Object Life Stages
 - Static objects with global scope have static storage duration.
 
 File: [storage_duration.cpp](./storage_duration.cpp)
+
+### Local Static Variables
+
+- Special kind of static variable.
+- Declared at function scope.
+- Lifetime:
+    - Begins on first invocation of the enclosing function.
+    - Ends when the program exits.
+- Encapsulation.
+
+### Static Members
+
+- Members of a class not associated with a aprticular instance of the class.
+- Static members must be initialized at global, not class scope.
+
+File: [storage_duration.cpp](./storage_duration.cpp)
