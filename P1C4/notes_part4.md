@@ -40,8 +40,8 @@ File: [storage_duration.cpp](./storage_duration.cpp)
 - Special kind of static variable.
 - Declared at function scope.
 - Lifetime:
-    - Begins on first invocation of the enclosing function.
-    - Ends when the program exits.
+  - Begins on first invocation of the enclosing function.
+  - Ends when the program exits.
 - Encapsulation.
 
 ### Static Members
