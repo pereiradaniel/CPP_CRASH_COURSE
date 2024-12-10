@@ -117,7 +117,7 @@ int main() {
         monaco.display_yellow_flags();
 
     monaco.race_lap(30);
-    monaco.add_yellow_flags(4);
+    monaco.add_yellow_flags();
 
     printf("Monaco middle: ");
         monaco.display_remaining_laps();
