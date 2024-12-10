@@ -1,63 +1,89 @@
 // Daniel Pereira 2024
 #include <cstdio>
 
+// Global static int that can be accessed from anywhere:
 static int num_of_races;
 
 struct RaceLapCounter {    
+    // Static constant variable that is only accessible from RaceLapCounter:
     static const int default_total_laps = 70;
 
+    // DEFAULT CONSTRUCTOR
+    // Initializes member variables, especially total_laps using the static constant default, and logically setting the total laps remaining to the total_laps, since the race has not yet begun:
     RaceLapCounter() :
         yellow_flags {0},
         total_laps {default_total_laps},
         total_laps_remaining {total_laps}
     {
-        common_initialization_procedure();
+        common_initialization_procedure();  // Used in every constructor.
     }
 
-    RaceLapCounter(int laps) :
-        total_laps {laps},
-        total_laps_remaining {total_laps},
-        yellow_flags {0}
+    // ONE ARGUMENT CONSTRUCTOR
+    // Initializes lap counter variable using a given argument of number of laps:
+    RaceLapCounter(int num_of_laps_this_race) :
+        yellow_flags {0},
+        total_laps {num_of_laps_this_race},
+        total_laps_remaining {total_laps}
     {
         common_initialization_procedure();
     }
 
+    // THREE ARGUMENT CONSTRUCTOR
+    // Initializes a race that is partially run-through, so it takes arguments for laps_remaining and num_yellow_flags:
     RaceLapCounter(int laps, int laps_remaining, int num_yellow_flags) :
         total_laps {laps},
         total_laps_remaining {laps_remaining},
-        yellow_flags { num_yellow_flags}
+        yellow_flags {num_yellow_flags}
     {
         common_initialization_procedure();
     }
 
     private:
-        int yellow_flags = 0;
-        int total_laps = default_total_laps;
-        int total_laps_remaining = total_laps;
+        int yellow_flags = 0;                   // Counter for yellow flags.
+        int total_laps = default_total_laps;    // Represents the total number of laps for a single race.
+        int total_laps_remaining = total_laps;  // Counter for the number of laps remaining.
 
     public:
+        // STATIC MEMBER FUNCTIONS:
+        
+        // Runs a block of code which should be common to all Constructors:
         static void common_initialization_procedure() {
             ++num_of_races;
         }
 
+        // Displays the total number of races that have been run so far.
+        static void display_total_num_of_races() {
+            // Makes use of the global static variable num_of_races:
+            printf("Number of total races this season: %d\n", num_of_races);
+        }
+
+        // NON-STATIC MEMBER FUNCTIONS
+
+        // Simulates the number of race laps provided:
         void race_lap(int num_laps_raced) {
             this->total_laps_remaining -= num_laps_raced;
         }
 
+        // Displays the number of remaining laps:
         void display_remaining_laps() {
             printf("Number of laps remaining: %d\n", this->total_laps_remaining);
         }
 
+        // OVERLOADED FUNCTION: add_yellow_flags()
+        
+        // Adds only one yellow flag at a time.
+        void add_yellow_flags() {
+            ++this->yellow_flags;
+        }
+
+        // Adds a number of yellow flags to the counter:
         void add_yellow_flags(int num_yellow_flags) {
             this->yellow_flags += num_yellow_flags;
         }
 
+        // Displays a message with the number of yellow flags:
         void display_yellow_flags() const {
             printf("Number of yellow flags shown: %d\n", this->yellow_flags);
-        }
-
-        static void display_total_num_of_races() {
-            printf("Number of total races this season: %d\n", num_of_races);
         }
 };
 
