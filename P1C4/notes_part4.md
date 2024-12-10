@@ -58,3 +58,42 @@ File: [storage_duration.cpp](./storage_duration.cpp)
 *Thread of execution:* The sequence of instructions executed by a thread.
 
 File: [rat.cpp](./rat.cpp)
+
+#### *Dynamic Storage Duration*
+
+- Objects with dynamic storage duration are allocated and deallocated on request.
+- aka: allocated objects.
+-Primarily allocated by the *new* keyword, returns a pointer to the newly created object.
+- Deallocated using the *delete* keyword followed by a pointer to the object.
+- Delete expressions always return *void*.
+
+### Dynamic Arrays
+
+- Arrays with dynamic storage duration.
+
+```cpp
+
+// Dynamic Array:
+
+new MyType[n_elements] {init_list}
+ 
+  // Returns a pointer to the first element of the new array.
+  // MyTpe:      Type of array elements.
+  // n_elements: Length of array.
+  // init_list:  Used to initialize the array.
+
+// Allocate:
+
+  int* my_int_array_ptr = new int[100];
+  
+// Deallocate:
+
+  delete[] my_int_array_ptr; // Returns void.
+
+```
+
+### Memory Leaks
+
+- Caused by failure to properly deallocate memory.
+
+### Tracing the Object Life Cycle
