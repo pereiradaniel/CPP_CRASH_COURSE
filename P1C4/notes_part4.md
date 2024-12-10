@@ -97,3 +97,7 @@ new MyType[n_elements] {init_list}
 - Caused by failure to properly deallocate memory.
 
 ### Tracing the Object Life Cycle
+
+Demonstrates object life cycle with memory leak issue from dynamic object allocation and failure to deallocate:
+
+File: [tracer](./tracer.cpp)
