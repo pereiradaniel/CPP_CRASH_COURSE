@@ -1,9 +1,9 @@
-// Daniel Pereira 2024
 #include <cstdio>
 
 // Global static int that can be accessed from anywhere:
 static int num_of_races;
 
+// Class object whose state tracks the progress of a race, and whose functions modify the state as the race progresses:
 struct RaceLapCounter {    
     // Static constant variable that is only accessible from RaceLapCounter:
     static const int default_total_laps = 70;
@@ -132,3 +132,11 @@ int main() {
     
     RaceLapCounter::display_total_num_of_races();
 }
+
+/////////////////////////////////////////////////////////////////////
+// Coding example: storage_duration.cpp
+// Description: Makes use of static functions and variables.
+//              Demonstrates global scope and global scope operators.
+//
+/////////////////////////////////////////////////////////////////////
+// Daniel Pereira 2024
