@@ -1,4 +1,4 @@
-# README
+2. [Part 3 notes.](./P1C3/notes_part3.md)# README
 
 ---
 
@@ -10,7 +10,8 @@ Navigate to the notes pages:
 
 1. [Part 1 notes.](./P1C1/notes_part1.md)
 2. [Part 2 notes.](./P1C2/notes_part2.md)
-2. [Part 3 notes.](./P1C3/notes_part3.md)
+3. [Part 3 notes.](./P1C3/notes_part3.md)
+4. [Part 4 notes.](./P1C4/notes_part4.md)
 
 ---
 
