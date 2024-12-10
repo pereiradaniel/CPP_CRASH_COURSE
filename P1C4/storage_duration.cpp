@@ -109,7 +109,7 @@ int main() {
     printf("Race Complete: ");
         monza.display_remaining_laps();
     
-    // Uses globap scope to run a static function:
+    // Uses global scope to run a static function:
     RaceLapCounter::display_total_num_of_races();
 
     RaceLapCounter monaco(50);
