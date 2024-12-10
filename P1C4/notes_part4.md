@@ -101,3 +101,16 @@ new MyType[n_elements] {init_list}
 Demonstrates object life cycle with memory leak issue from dynamic object allocation and failure to deallocate:
 
 File: [tracer](./tracer.cpp)
+
+### Exceptions
+
+- Types that communicate an error condition.
+
+### Standard Exception Classes
+
+- stdlib from stdexcept.
+- std::exception iis the superclass for standard exception cases.
+- Can be paritioned into three types of errors:
+  1. logic
+  2. runtime
+  3. language support
