@@ -45,11 +45,6 @@ struct RaceLapCounter {
 
     public:
         // STATIC MEMBER FUNCTIONS:
-        
-        // Runs a block of code which should be common to all Constructors:
-        static void common_initialization_procedure() {
-            ++num_of_races;
-        }
 
         // Displays the total number of races that have been run so far.
         static void display_total_num_of_races() {
@@ -58,6 +53,11 @@ struct RaceLapCounter {
         }
 
         // NON-STATIC MEMBER FUNCTIONS
+        
+        // Runs a block of code which should be common to all Constructors:
+        void common_initialization_procedure() {
+            ++num_of_races;
+        }
 
         // Simulates the number of race laps provided:
         void race_lap(int num_laps_raced) {
@@ -109,6 +109,7 @@ int main() {
     printf("Race Complete: ");
         monza.display_remaining_laps();
     
+    // Uses globap scope to run a static function:
     RaceLapCounter::display_total_num_of_races();
 
     RaceLapCounter monaco(50);
@@ -128,6 +129,6 @@ int main() {
     printf("Race Complete: ");
         monaco.display_remaining_laps();
         monaco.display_yellow_flags();
-
+    
     RaceLapCounter::display_total_num_of_races();
 }
