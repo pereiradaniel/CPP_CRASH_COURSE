@@ -2,6 +2,8 @@
 //  RAII (resource acquisition is initialization) or
 //  Constructor Acquires Destructor Releases (CADRe)
 #include <stdexcept>
+#include <cstdio>
+#include <cstring>
 
 struct SimpleString {
     // Constructor takes a single argument that is the maximum length of the string including a null terminator.
@@ -23,6 +25,23 @@ struct SimpleString {
         // Deallocates buffer:
         delete[] buffer;
     }
+
+    void print(const char* tag) const {
+        printf("%s: %s", tag, buffer);
+    }
+
+bool append_line(const char* x) {
+    const auto x_len = strlen(x);
+
+    if (x_len + length + 2 > max_size) return false;
+
+    std::strncpy(buffer+length,x,max_size-length);
+    length += x_len;
+    buffer[length++]='\n';
+    buffer[length] = 0;
+    return true;
+}
+
     private:
         size_t max_size;
         char* buffer;
