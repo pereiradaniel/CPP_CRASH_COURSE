@@ -59,7 +59,7 @@ struct SimpleString {
 };
 
 int main() {
-    SimpleString string{50};
+    SimpleString string{60};
     string.append_line("First line.");
     string.append_line("Second line.");
     string.print("A");
@@ -67,6 +67,6 @@ int main() {
     string.append_line("Fourth line.");
     string.print("B");
     if(!string.append_line("Fifth line.")) {
-        printf("String was not big enough to append another message");
+        printf("String was not big enough to append another message!\n");
     }
 }
