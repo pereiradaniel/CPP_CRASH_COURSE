@@ -58,3 +58,150 @@ bad_alloc,
 ...
 ---------------------------- 
 
+# Logic errors
+
+Derive from the logic_error class.
+Can be avoided through careful programming.
+
+Subclasses to be aware of:
+
+    domain_error
+    Errors related to valid input range.
+
+    invalid_argument
+    Unexpected arguments.
+
+    length_error
+    Some action violates the maximum size constraint.
+
+    out_of_range
+    Some value is not within expected range.
+
+
+# Runtime Errors
+
+Derive from the runtime_error class.
+Help to report error conditions outside the program's scope.
+
+Subclasses to be aware of:
+
+    system_error
+    Operating system has encountered some error.
+
+    over_flow and under_flow
+    Arithmetic overflow and underflow.
+
+
+# Other Errors
+
+Inherit directly from exception.
+
+    bad_alloc
+    Keyword new failed to allocate required memory for dynamic storage.
+
+
+# Language Support Errors
+
+Indicate that some core language feature failed at runtime.
+Programmers do not use these errors directly.
+
+
+# Handling exceptions
+
+Rules for handling exceptioons are based on class inheritance.
+A catch block can handle a thrown exception if the type matches the handler's exception type, or if the thrown type *inherits* from the handler's type.
+
+Handling different types of exceptions originating from the same try block:
+
+```
+try {
+    // Code that might throw an exception.
+} catch (const std::logic_error& ex) {
+    // Log exception and terminate the program: Programming error.
+} catch (const std::runtime_error& ex) {
+    // Try to recover.
+} catch (const std::exception& ex) {
+    // Handle any exception deriving from std:exception that is not a logic_error or runtime_error.
+} catch(...) {
+    // Unforseen exception type has been thrown.
+}
+
+```
+
+
+# RETHROWING AN Exception
+
+Within a catch block the throw keyword can be used: This is called rethrowing an exception.
+
+```
+try {
+        // Code that might throw a system_error.
+
+} catch(const std::system_error& ex) {
+    if (ex.code()! = std::errc::permission_denied) {
+        // Not a permission denied error!
+        throw;  // Rethrow if not an EACCES error.
+    }
+    // Recover from permission denied.
+}
+
+```
+
+There are performance penalties to using this convoluted code! Define a new exception type and create a separate catch handler for the EACCES error:
+
+
+```
+try {
+        // Throw a PermissionDenied instead
+} catch(const PermissionDenied& ex) {
+    // Recover from an EACCES error (Permission Denied) ...
+}
+
+```
+
+
+# User-Defined Exceptions
+
+Inherit from std::exception.
+
+
+# The noexcept Keyword
+
+Any function that cannot possibly throw an exception should be marked as noexcept.
+
+```
+bool is_odd(int x) noexcept {
+    return 1 == (x % 2);
+}
+
+```
+
+Program will crash if your code throws an exception inside a function marked noexcept.
+Functions marked noexcept will enable some code optimizations. The compiler can use move semantics.
+
+
+# Call Stacks and Exceptions
+
+The 'call stack' is a runtime structure that stores information about active functions.
+
+
+# Stacks
+
+A stack is a flexible data container that canhold a dynamic nnumber of elements.
+
+Two essential operations that stacks support:
+
+    1. pushing elements onto the top of the stack
+    2. popping elements off the top of the stack
+
+Stacks are a last-in, first-out data structure.
+
+
+# Call Stacks and Exception Handling
+
+Runtime seeks the closest exception handler to the thrown exception. If no matching handler exists in the current stack frame, the runtime will unwind the call stacl until a suitable handler is found. Objects whose lifetimes are ended get destroyed in the usual way.
+
+
+# Throwing in Destructors
+
+Exceptions throwin in a destructor must be caught within the destructor.
