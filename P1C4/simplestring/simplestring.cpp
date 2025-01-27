@@ -59,13 +59,24 @@ struct SimpleString {
 };
 
 int main() {
+    // Create a SimpleString called string with a max_length of 60:
     SimpleString string{60};
+    
+    // Use the append_line method to add some data to string:
     string.append_line("First line.");
     string.append_line("Second line.");
+
+    // Print the contents of string along with a tag, A:
     string.print("A");
+
+    // Append more text:
     string.append_line("Third line.");
     string.append_line("Fourth line.");
+    
+    // Print the contents again with another tag, B:
     string.print("B");
+
+    // Purposely try to go over the max_size limit of string by appending more data:
     if(!string.append_line("Fifth line.")) {
         printf("String was not big enough to append another message!\n");
     }
