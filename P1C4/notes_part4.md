@@ -102,6 +102,14 @@ Demonstrates object life cycle with memory leak issue from dynamic object alloca
 
 File: [tracer](./tracer.cpp)
 
+Thread-local:
+
+- Storage class specifier: Part of declaration syntax.
+- Together with scope of the name, controls two independent properties of the name:
+  a. storage duration
+  b. linkage
+- thread_local may be combined with static or extern.
+
 ### Exceptions
 
 - Types that communicate an error condition.

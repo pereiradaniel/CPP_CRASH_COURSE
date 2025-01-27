@@ -26,12 +26,14 @@ int main() {
     
     // Tracer with automatic duration: 
     Tracer t3("Automatic variable");
+    // As an automatic variable, scope of t3 is bounded by the enclosing function main().
     
     printf("B\n");
     
     // Tracer with dynamic duration:
     const auto* t4 = new Tracer("Dynamic variable.");
     // This will leak memory because it is not deallocated properly!
+    // Because there is no command to delete t4.
     
     printf("C\n");
 }
