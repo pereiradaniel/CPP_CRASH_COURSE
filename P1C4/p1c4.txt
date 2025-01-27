@@ -205,3 +205,14 @@ Runtime seeks the closest exception handler to the thrown exception. If no match
 # Throwing in Destructors
 
 Exceptions throwin in a destructor must be caught within the destructor.
+
+
+# SimpleString Class
+
+The example shows how constructors, destructors, members, exceptions work together.
+
+simplestring.cpp adds C-style strings together and then print the result.
+
+A class enclosing a SimpleString as a member must have the string fully constructed and class invariants established before it can complete.
+
+Destructors work the opposite way.

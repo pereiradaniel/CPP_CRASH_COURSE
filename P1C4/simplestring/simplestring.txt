@@ -1,5 +1,0 @@
-# SimpleString Class
-
-The example shows how constructors, destructors, members, exceptions work together.
-
-simplestring.cpp adds C-style strings together and then print the result.
