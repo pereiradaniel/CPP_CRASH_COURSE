@@ -1,0 +1,60 @@
+# INHERITANCE
+
+Understanding that sub-classes can inherit the functionality of their super-classes, is essential before learning about the stdlib exceptions.
+
+EXAMPLE:
+
+```
+struct Superclass {
+    int x;
+};
+
+struct Subclass : Superclass {
+    // Inherits members from Superclass that are not marked private!
+    int y;
+    int foo() {
+        return x + y; // Subclass inherits int x from Superclass!
+    }
+};
+
+```
+
+Handlers will catch a given type and any of its childrens' types.
+
+
+# stdlib Exception Classes
+
+Inheritance has crucial impact on how code handles exceptions.
+stdlib contais useful exception types readily available to be used.
+
+
+# Standard Exception Classes
+
+<stdexcept> header
+
+std::exception is the superclass for all the sandard exception classes.
+
+Three main groups of subclasses in std::exception:
+
+    1. logic errors     <- Will encounter!
+    2. runtime errors   <- Will encounter!
+    3. language support errors (not that relevant)
+
+---------------------------- 
+exception:
+    runtime_error:
+        system-error,
+        underflow_error,
+        overflow_error,
+        ...
+    logic_error:
+        domain_error,
+        invalid-argument,
+        length_error,
+        out_of_range,
+        ...
+bad_cast,
+bad_alloc,
+...
+---------------------------- 
+
