@@ -6,6 +6,12 @@
 
 ### An Object's Storage Duration
 
+An object is a region of storage that has a type and a value.
+
+When you declare a variable, an object is created.
+
+A variable is an object with a name.
+
 #### *Allocation, Deallocation, and Lifetime*
 
 - Allocation: Reserving storage for objects.
