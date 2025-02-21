@@ -113,3 +113,42 @@ new MyType[n_elements] {init_list}
 Demonstrates object life cycle with memory leak issue from dynamic object allocation and failure to deallocate:
 
 File: [tracer](./tracer.cpp)
+
+Thread-local:
+
+- Storage class specifier: Part of declaration syntax.
+- Together with scope of the name, controls two independent properties of the name:
+  a. storage duration
+  b. linkage
+- thread_local may be combined with static or extern.
+
+### Exceptions
+
+- Types that communicate an error condition.
+- When error occurs... throw and exception.
+- A thrown exception is "in flight", during this time normal execution is stopped and the program searches for an exception handler.
+- Objects that fall out of scope during this process are destroyed.
+- Exceptions are use in times when a good way to locally handle an error is not possible.
+- Object life cycle is crucially determined in these circumstances.
+
+The other option for communication error conditions:
+
+- Return an error code as part of a function's prototype.
+
+#### The throw Keyword
+
+- Used for throwing an exception.
+- Most objects are throwable.
+
+Good practice: Use one of the exceptions in *stdlib*.
+
+### Standard Exception Classes
+
+- stdlib from stdexcept.
+- std::exception iis the superclass for standard exception cases.
+- Can be paritioned into three types of errors:
+  1. logic
+  2. runtime
+  3. language support
+
+Continued in [p1c4.txt](./p1c4.txt)
