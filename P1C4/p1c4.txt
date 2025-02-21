@@ -233,12 +233,12 @@ Throwing in Destructors
     Exceptions thrown in a destructor MUST be caught within the destructor.
 
 
-# SimpleString Class
+SimpleString Class
 
-The example shows how constructors, destructors, members, exceptions work together.
+    The example shows how constructors, destructors, members, exceptions work together.
 
-simplestring.cpp adds C-style strings together and then print the result.
+    simplestring.cpp adds C-style strings together and then print the result.
 
-A class enclosing a SimpleString as a member must have the string fully constructed and class invariants established before it can complete.
+    A class enclosing a SimpleString as a member must have the string fully constructed and class invariants established before it can complete.
 
-Destructors work the opposite way.
+    Destructors work the opposite way.
