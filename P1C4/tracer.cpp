@@ -49,11 +49,11 @@ int main() {
 // MEMORY LEAK:
 
 // daniel@ideapad:~/github/CPP_CRASH_COURSE/P1C4$ valgrind ./tracer 
-// ==46519== Memcheck, a memory error detector
-// ==46519== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-// ==46519== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-// ==46519== Command: ./tracer
-// ==46519== 
+// ==7775== Memcheck, a memory error detector
+// ==7775== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+// ==7775== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+// ==7775== Command: ./tracer
+// ==7775== 
 // Static Variable constructed.
 // Thread-local variable constructed.
 // A
@@ -64,18 +64,18 @@ int main() {
 // Automatic variable destructed.
 // Thread-local variable destructed.
 // Static Variable destructed.
-// ==46519== 
-// ==46519== HEAP SUMMARY:
-// ==46519==     in use at exit: 8 bytes in 1 blocks
-// ==46519==   total heap usage: 4 allocs, 3 frees, 74,792 bytes allocated
-// ==46519== 
-// ==46519== LEAK SUMMARY:
-// ==46519==    definitely lost: 8 bytes in 1 blocks
-// ==46519==    indirectly lost: 0 bytes in 0 blocks
-// ==46519==      possibly lost: 0 bytes in 0 blocks
-// ==46519==    still reachable: 0 bytes in 0 blocks
-// ==46519==         suppressed: 0 bytes in 0 blocks
-// ==46519== Rerun with --leak-check=full to see details of leaked memory
-// ==46519== 
-// ==46519== For lists of detected and suppressed errors, rerun with: -s
-// ==46519== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+// ==7775== 
+// ==7775== HEAP SUMMARY:
+// ==7775==     in use at exit: 8 bytes in 1 blocks
+// ==7775==   total heap usage: 4 allocs, 3 frees, 74,792 bytes allocated
+// ==7775== 
+// ==7775== LEAK SUMMARY:
+// ==7775==    definitely lost: 8 bytes in 1 blocks
+// ==7775==    indirectly lost: 0 bytes in 0 blocks
+// ==7775==      possibly lost: 0 bytes in 0 blocks
+// ==7775==    still reachable: 0 bytes in 0 blocks
+// ==7775==         suppressed: 0 bytes in 0 blocks
+// ==7775== Rerun with --leak-check=full to see details of leaked memory
+// ==7775== 
+// ==7775== For lists of detected and suppressed errors, rerun with: -s
+// ==7775== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
