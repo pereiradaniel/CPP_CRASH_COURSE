@@ -1,13 +1,19 @@
-// Demonstrates an example for each of the storage durations:
+// tracer.cpp
+// Description:
+//  Demonstrates an example for each of the storage durations.
+//  A message will be printed every time a TRACER object is constructed or destructed.
+// This will allow you to investigate object life cycles, as you will clearly be able to see when an object's life cycle is beginning or ending.
 
 #include <cstdio>
 
 struct Tracer {
     Tracer(const char* name) :
         name {name} {
+            // Prints a message whenever a TRACER object is created:
             printf("%s constructed.\n", name);
         }
     ~Tracer() {
+        // Prints a message whenever a TRACER object is destroyed: 
         printf("%s destructed.\n", name);
     }
     
@@ -16,24 +22,24 @@ struct Tracer {
 };
 
 // Tracer with a STATIC DURATION:
-static Tracer t1{"Static Variable"};
+static Tracer static_duration_tracer_t1{"Static Variable"};
 
 // Tracer with a THREAD-LOCAL DURATION:
-thread_local Tracer t2{"Thread-local variable"};
+thread_local Tracer thread_local_duration_t2{"Thread-local variable"};
 
 int main() {
-    const auto t2_ptr = &t2;
+    const auto t2_ptr = &thread_local_duration_t2;
     
     printf("A\n");
     
     // Tracer with AUTOMATIC DURATION: 
-    Tracer t3("Automatic variable");
+    Tracer automatic_duration_t3("Automatic variable");
     // As an automatic variable, scope of t3 is bounded by the enclosing function main().
     
     printf("B\n");
     
     // Tracer with DYNAMIC DURATION:
-    const auto* t4 = new Tracer("Dynamic variable.");
+    const auto* dynamic_duration_t4 = new Tracer("Dynamic variable.");
     // This will leak memory because it is not deallocated properly!
     // Because there is no command to delete t4.
     
