@@ -29,6 +29,10 @@ Object Life Stages
 6. Object's destructor is called.
 7. Object's storage duration ends, storage is deallocated.
 
+#### Memory Management
+
+Objects are created at runtime. C++ has not automatic memory manager or garabage collection. We must craft the oject' lifetimes.
+
 #### *Automatic Storage Duration*
 
 - Automatic object: Allocated at the beginning of enclosing code block, deallocated at the end (scope).
@@ -100,7 +104,9 @@ new MyType[n_elements] {init_list}
 
 ### Memory Leaks
 
+- Dynamic objects MUST be deallocated.
 - Caused by failure to properly deallocate memory.
+- Resources that you lose, until program or machine is restarted.
 
 ### Tracing the Object Life Cycle
 

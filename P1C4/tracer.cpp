@@ -1,3 +1,5 @@
+// Demonstrates an example for each of the storage durations:
+
 #include <cstdio>
 
 struct Tracer {
@@ -13,10 +15,10 @@ struct Tracer {
         const char* const name;
 };
 
-// Tracer with a static duration:
+// Tracer with a STATIC DURATION:
 static Tracer t1{"Static Variable"};
 
-// Tracer with a thread-local duration:
+// Tracer with a THREAD-LOCAL DURATION:
 thread_local Tracer t2{"Thread-local variable"};
 
 int main() {
@@ -24,12 +26,12 @@ int main() {
     
     printf("A\n");
     
-    // Tracer with automatic duration: 
+    // Tracer with AUTOMATIC DURATION: 
     Tracer t3("Automatic variable");
     
     printf("B\n");
     
-    // Tracer with dynamic duration:
+    // Tracer with DYNAMIC DURATION:
     const auto* t4 = new Tracer("Dynamic variable.");
     // This will leak memory because it is not deallocated properly!
     
