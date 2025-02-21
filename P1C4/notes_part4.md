@@ -128,7 +128,7 @@ Thread-local:
 - When error occurs... throw and exception.
 - A thrown exception is "in flight", during this time normal execution is stopped and the program searches for an exception handler.
 - Objects that fall out of scope during this process are destroyed.
-- Exceptions are use in times when a good way to locally handle an error is not possible.
+- Exceptions are used in times when a good way to locally handle an error is not possible.
 - Object life cycle is crucially determined in these circumstances.
 
 The other option for communication error conditions:

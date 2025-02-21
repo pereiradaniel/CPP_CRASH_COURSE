@@ -1,6 +1,18 @@
-# INHERITANCE
+Using try-catch Blocks
 
-Understanding that sub-classes can inherit the functionality of their super-classes, is essential before learning about the stdlib exceptions.
+    Used to establish exception handlers for a block of code.
+
+    Within the try block:
+        Place code that might throw an exception.
+
+    Within the catch block:
+        Specify a handler for each exception type you can handle.
+
+        Example: throw_exception.cpp
+
+INHERITANCE
+
+    Understanding that sub-classes can inherit the functionality of their super-classes, is essential before learning about the stdlib exceptions.
 
 EXAMPLE:
 
