@@ -239,7 +239,7 @@ source: https://en.cppreference.com/w/cpp/header/stdexcept
 
 source: https://cplusplus.com/reference/stdexcept/
 
-    This header defines a aset of standard exceptions that both the library and programs can use to report common errors.
+    This header defines a set of standard exceptions that both the library and programs can use to report common errors.
 
     They are divided in two sets:
 
@@ -256,7 +256,7 @@ source: https://cplusplus.com/reference/stdexcept/
             range_error, Range error exception.
             overflow_error, Overflow error exception.
             underflow_error, Underflow error exception.
-            
+
 SimpleString Class
 
     The example shows how constructors, destructors, members, exceptions work together.
@@ -266,3 +266,10 @@ SimpleString Class
     A class enclosing a SimpleString as a member must have the string fully constructed and class invariants established before it can complete.
 
     Destructors work the opposite way.
+
+    Description of SimpleString.cpp:
+    --------------------------------
+    1.  The construction takes a single max_size argument.
+        This is the maximum ength of the string, including a null terminator.
+    2.  The member initializer saves this length into the max_size member variable.
+        The same value is used in the new array expression when a buffer is allocated to store the string.
