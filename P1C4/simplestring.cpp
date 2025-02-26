@@ -82,3 +82,27 @@ int main() {
         printf("String was not big enough to append another message!\n");
     }
 }
+
+// OUTPUT:
+
+// ==11580== Memcheck, a memory error detector
+// ==11580== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+// ==11580== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+// ==11580== Command: ./simplestring
+// ==11580== 
+// A: First line.
+// Second line.
+// B: First line.
+// Second line.
+// Third line.
+// Fourth line.
+// String was not big enough to append another message!
+// ==11580== 
+// ==11580== HEAP SUMMARY:
+// ==11580==     in use at exit: 0 bytes in 0 blocks
+// ==11580==   total heap usage: 3 allocs, 3 frees, 74,812 bytes allocated
+// ==11580== 
+// ==11580== All heap blocks were freed -- no leaks are possible
+// ==11580== 
+// ==11580== For lists of detected and suppressed errors, rerun with: -s
+// ==11580== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
