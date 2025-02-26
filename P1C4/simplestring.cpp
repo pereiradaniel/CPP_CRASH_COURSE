@@ -59,7 +59,6 @@ struct SimpleString {
         size_t length;
 };
 
-
 // Define a class with a SimpleString member:
 struct SimpleStringOwner {
     SimpleStringOwner(const char* x)
@@ -76,6 +75,15 @@ struct SimpleStringOwner {
     private:
         SimpleString string;
 };
+
+void fn_c() {
+    SimpleStringOwner c{"cccccccccc"};
+}
+
+void fn_b() {
+    SimpleStringOwner b{"b"};
+    fn_c();
+}
 
 int main() {
     // Create a SimpleString called string with a max_length of 60:
@@ -103,15 +111,24 @@ int main() {
     // Demonstrate a SimpleStringOwner:
     SimpleStringOwner x{"x"};
     printf("x is alive\n");
+
+    // Demonstrate call stack unwinding:
+    try {
+        SimpleStringOwner a{"a"};
+        fn_b();
+        SimpleStringOwner d{"d"};
+    } catch(const std::exception& e) {
+        printf("Exception: %s\n", e.what());
+    }
 }
 
 // OUTPUT:
 
-// ==12671== Memcheck, a memory error detector
-// ==12671== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-// ==12671== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-// ==12671== Command: ./simplestring
-// ==12671== 
+// ==21114== Memcheck, a memory error detector
+// ==21114== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+// ==21114== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+// ==21114== Command: ./simplestring
+// ==21114== 
 // A: First line.
 // Second line.
 // B: First line.
@@ -121,13 +138,18 @@ int main() {
 // String was not big enough to append another message!
 // Constructed: x
 // x is alive
+// Constructed: a
+// Constructed: b
+// About to destroy: b
+// About to destroy: a
+// Exception: Not enough memory!
 // About to destroy: x
-// ==12671== 
-// ==12671== HEAP SUMMARY:
-// ==12671==     in use at exit: 0 bytes in 0 blocks
-// ==12671==   total heap usage: 4 allocs, 4 frees, 74,822 bytes allocated
-// ==12671== 
-// ==12671== All heap blocks were freed -- no leaks are possible
-// ==12671== 
-// ==12671== For lists of detected and suppressed errors, rerun with: -s
-// ==12671== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+// ==21114== 
+// ==21114== HEAP SUMMARY:
+// ==21114==     in use at exit: 0 bytes in 0 blocks
+// ==21114==   total heap usage: 9 allocs, 9 frees, 75,039 bytes allocated
+// ==21114== 
+// ==21114== All heap blocks were freed -- no leaks are possible
+// ==21114== 
+// ==21114== For lists of detected and suppressed errors, rerun with: -s
+// ==21114== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
