@@ -16,10 +16,10 @@ struct SimpleString {
         }
 
         // Allocate memory for buffer using max_size:
-        buffer = new char[max_size];    // Resulting pointer stored to buffer
+        buffer = new char[max_size];    // Resulting pointer is stored to buffer!
         
         // Initializes buffer length to 0 and store a null byte:
-        buffer[0] = 0;
+        buffer[0] = 0;  // buffer is initially an empty string!
     }
 
     ~SimpleString() {

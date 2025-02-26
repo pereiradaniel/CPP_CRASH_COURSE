@@ -267,9 +267,30 @@ SimpleString Class
 
     Destructors work the opposite way.
 
+    
     Description of SimpleString.cpp:
     --------------------------------
     1.  The construction takes a single max_size argument.
         This is the maximum ength of the string, including a null terminator.
     2.  The member initializer saves this length into the max_size member variable.
         The same value is used in the new array expression when a buffer is allocated to store the string.
+    3.  A pointer is stored into buffer.
+        The length is initialized to 0.
+    
+
+    SimpleString.cpp demonstrates the pattern known as:
+        
+        RAII: Resource Acquisition Is initialization, or
+        CADRe: Constructor Acquires, Destructor Releases.
+        
+        Resources owned by SimpleString:
+            The memory pointed to by buffer.
+
+        Constructor allocates memory for buffer.
+            buffer = new char[max_size];
+
+        Destructor deallocates memory for buffer.
+            delete[] buffer;
+    
+        The allocation and deallocation of buffer is paired with the constructor and destructor of SimpleString so that it will *never leak the storage*.
+
