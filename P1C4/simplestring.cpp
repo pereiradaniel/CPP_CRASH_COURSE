@@ -114,8 +114,13 @@ int main() {
 
     // Demonstrate call stack unwinding:
     try {
+        // The first SimpleStringOwner a is constructed without incident:
         SimpleStringOwner a{"a"};
-        fn_b();
+        
+        // Because this next call is still within the try block, exceptionns will still be handled:
+        fn_b(); // Contains call to fn_c() that will throw an exception.
+
+        // Once an exception occurs in a try block, no further statements will execute, and so d never initializes:
         SimpleStringOwner d{"d"};
     } catch(const std::exception& e) {
         printf("Exception: %s\n", e.what());
