@@ -328,5 +328,9 @@ SimpleString Class
     Call Stack Unwinding
     --------------------
 
-    
+    In simplestring.cpp, inside the try block there is a function call to fn_b() which itself contains a call to fn_C(), but it will fail due to fn_c() trying to initialize a SimpleStringOwner with a default string longer than the maximum of 10. This will unwind the call stack, and ensure that SimpleStringOwner d is never created. This is because no further code in the try block is executed once it has caught an error.
+
+
+    Exceptions and Performance
+    --------------------------
     
