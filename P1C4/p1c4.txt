@@ -259,17 +259,19 @@ source: https://cplusplus.com/reference/stdexcept/
 
 SimpleString Class
 
+    Description:
+    ------------
+
     The example shows how constructors, destructors, members, exceptions work together.
 
     simplestring.cpp adds C-style strings together and then print the result.
 
-    A class enclosing a SimpleString as a member must have the string fully constructed and class invariants established before it can complete.
+    A class enclosing a SimpleString as a member must have the string fully constructed and class invariants established before it can complete. Destructors work the opposite way.
 
-    Destructors work the opposite way.
 
-    
-    Description of SimpleString.cpp:
+    Constructor of SimpleString.cpp:
     --------------------------------
+
     1.  The construction takes a single max_size argument.
         This is the maximum ength of the string, including a null terminator.
     2.  The member initializer saves this length into the max_size member variable.
@@ -277,12 +279,11 @@ SimpleString Class
     3.  A pointer is stored into buffer.
         The length is initialized to 0.
     
+    
+    RAII: Resource Acquisition Is initialization, or
+    CADRe: Constructor Acquires, Destructor Releases.
+    -------------------------------------------------
 
-    SimpleString.cpp demonstrates the pattern known as:
-        
-        RAII: Resource Acquisition Is initialization, or
-        CADRe: Constructor Acquires, Destructor Releases.
-        
         Resources owned by SimpleString:
             The memory pointed to by buffer.
 
@@ -294,3 +295,19 @@ SimpleString Class
     
         The allocation and deallocation of buffer is paired with the constructor and destructor of SimpleString so that it will *never leak the storage*.
 
+
+    Appending and Printing:
+    -----------------------
+
+    void print(const char* tag) const {}
+
+        This method prints the string.
+        A tag can be provided so that the invocation can be matched with the result.
+        The method can be marked const, because it has no requirement to change the state of the SimpleString.
+
+
+    append_line():
+    
+        Takes a null-terminated string and adds its contents plus a newline char to buffer.
+
+        Returns true if x was successfully appended, false if there was not enough space.
