@@ -6,23 +6,6 @@
 #include <cstdio>
 #include <cstring>
 
-// Define a class with a SimpleString member:
-struct SimpleStringOwner {
-    SimpleStringOwner(const char* x)
-    :string{10} {
-        if (!string.append_line(x)) {
-            throw std::runtime_error{"Not enough memory!"};
-        }
-        string.print("Constructed");
-    }
-    ~SimpleStringOwner() {
-        string.print("About to destroy");
-    }
-
-    private:
-        SimpleString string;
-};
-
 struct SimpleString {
     // Constructor takes a single argument that is the maximum length of the string including a null terminator:
     SimpleString(size_t max_size)
@@ -76,6 +59,24 @@ struct SimpleString {
         size_t length;
 };
 
+
+// Define a class with a SimpleString member:
+struct SimpleStringOwner {
+    SimpleStringOwner(const char* x)
+    :string{10} {
+        if (!string.append_line(x)) {
+            throw std::runtime_error{"Not enough memory!"};
+        }
+        string.print("Constructed");
+    }
+    ~SimpleStringOwner() {
+        string.print("About to destroy");
+    }
+
+    private:
+        SimpleString string;
+};
+
 int main() {
     // Create a SimpleString called string with a max_length of 60:
     SimpleString string{60};
@@ -98,6 +99,10 @@ int main() {
     if(!string.append_line("Fifth line.")) {
         printf("String was not big enough to append another message!\n");
     }
+
+    // Demonstrate a SimpleStringOwner:
+    SimpleStringOwner x{"x"};
+    printf("x is alive\n");
 }
 
 // OUTPUT:
