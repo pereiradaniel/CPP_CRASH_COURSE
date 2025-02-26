@@ -232,7 +232,31 @@ Throwing in Destructors
 
     Exceptions thrown in a destructor MUST be caught within the destructor.
 
+<stdexcept>
+source: https://en.cppreference.com/w/cpp/header/stdexcept
 
+    This header is part of the error handling library.
+
+source: https://cplusplus.com/reference/stdexcept/
+
+    This header defines a aset of standard exceptions that both the library and programs can use to report common errors.
+
+    They are divided in two sets:
+
+        Classes
+        1. Logic Errors
+            logic_error, Logic error exception.
+            domain_error, Domain error exception.
+            invalid_argument, Invalid argument exception.
+            length_error, Length error exception.
+            out_of_range, Out of range error exception.
+
+        2. Runtime Errors
+            runtime_error, Runtime error exception.
+            range_error, Range error exception.
+            overflow_error, Overflow error exception.
+            underflow_error, Underflow error exception.
+            
 SimpleString Class
 
     The example shows how constructors, destructors, members, exceptions work together.

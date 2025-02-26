@@ -1,12 +1,13 @@
 // Demonstrates usage of the pattern known as:
 //  RAII (resource acquisition is initialization) or
 //  Constructor Acquires Destructor Releases (CADRe)
+
 #include <stdexcept>
 #include <cstdio>
 #include <cstring>
 
 struct SimpleString {
-    // Constructor takes a single argument that is the maximum length of the string including a null terminator.
+    // Constructor takes a single argument that is the maximum length of the string including a null terminator:
     SimpleString(size_t max_size)
     : max_size{max_size},
     length{} {
