@@ -6,6 +6,23 @@
 #include <cstdio>
 #include <cstring>
 
+// Define a class with a SimpleString member:
+struct SimpleStringOwner {
+    SimpleStringOwner(const char* x)
+    :string{10} {
+        if (!string.append_line(x)) {
+            throw std::runtime_error{"Not enough memory!"};
+        }
+        string.print("Constructed");
+    }
+    ~SimpleStringOwner() {
+        string.print("About to destroy");
+    }
+
+    private:
+        SimpleString string;
+};
+
 struct SimpleString {
     // Constructor takes a single argument that is the maximum length of the string including a null terminator:
     SimpleString(size_t max_size)

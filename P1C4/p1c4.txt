@@ -311,3 +311,17 @@ SimpleString Class
         Takes a null-terminated string and adds its contents plus a newline char to buffer.
 
         Returns true if x was successfully appended, false if there was not enough space.
+
+
+    Composing a SimpleString:
+    -------------------------
+
+    The order of an object's members during construction and destruction:
+
+        Construction:
+        Members are constructed *before* the enclosing object's constructor!
+    
+        Destruction:
+        All members are destructed after the object's destructor is invoked!
+    
+    
