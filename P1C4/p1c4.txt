@@ -455,4 +455,10 @@ Copy Semantics
     }
     ```
 
-Invoking make_transpose() leaves the original unaffected, as a copy is sent to the function.
+    Invoking make_transpose() leaves the original unaffected, as a copy is sent to the function.
+
+    Using the default copy semantics for fully featured classes can be dangerous. Using the example of SimpleString, two SimpleString classes would point to the same bugger. When one of the SimpleString classes is destroyed, the memory in buffer will be freed. If you try writing to the buffer using the remaining SimpleString, you will run into undefined behaviour.
+
+    double free
+    -----------
+    Destroying the remining SimpleString class will free the buffer again, this is referred to as a "double free."
