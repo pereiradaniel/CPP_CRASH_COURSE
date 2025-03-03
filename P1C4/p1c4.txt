@@ -434,7 +434,25 @@ Copy Semantics
         
         // original will be unaffected by the function call, because add_one_to receives a copy of original.
         auto result = add_one_to(original);
-        
+
         printf("Original: %d; Result:%d", original, result); 
     }
     ```
+
+    A similar thing happens with user-defined POD types, a "member-wise copy".
+
+    ```
+    // The function make_transpose() generates a copy of th POD type Point.
+    struct Point {
+        int x, y;
+    };
+
+    Point make_transpose(Point P) {
+        int tmp = p.x;
+        p.x =p.y;
+        p.y = tmp;
+        return p;
+    }
+    ```
+
+Invoking make_transpose() leaves the original unaffected, as a copy is sent to the function.
