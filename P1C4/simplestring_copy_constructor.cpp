@@ -147,13 +147,13 @@ int main() {
 
 // OUTPUT:
 
-// ==652== Memcheck, a memory error detector
-// ==652== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-// ==652== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-// ==652== Command: ./simplestring_copy_constructor
-// ==652==
+// ==705== Memcheck, a memory error detector
+// ==705== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.   
+// ==705== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+// ==705== Command: ./simplestring_copy_constructor
+// ==705==
 // A: First line.
-// Second line.
+// Second line.  
 // B: First line.
 // Second line.
 // Third line.
@@ -166,17 +166,17 @@ int main() {
 // About to destroy: b
 // About to destroy: a
 // Exception: Not enough memory!
-// a: We apologize for the
+// a: We apologize for the      
 // inconvenience.
-// a_copy: We apologize for the
-// incontinence
+// a_copy: We apologize for the 
+// incontinence.
 // About to destroy: x
-// ==652==
-// ==652== HEAP SUMMARY:
-// ==652==     in use at exit: 0 bytes in 0 blocks
-// ==652==   total heap usage: 11 allocs, 11 frees, 74,115 bytes allocated
-// ==652==
-// ==652== All heap blocks were freed -- no leaks are possible
-// ==652==
-// ==652== For lists of detected and suppressed errors, rerun with: -s
-// ==652== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+// ==705==
+// ==705== HEAP SUMMARY:
+// ==705==     in use at exit: 0 bytes in 0 blocks
+// ==705==   total heap usage: 11 allocs, 11 frees, 74,115 bytes allocated
+// ==705==
+// ==705== All heap blocks were freed -- no leaks are possible
+// ==705==
+// ==705== For lists of detected and suppressed errors, rerun with: -s    
+// ==705== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
