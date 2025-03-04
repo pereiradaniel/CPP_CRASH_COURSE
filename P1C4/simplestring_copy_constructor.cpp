@@ -9,12 +9,15 @@
 
 struct SimpleString {
     // Copy Constructor
+    // Use member initializers for max_size, buffer, and length:
+    // Use array new to initialize buffer:
+    // Single statement in copy constructor's body copies the contents pointed to by other.buffer:
     SimpleString(const SimpleString& other)
-    : max_size{ other.max_size},
-    buffer{ new char[other.max_size]},
-    length{ other.length } {
-        std::strncpy(buffer, other.buffer, max_size);
-    }
+    :   max_size{ other.max_size},
+        buffer{ new char[other.max_size]},
+        length{ other.length } {
+            std::strncpy(buffer, other.buffer, max_size);
+        }
 
     // Constructor takes a single argument that is the maximum length of the string including a null terminator:
     SimpleString(size_t max_size)
@@ -138,9 +141,15 @@ int main() {
     // Copy Constructor
     SimpleString a { 50 };
     a.append_line("We apologize for the");
+    
+    // a_copy is constructed from a:
     SimpleString a_copy{ a };
+
+    // Append different messages to the end of the different copies of SimpleString.buffer:
     a.append_line("inconvenience.");
     a_copy.append_line("incontinence.");
+    
+    // Print the SimpleStrings buffers to show that they point to different areas of memory and are independent: 
     a.print("a");
     a_copy.print("a_copy");
 }
