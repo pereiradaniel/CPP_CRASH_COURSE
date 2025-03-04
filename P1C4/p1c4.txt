@@ -493,3 +493,17 @@ Copy Constructors
         SimpleString a_copy{ a };
         ```
     
+        Deep Copy
+
+        Copy the data pointd to by the original 'buffer' into a new buffer.
+
+        Make a new allocation on the free store, instead of copying the pointer 'buffer'. This results in two independent SimpleString classes.
+
+        ```
+        SimpleString(const SimpleString& other)
+            : max_size{ other.max_size},
+            buffer{ new char[other.max_size]},
+            length{ other.length } {
+                std::strncpy(buffer, other.buffer, max_size);
+            }
+        ``` 
