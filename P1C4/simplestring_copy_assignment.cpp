@@ -1,7 +1,7 @@
 // Demonstrates usage of the pattern known as:
 //  RAII (resource acquisition is initialization) or
 //  Constructor Acquires Destructor Releases (CADRe)
-//  Copy Semantics / Copy Constructors
+//  Copy Semantics / Copy Assignment
 
 #include <stdexcept>
 #include <cstdio>
@@ -156,32 +156,48 @@ int main() {
     }
 
 
-    printf("\n\nCopy Semantics with Copy Constructor:\n");
+    // printf("\n\nCopy Semantics with Copy Constructor:\n");
 
-    // Demo 3:
-    // Copy Constructor:
-    SimpleString a { 50 };
+    // // Demo 3:
+    // // Copy Constructor:
+    // SimpleString a { 50 };
+    // a.append_line("We apologize for the");
+    
+    // // a_copy is constructed from a:
+    // SimpleString a_copy{ a };
+
+    // // Append different messages to the end of the different copies of SimpleString.buffer:
+    // a.append_line("inconvenience.");
+    // a_copy.append_line("incontinence.");
+    
+    // // Print the SimpleStrings buffers to show that they point to different areas of memory and are independent: 
+    // a.print("a");
+    // a_copy.print("a_copy");
+
+
+    printf("\n\nCopy Semantics with Copy Assignment:\n");
+
+    SimpleString a{ 50 };
     a.append_line("We apologize for the");
-    
-    // a_copy is constructed from a:
-    SimpleString a_copy{ a };
-
-    // Append different messages to the end of the different copies of SimpleString.buffer:
-    a.append_line("inconvenience.");
-    a_copy.append_line("incontinence.");
-    
-    // Print the SimpleStrings buffers to show that they point to different areas of memory and are independent: 
+    SimpleString b{ 50 };
+    b.append_line("Last message");
     a.print("a");
-    a_copy.print("a_copy");
+    b.print("b");
+    b=a;
+    a.print("a");
+    b.print("b");
+
+    printf("\n\n");
+    
 }
 
 // OUTPUT:
 
-// ==765== Memcheck, a memory error detector
-// ==765== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-// ==765== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-// ==765== Command: ./simplestring_copy_constructor
-// ==765==
+// ==1285== Memcheck, a memory error detector
+// ==1285== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+// ==1285== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+// ==1285== Command: ./simplestring_copy_assignment
+// ==1285==
 // Create a SimpleString and append until max_length exceeded:
 // A: First line.
 // Second line.
@@ -202,18 +218,20 @@ int main() {
 // Exception: Not enough memory!
 
 
-// Copy Semantics with Copy Constructor:
+// Copy Semantics with Copy Assignment:
 // a: We apologize for the
-// inconvenience.
-// a_copy: We apologize for the
-// incontinence.
+// b: Last message
+// a: We apologize for the
+// b: We apologize for the
+
+
 // About to destroy: x
-// ==765== 
-// ==765== HEAP SUMMARY:
-// ==765==     in use at exit: 0 bytes in 0 blocks
-// ==765==   total heap usage: 11 allocs, 11 frees, 74,115 bytes allocated
-// ==765==
-// ==765== All heap blocks were freed -- no leaks are possible
-// ==765==
-// ==765== For lists of detected and suppressed errors, rerun with: -s
-// ==765== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+// ==1285== 
+// ==1285== HEAP SUMMARY:
+// ==1285==     in use at exit: 0 bytes in 0 blocks
+// ==1285==   total heap usage: 12 allocs, 12 frees, 74,165 bytes allocated
+// ==1285==
+// ==1285== All heap blocks were freed -- no leaks are possible
+// ==1285==
+// ==1285== For lists of detected and suppressed errors, rerun with: -s
+// ==1285== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
