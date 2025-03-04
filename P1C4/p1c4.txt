@@ -507,3 +507,14 @@ Copy Constructors
                 std::strncpy(buffer, other.buffer, max_size);
             }
         ``` 
+
+    Copy Assignment
+
+    Copy an object and assign it to another existing object.
+
+    You must create a copy assignment operator that perform a clean hand-off:
+        No two SimpleString classes can own the same buffer, causing dangling pointers and double frees.
+    
+    When you use the default copy assignment operator for simple types, it just copies th members from the source object to the destination object. For SimpleString, the original SimpleString class's buffer gets rewritten without freeing the dynamically allocated char array, and two SimpleStrings own the same buffer.
+
+    
