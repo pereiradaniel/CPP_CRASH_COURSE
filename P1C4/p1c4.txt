@@ -461,4 +461,35 @@ Copy Semantics
 
     double free
     -----------
-    Destroying the remining SimpleString class will free the buffer again, this is referred to as a "double free."
+    Destroying the remaining SimpleString class will free the buffer again, this is referred to as a "double free."
+
+
+Copy Constructors
+-----------------
+
+    There are two ways to copy an object:
+
+        1.  Copy Construction.
+        2.  Copy Assignment.
+    
+
+    Copy Construction
+
+        Creates a copy and assigns it to a brand-new object.
+
+        ```
+        struct SimpleString {
+            // other is const because it is merely being copied and there is no need to modify
+            SimpleString(const SimpleString& other);
+        };
+        ```
+
+        Use the copy constructor like any other constructors:
+
+        ```
+        SimpleString a;
+
+        // Invokes the copy constructor of SimpleString with a, resulting in a_copy.
+        SimpleString a_copy{ a };
+        ```
+    
