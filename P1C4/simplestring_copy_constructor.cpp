@@ -98,6 +98,8 @@ void fn_b() {
 }
 
 int main() {
+    printf("Create a SimpleString and append until max_length exceeded:\n");
+
     // Create a SimpleString called string with a max_length of 60:
     SimpleString string{60};
     
@@ -120,6 +122,9 @@ int main() {
         printf("String was not big enough to append another message!\n");
     }
 
+
+    printf("\n\nSimpleStringOwner and call stack unwinding:\n");
+
     // Demonstrate a SimpleStringOwner:
     SimpleStringOwner x{"x"};
     printf("x is alive\n");
@@ -138,7 +143,11 @@ int main() {
         printf("Exception: %s\n", e.what());
     }
 
-    // Copy Constructor
+
+    printf("\n\nCopy Semantics with Copy Constructor:\n");
+
+    // Demo 3:
+    // Copy Constructor:
     SimpleString a { 50 };
     a.append_line("We apologize for the");
     
@@ -156,18 +165,22 @@ int main() {
 
 // OUTPUT:
 
-// ==705== Memcheck, a memory error detector
-// ==705== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.   
-// ==705== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-// ==705== Command: ./simplestring_copy_constructor
-// ==705==
+// ==765== Memcheck, a memory error detector
+// ==765== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+// ==765== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+// ==765== Command: ./simplestring_copy_constructor
+// ==765==
+// Create a SimpleString and append until max_length exceeded:
 // A: First line.
-// Second line.  
+// Second line.
 // B: First line.
 // Second line.
 // Third line.
 // Fourth line.
 // String was not big enough to append another message!
+
+
+// SimpleStringOwner and call stack unwinding:
 // Constructed: x
 // x is alive
 // Constructed: a
@@ -175,17 +188,20 @@ int main() {
 // About to destroy: b
 // About to destroy: a
 // Exception: Not enough memory!
-// a: We apologize for the      
+
+
+// Copy Semantics with Copy Constructor:
+// a: We apologize for the
 // inconvenience.
-// a_copy: We apologize for the 
+// a_copy: We apologize for the
 // incontinence.
 // About to destroy: x
-// ==705==
-// ==705== HEAP SUMMARY:
-// ==705==     in use at exit: 0 bytes in 0 blocks
-// ==705==   total heap usage: 11 allocs, 11 frees, 74,115 bytes allocated
-// ==705==
-// ==705== All heap blocks were freed -- no leaks are possible
-// ==705==
-// ==705== For lists of detected and suppressed errors, rerun with: -s    
-// ==705== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+// ==765== 
+// ==765== HEAP SUMMARY:
+// ==765==     in use at exit: 0 bytes in 0 blocks
+// ==765==   total heap usage: 11 allocs, 11 frees, 74,115 bytes allocated
+// ==765==
+// ==765== All heap blocks were freed -- no leaks are possible
+// ==765==
+// ==765== For lists of detected and suppressed errors, rerun with: -s
+// ==765== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
