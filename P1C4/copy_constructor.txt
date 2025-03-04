@@ -27,7 +27,8 @@ https://github.com/pereiradaniel/CPP_CRASH_COURSE/blob/master/P1C4/simplestring_
 
 References
 
-Copy constructors, assignment operators, and exception safe assignment. https://cplusplus.com/articles/y8hv0pDG/
+Copy constructors, assignment operators, and exception safe assignment.
+https://cplusplus.com/articles/y8hv0pDG/
 
 14.14 - Introduction to the copy constructor.
 https://www.learncpp.com/cpp-tutorial/introduction-to-the-copy-constructor/
