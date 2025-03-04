@@ -140,9 +140,43 @@ int main() {
     a.append_line("We apologize for the");
     SimpleString a_copy{ a };
     a.append_line("inconvenience.");
-    a_copy.append_line("incontinence");
+    a_copy.append_line("incontinence.");
     a.print("a");
     a_copy.print("a_copy");
 }
 
 // OUTPUT:
+
+// ==652== Memcheck, a memory error detector
+// ==652== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+// ==652== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+// ==652== Command: ./simplestring_copy_constructor
+// ==652==
+// A: First line.
+// Second line.
+// B: First line.
+// Second line.
+// Third line.
+// Fourth line.
+// String was not big enough to append another message!
+// Constructed: x
+// x is alive
+// Constructed: a
+// Constructed: b
+// About to destroy: b
+// About to destroy: a
+// Exception: Not enough memory!
+// a: We apologize for the
+// inconvenience.
+// a_copy: We apologize for the
+// incontinence
+// About to destroy: x
+// ==652==
+// ==652== HEAP SUMMARY:
+// ==652==     in use at exit: 0 bytes in 0 blocks
+// ==652==   total heap usage: 11 allocs, 11 frees, 74,115 bytes allocated
+// ==652==
+// ==652== All heap blocks were freed -- no leaks are possible
+// ==652==
+// ==652== For lists of detected and suppressed errors, rerun with: -s
+// ==652== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
