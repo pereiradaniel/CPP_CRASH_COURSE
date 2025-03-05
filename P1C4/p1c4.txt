@@ -518,3 +518,12 @@ Copy Constructors
     When you use the default copy assignment operator for simple types, it just copies th members from the source object to the destination object. For SimpleString, the original SimpleString class's buffer gets rewritten without freeing the dynamically allocated char array, and two SimpleStrings own the same buffer.
 
     
+    Default Copy
+
+    The compiler often generates default implementations for copy construction and copy assignment.
+
+    The defaul implementation:
+        Invokes copy cosntruction or copy assignment on each of a class's members.
+
+    Care must be taken using default copy semantics whenever resources are managed by a class. It is advisable to declare default copy assignment and copy construction behaviours explicitly using the 'default' keyword.
+    
