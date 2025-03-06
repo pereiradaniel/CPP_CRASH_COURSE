@@ -527,3 +527,26 @@ Copy Constructors
 
     Care must be taken using default copy semantics whenever resources are managed by a class. It is advisable to declare default copy assignment and copy construction behaviours explicitly using the 'default' keyword.
     
+
+    Example of Default Copy Semantics:
+
+    ```
+    struct Replicant {
+        Replicant(const Replicant&) = default;
+        Replicant& operator=(const Rplicant&) = default;
+    }
+    ```
+
+    Classes that cannot or should not be copied:
+
+        - If your class manages a file.
+        - If it represents a mutual exclusion lock for concurrent prgramming.
+    
+    The compiler can be suppressed from generating a copy constructor and a copy assignment operator using the delete keyword:
+
+    ```
+    struct Highlander {
+        Highlander(const Highlander&) = delete;
+        Highlander& operator=(const Highlander&) = delete;
+    }
+    ```
