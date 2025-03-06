@@ -570,3 +570,23 @@ Copy Constructors
     Save yourself some debugging time:
     It is recommended that programmers explicitly define the copy assignment operator and copy constructor for any class that owns a resource.
     But when custom behaviour is not needed, use either default or delete.
+
+    Copy Guidelines
+
+    The following criteria must be considered when implementing copy behaviour:
+
+        Correctness
+
+        - Ensure that class invariants are maintained.
+        - Default copy constructors can violate invariants.
+
+
+        Independence
+
+        - The original object and the copy should NOT change each other's state during modification, whether in copy constructor or copy assignment.
+        
+
+        Equivalence
+
+        - The original and the copy should be the SAME.
+        - An operation applied to the original should yield the same result when applied to the copy.
