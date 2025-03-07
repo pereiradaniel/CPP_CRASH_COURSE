@@ -6,9 +6,9 @@ struct Highlander {
 };
 
 int main() {
-    // Will generate a compiler error!
-    Highlander a;
-    Highlander b{ a };
+    // The following two lines will generate a compiler error! Uncomment and try to compile to view the errors.
+    // Highlander a;
+    // Highlander b{ a };
 }
 
 // /cpp_crash_course/P1C4$ g++ -g highlander.cpp -o highlander
