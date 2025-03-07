@@ -26,3 +26,12 @@ int main() {
 // highlander.cpp:4:5: note: declared here
 //     4 |     Highlander(const Highlander&) = delete;
 //       |     ^~~~~~~~~~
+
+
+// c:\cpp_crash_course\P1C4>cl highlander.cpp
+// Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+// Copyright (C) Microsoft Corporation.  All rights reserved.
+
+// highlander.cpp
+// highlander.cpp(10): error C2512: 'Highlander': no appropriate default constructor available
+// highlander.cpp(3): note: see declaration of 'Highlander'
