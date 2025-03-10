@@ -590,3 +590,30 @@ Copy Constructors
 
         - The original and the copy should be the SAME.
         - An operation applied to the original should yield the same result when applied to the copy.
+
+
+Move Semantics
+--------------
+
+    Used when copying will be time consuming, especially when you just want to transfer ownership of resources from on object to another.
+
+    moved-from state: After an object is moved.
+
+    Moving is not the same as re-naming, the objects have separate storage and therefore potentially separate lifetimes.
+
+    You specify how objects are moved using:
+
+        Move constructors.
+        Move assignment operators.
+    
+    
+    Copying Can Be Wasteful
+
+        You could move a SimpleString into a SimpleStringPwnmer by adding a constructor for SimpleStringOwner and then copy-construct its SimpleString member, but there is hidden waste in this approach. The caller never uses the pointe-to object gain after constructing the the string.
+
+        What you want to do is swap the buffer of a into b.
+
+    
+    Value Categories
+
+        
