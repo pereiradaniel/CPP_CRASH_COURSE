@@ -616,4 +616,14 @@ Move Semantics
     
     Value Categories
 
+        Type and Value: Every expression has these two important characteristics.
+
+        Value: Describes what kinds of operations are valid fort the expression.
+
+            glvalue:    Generalized value.
+            prvalue:    Pure value.
+            xvalue:     Expiring value.
+            lvalue:     A glvalue that isn't an xvalue.
+            rvalue:     A prvalue or n xvalue.
+
         
