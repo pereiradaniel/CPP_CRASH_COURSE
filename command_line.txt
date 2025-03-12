@@ -7,4 +7,4 @@ Important commands used while working on this repo:
 
     Outputting valgrind results into text file:
 
-        valgrind ./program > outut.txt 2>&1
+        valgrind ./program > output.txt 2>&1
