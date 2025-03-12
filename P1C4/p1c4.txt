@@ -626,4 +626,10 @@ Move Semantics
             lvalue:     A glvalue that isn't an xvalue.
             rvalue:     A prvalue or n xvalue.
 
-        
+
+    lvalue and rvalue References
+
+        lvalues are denoted by a single &.
+        rvalues are denoted by a double &&.
+
+        Multiple functions can be defined wth different parameters, and the compiler will be able to select the correct function.
