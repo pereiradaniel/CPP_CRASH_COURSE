@@ -12,6 +12,7 @@ void ref_type(int &&x) {
 int main() {
     auto x = 1;
 
+    // std::move changes the lvalue x into an rvalue:
     ref_type(std::move(x));
 
     ref_type(2);
