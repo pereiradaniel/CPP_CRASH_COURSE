@@ -24,14 +24,21 @@ struct SimpleString {
 
     // Move assignment:
     SimpleString& operator=(SimpleString&& other) noexcept {
+        // Self-reference check:
         if (this == &other) return *this;
+        
+        // Clear buffer before assigning fields from 'this' to fields of 'other':
         delete[] buffer;
         buffer = other.buffer;
         length = other.length;
         max_size = other.max_size;
+        
+        // Zero the fields of 'other':
         other.buffer = nullptr;
         other.length = 0;
         other.max_size = 0;
+        
+        // Return pointer to this:
         return *this;
     }
 
