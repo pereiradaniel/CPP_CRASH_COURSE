@@ -253,11 +253,29 @@ int main() {
     a.print("a");
     b.print("b");
 
-    printf("\n\n");
-
-
+    
     printf("\n\nMove Semantics with Move Assignment:\n");
 
+    // Begin by declaring two SimpleString classes with different mssagess:
     
+    // First SimpleString:
+    SimpleString ba{ 50 };
+    ba.append_line("We apologize for the");
     
+    // Second SimpleString:
+    SimpleString bb{ 50 };
+    bb.append_line("Last message");
+
+    // Print the strings to verify that they contain the appropriate message:
+    ba.print("ba");
+    bb.print("bb");
+
+    // Copy assign b to a. They will contain copies of the same message even though they reside in two separate memory locations.:
+    bb=std::move(ba);
+
+    // Print the strings to verify that they contain copies of the same message:
+    // ba is "moved-from"
+    bb.print("bb");   
+    
+    printf("\n\n");
 }
