@@ -131,6 +131,14 @@ struct SimpleString {
 
 // Define a class with a SimpleString member:
 struct SimpleStringOwner {
+    // SimpleString constructor:
+    SimpleStringOwner(SimpleString&& x) :
+    string {
+        // x is an lvalue so you must std::move x into the move constructor of 'string': 
+        std::move(x)
+    }
+    {}
+
     SimpleStringOwner(const char* x)
     :string{10} {
         if (!string.append_line(x)) {
@@ -138,6 +146,7 @@ struct SimpleStringOwner {
         }
         string.print("Constructed");
     }
+
     ~SimpleStringOwner() {
         string.print("About to destroy");
     }
