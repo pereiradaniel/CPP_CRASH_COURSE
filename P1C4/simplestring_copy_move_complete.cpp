@@ -27,7 +27,16 @@ struct SimpleString {
         delete[] buffer;
     }
 
-    SimpleString(const SimpleString& other) {}
+    // COPY CONSTRUCTOR
+    // Use member initializers for max_size, buffer, and length:
+    // Use array new to initialize buffer:
+    // Single statement in copy constructor's body copies the contents pointed to by other.buffer:
+    SimpleString(const SimpleString& other)
+    :   max_size{ other.max_size},
+        buffer{ new char[other.max_size]},
+        length{ other.length } {
+            std::strncpy(buffer, other.buffer, max_size);
+    }
 
     SimpleString(SimpleString&& other) noexcept :
         max_size(other.max_size),
