@@ -58,7 +58,29 @@ struct SimpleString {
         return *this;
     }
 
-    SimpleString& operator=(const SimpleString& other) {}
+    // COPY ASSIGNMENT OPERATOR
+    SimpleString& operator=(const SimpleString& other) {
+        
+        // Check to see if other refers to this:
+        if (this == &other) return *this;
+        
+        // Start by allocating a new_buffer with the appropriate size:
+        const auto new_buffer = new char[other.max_size];
+        
+        // Clean up the buffer:
+        delete[] buffer;
+
+        // The rest of the Copy Assignment Operator is similar to the Copy Constructor, in copying the private members from other: 
+        buffer = new_buffer;
+        length = other.length;
+        max_size = other.max_size;
+
+        // Copy the contents from other.buffer into the this buffer:
+        std::strncpy(buffer, other.buffer, max_size);
+        
+        // The copy assignment operator returns a refernce to the result, which is always *this.
+        return *this;
+    }
 
     SimpleString& operator=(SimpleString&& other) noexcept {}
 
