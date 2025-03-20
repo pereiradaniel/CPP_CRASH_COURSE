@@ -38,24 +38,17 @@ struct SimpleString {
             std::strncpy(buffer, other.buffer, max_size);
     }
 
-    // MOVE ASSIGNMENT OPERATOR
-    SimpleString& operator=(SimpleString&& other) noexcept {
-        // Self-reference check:
-        if (this == &other) return *this;
-        
-        // Clear buffer before assigning fields from 'this' to fields of 'other':
-        delete[] buffer;
-        buffer = other.buffer;
-        length = other.length;
-        max_size = other.max_size;
-        
-        // Zero the fields of 'other':
-        other.buffer = nullptr;
+    // Move constructors look like copy constructors, but they take rvalue instead of lvalue references.
+    // Executing the move constructor is less expensive than executing the copy constructor:
+    SimpleString(SimpleString&& other) noexcept :
+    max_size { other.max_size },
+    buffer(other.buffer),
+    length(other.length) {
+        // other is an rvalue reference, so it can be cannibalized and then the fields zeroed.
+        // This will put other in a moved-from state.
         other.length = 0;
+        other.buffer = nullptr;
         other.max_size = 0;
-        
-        // Return pointer to this:
-        return *this;
     }
 
     // COPY ASSIGNMENT OPERATOR
@@ -133,3 +126,5 @@ struct SimpleString {
         char* buffer;
         size_t length;
 };
+
+int main() {}
