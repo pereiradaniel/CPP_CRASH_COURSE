@@ -6,6 +6,7 @@
 #include <utility>
 
 struct SimpleString {
+    // SINGLE ARGUMENT CONSTRUCTOR
     // Constructor takes a single argument that is the maximum length of the string including a null terminator:
     SimpleString(size_t max_size)
     : max_size{max_size},
@@ -21,6 +22,7 @@ struct SimpleString {
         buffer[0] = 0;  // buffer is initially an empty string!
     }
 
+    // DESTRUCTOR
     ~SimpleString() {
         delete[] buffer;
     }
