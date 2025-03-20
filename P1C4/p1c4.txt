@@ -652,3 +652,11 @@ Move Semantics
     Move Assignment
 
         Use the operator=.
+    
+
+    Five methods govern move and copy behaviour:
+        The destructor.
+        The copy constructor.
+        The move constructor.
+        The copy assignment operator.
+        The move assignment operator.
