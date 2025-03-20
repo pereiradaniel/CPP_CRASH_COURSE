@@ -6,14 +6,19 @@
 #include <utility>
 
 struct SimpleString {
-    SimpleString(size_t max_size) noexcept :
-    max_size(max_size),
+    // Constructor takes a single argument that is the maximum length of the string including a null terminator:
+    SimpleString(size_t max_size)
+    : max_size{max_size},
     length{} {
         if (max_size == 0) {
             throw std::runtime_error{"Max size must be at least 1."};
         }
-        buffer = new char[max_size];
-        buffer[0] = 0;
+
+        // Allocate memory for buffer using max_size:
+        buffer = new char[max_size];    // Resulting pointer is stored to buffer!
+        
+        // Initializes buffer length to 0 and store a null byte:
+        buffer[0] = 0;  // buffer is initially an empty string!
     }
 
     ~SimpleString() {
