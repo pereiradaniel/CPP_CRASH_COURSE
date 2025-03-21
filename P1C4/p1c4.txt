@@ -671,3 +671,9 @@ Move Semantics
             This complexity can be eliminated with the use of default/delete, or by implementing your own solution.
 
             Rule of Five: Because there are five methods to specify.
+
+            Rule of Zero: Not implementing the rule of five means the compiler will generate all five destruct, copy, and move functions.
+
+            Explicity defining any of destructor, copy constructor, copy assignment operator, will cause the compiler to generate all three. This can easily cause unintended consequences where the compiler converts all your moves into copies.
+
+            If only move semantics are provided, the compiter does not generate aything except a destructor.
