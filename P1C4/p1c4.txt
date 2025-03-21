@@ -654,9 +654,20 @@ Move Semantics
         Use the operator=.
     
 
-    Five methods govern move and copy behaviour:
-        The destructor.
-        The copy constructor.
-        The move constructor.
-        The copy assignment operator.
-        The move assignment operator.
+    Compiler_Gernerated Methods
+
+        Five methods govern move and copy behaviour:
+            The destructor.
+            The copy constructor.
+            The move constructor.
+            The copy assignment operator.
+            The move assignment operator.
+
+
+        default/delete
+
+            The compiler can generate default implementation for each of these under the right circumstances.
+
+            This complexity can be eliminated with the use of default/delete, or by implementing your own solution.
+
+            Rule of Five: Because there are five methods to specify.
