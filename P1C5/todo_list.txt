@@ -1,6 +1,6 @@
 TO DO:
 ------
-    P1C1 Exercises      <- Current
-    P1C2 Exercises
+*   P1C1 Exercises
+    P1C2 Exercises      <- Current
     P1C3 Exercises
     P1C4 Exercises
