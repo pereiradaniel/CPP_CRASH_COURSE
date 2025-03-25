@@ -32,5 +32,6 @@ int main() {
     int my_num3 = 75;
     printf("The absolute value of %d is %d.\n", my_num3, absolute_value(my_num3));
 
+    // Exercise 1-4:
     printf("The sum of value %d and %d is %d.\n", my_num, my_num2, sum(my_num, my_num2));
 }
