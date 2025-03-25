@@ -1,3 +1,3 @@
 # Link
 
-[Blog Post and YouTube Video Demonstration.](https://www.blogger.com/u/1/blog/post/edit/4696231759322244345/7435944145123620910)
+[Blog Post and YouTube Video Demonstration.](https://pereiradpg.blogspot.com/2025/03/c-crash-course-solutions-to-exercises.html)
