@@ -16,22 +16,26 @@ struct Calculator {
 
     // Exercise 2-3: Create a method on Calculator called int calculate(int a, int b). Upon invocation, this method should perform addition, subtraction, multiplication, or division based on its constructor arguement and return the result.
     int calculate(const int a, const int b) noexcept {
+        int result = 0;
+
         switch (operation) {
             case Operation::Add: {
-                return a+b;
+                result = a+b;
             }
             case Operation::Subtract: {
-                return a-b;
+                result = a-b;
             }
             case Operation::Multiply: {
-                return a*b;
+                result = a*b;
             }
             case Operation::Divide: {
-                return a/b;
+                result = a/b;
             }
             default:
             printf("Invalid Operation!");
         }
+        
+        return result;
     }
 
     private:
