@@ -30,10 +30,10 @@ int main() {
     // End of Listing 3-6
 
     // Demonstrate functions added to Listing 3-6:
-    read_from(lower, 3);
-    read_from(lower, 10);
+    read_from(lower, 3);        // Should pass.
+    read_from(lower, 10);       // Should cause "Out of bounds!" error.
     
-    write_to(upper, 2, 'X');
-    printf("%s\n", upper);
-    write_to(upper, 10, 'Z');
+    write_to(upper, 2, 'X');    // Should pass.
+    printf("%s\n", upper);      // Display array after being modified.
+    write_to(upper, 10, 'Z');   // Should cause "Out of bounds!" error.
 }
