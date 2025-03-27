@@ -3,23 +3,19 @@
 #include <cstdio>
 
 void read_from(const char* array, const int &index) noexcept {
-
     if (index <= (sizeof(array) / sizeof(char)) && index >= 0)
-        printf("\nChar at index %d is %c", index, array[index]);
+        printf("\nChar at index %d is %c.", index, array[index]);
     else printf("\nOut of bounds!\n");
 }
 
 void write_to(char* array, const int &index, const char &character) noexcept {
-    printf("\nArray before modification: %s\n", array);
-
-    if (index <= (sizeof(array) / sizeof(char)) && index >= 0) {
+    if (index <= (sizeof(array) / sizeof(char)) && index >= 0)
         array[index] = character;
-        printf("Array after modification: %s\n", array);
-    }
     else printf("\nOut of bounds!\n");
 }
 
 int main() {
+    // Listing 3-6 begins:
     char lower[] = "abc?e";
     char upper[] = "ABC?E";
     char* upper_ptr = upper; // Equivalent: &upper[0]
@@ -31,7 +27,11 @@ int main() {
     char letter_D = upper_ptr[3]; // letter_D equals 'D'
 
     printf("lower: %s\nupper: %s", lower, upper);
+    // End of Listing 3-6
 
+    // Demonstrate functions added to Listing 3-6:
     read_from(lower, 3);
+    
     write_to(upper, 2, 'X');
+    printf("\n%s\n", upper);
 }
