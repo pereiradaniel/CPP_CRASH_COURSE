@@ -1,6 +1,8 @@
 // Exercise 3-2: Add a read_from and a write_to function to Listing 3-6. These functions should read or write to upper or lower as appropriate. Perform bounds checking to prevent buffer overflows.
 
 #include <cstdio>
+
+// Prints out of bounds message when overflow is detected by functions:
 void out_of_bounds() noexcept {
     printf("Out of bounds!\n");
 }
