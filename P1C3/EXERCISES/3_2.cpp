@@ -2,6 +2,23 @@
 
 #include <cstdio>
 
+void read_from(const char* array, const int index) noexcept {
+    // Check bounds:
+    if (index <= (sizeof(array) / sizeof(char)) && index >= 0)
+        printf("\nChar at index %d is %c", index, array[index]);
+    else printf("\nOut of bounds!\n");
+}
+
+void write_to(char* array, const int index, const char character) {
+    printf("\nArray before modification: %s\n", array);
+    // Check bounds
+    if (index <= (sizeof(array) / sizeof(char)) && index >= 0) {
+        array[index] = character;
+        printf("\nArray after modification: %s\n", array);
+    }
+    else printf("\nOut of bounds!\n");
+}
+
 int main() {
   char lower[] = "abc?e";
   char upper[] = "ABC?E";
@@ -15,5 +32,6 @@ int main() {
 
   printf("lower: %s\nupper: %s", lower, upper);
 
-  lower[7] = 'g'; // Super bad. You must never do this.
+    read_from(lower, 3);
+    write_to(upper, 2, 'X');
 }
