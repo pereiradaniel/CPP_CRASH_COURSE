@@ -2,11 +2,7 @@
 
 #include <cstdio>
 
-// Prints out of bounds message when overflow is detected by functions:
-void out_of_bounds() noexcept {
-    printf("Out of bounds!\n");
-}
-
+// Function checks bounds and returns true if within bounds, otherwise false:
 bool check_bounds(const char* array, const int &index) noexcept {
     bool result;
     if (index <= (sizeof(array) / sizeof(char)) && index >= 0)
@@ -15,12 +11,19 @@ bool check_bounds(const char* array, const int &index) noexcept {
     return result;
 }
 
+// Prints out of bounds message when overflow is detected by functions:
+void out_of_bounds() noexcept {
+    printf("Out of bounds!\n");
+}
+
+// Reads char from array at given index:
 void read_from(const char* array, const int &index) noexcept {
     if (check_bounds(array, index))
         printf("Char at index %d is %c.\n", index, array[index]);
     else out_of_bounds();
 }
 
+// Writes char to array at given index:
 void write_to(char* array, const int &index, const char &character) noexcept {
     if (check_bounds(array, index))
         array[index] = character;
