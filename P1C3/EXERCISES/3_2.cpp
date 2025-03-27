@@ -3,7 +3,7 @@
 #include <cstdio>
 
 void read_from(const char* array, const int &index) noexcept {
-    // Check bounds:
+
     if (index <= (sizeof(array) / sizeof(char)) && index >= 0)
         printf("\nChar at index %d is %c", index, array[index]);
     else printf("\nOut of bounds!\n");
@@ -11,7 +11,7 @@ void read_from(const char* array, const int &index) noexcept {
 
 void write_to(char* array, const int &index, const char &character) noexcept {
     printf("\nArray before modification: %s\n", array);
-    // Check bounds
+
     if (index <= (sizeof(array) / sizeof(char)) && index >= 0) {
         array[index] = character;
         printf("Array after modification: %s\n", array);
