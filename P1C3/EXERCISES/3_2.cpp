@@ -4,14 +4,14 @@
 
 void read_from(const char* array, const int &index) noexcept {
     if (index <= (sizeof(array) / sizeof(char)) && index >= 0)
-        printf("\nChar at index %d is %c.", index, array[index]);
-    else printf("\nOut of bounds!\n");
+        printf("Char at index %d is %c.\n", index, array[index]);
+    else printf("Out of bounds!\n");
 }
 
 void write_to(char* array, const int &index, const char &character) noexcept {
     if (index <= (sizeof(array) / sizeof(char)) && index >= 0)
         array[index] = character;
-    else printf("\nOut of bounds!\n");
+    else printf("Out of bounds!\n");
 }
 
 int main() {
@@ -26,12 +26,14 @@ int main() {
     char letter_d = lower[3]; // letter_d equals 'd'
     char letter_D = upper_ptr[3]; // letter_D equals 'D'
 
-    printf("lower: %s\nupper: %s", lower, upper);
+    printf("lower: %s\nupper: %s\n", lower, upper);
     // End of Listing 3-6
 
     // Demonstrate functions added to Listing 3-6:
     read_from(lower, 3);
+    read_from(lower, 10);
     
     write_to(upper, 2, 'X');
-    printf("\n%s\n", upper);
+    printf("%s\n", upper);
+    write_to(upper, 10, 'Z');
 }
