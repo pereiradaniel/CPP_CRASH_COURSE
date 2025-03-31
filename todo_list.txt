@@ -3,4 +3,5 @@ TO DO:
 *   P1C1 Exercises
 *   P1C2 Exercises
 *   P1C3 Exercises
-    P1C4 Exercises      <- Current
+*   P1C4 Exercises
+    Quick review of P1C4 in preparation for video narration.    <- Current
