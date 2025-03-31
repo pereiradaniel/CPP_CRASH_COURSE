@@ -47,11 +47,8 @@ struct TimerClass {
     :   timestamp{ move.timestamp },
         name{ move.name }
     {
-        // Zero the name member on the moved from object:
-        move.name = nullptr;
-
-        // Indicate that the object move has been moved from by flipping the boolean:
-        move.moved_from = true;
+        // Zero the fields on the moved from object:s
+        move.zeroFields();
     }
 
     // Move Assignment:
@@ -61,11 +58,20 @@ struct TimerClass {
             timestamp = move.timestamp;
             name = move.name;
          
-            // Zero fields on move object:
-            move.name = nullptr;
-            move.moved_from = true;
+            // Zero the fields on the moved from object:s
+            move.zeroFields();
         }
             return *this;
+    }
+
+    // Function that zeroes the fields of a TimerClass object:
+    void zeroFields() noexcept
+    {
+        // Zero the name field by setting to nullptr:
+        this->name = nullptr;
+
+        // Flip the moved_from boolean:
+        this->moved_from = true;
     }
 
     private:
