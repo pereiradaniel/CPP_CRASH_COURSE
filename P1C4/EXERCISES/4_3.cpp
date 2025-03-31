@@ -32,6 +32,14 @@ struct TimerClass {
     {}
 
     // Copy Assignment:
+    TimerClass& operator=(const TimerClass& copy)
+    {
+        if (this != &copy) {
+            timestamp = copy.timestamp;
+            name = copy.name;
+        }
+        return *this;
+    }
 
     private:
     std::chrono::time_point<std::chrono::system_clock> timestamp;   // Records the time of construction.
