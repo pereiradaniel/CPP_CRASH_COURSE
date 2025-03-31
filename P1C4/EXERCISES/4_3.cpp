@@ -9,7 +9,7 @@ struct TimerClass {
     // Constructor:
     TimerClass(const char* name)
     :   timestamp{ std::chrono::system_clock::now() },
-        name{name}
+        name{ name }
     {}
 
     // Destructor: 
@@ -26,6 +26,10 @@ struct TimerClass {
     }
 
     // Copy Constructor:
+    TimerClass(const TimerClass &copy)
+    :   timestamp{ copy.timestamp },
+        name{ copy.name }
+    {}
 
     // Copy Assignment:
 

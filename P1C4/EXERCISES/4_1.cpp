@@ -8,7 +8,7 @@ struct TimerClass {
     // Constructor:
     TimerClass(const char* name)
     :   timestamp{ std::chrono::system_clock::now() },
-        name{name}
+        name{ name }
     {}
     
     private:
