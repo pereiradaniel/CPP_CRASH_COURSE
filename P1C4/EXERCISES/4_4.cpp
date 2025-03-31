@@ -4,6 +4,7 @@
 
 #include <cstdio>
 #include <chrono>
+#include <utility>
 
 struct TimerClass {
     // Constructor:
@@ -91,7 +92,12 @@ int main() {
     TimerClass timer1 { "Timer 1" };
     TimerClass timer2 { "Timer 2" };
 
+    // Copy assignment:
     timer2 = timer1;
 
     TimerClass timer3{ "Timer 3" };
+    TimerClass timer4{ "Timer 4" };
+    
+    // Move assignment:
+    timer3 = std::move(timer4);
 }
