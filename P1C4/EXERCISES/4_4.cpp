@@ -41,9 +41,24 @@ struct TimerClass {
         return *this;
     }
 
+    // Move Constructor:
+    TimerClass(TimerClass&& move) noexcept
+    :   timestamp{ move.timestamp },
+        name{ move.name }
+    {
+        // Zero the name member on the moved from object:
+        move.name = nullptr;
+
+        // Indicate that the object move has been moved from by flipping the boolean:
+        move.moved_from = true;
+    }
+
+    // Move Assignment:
+
     private:
     std::chrono::time_point<std::chrono::system_clock> timestamp;   // Records the time of construction.
     const char* name;
+    bool moved_from = false;                                        // Indicates if object has been moved from.
 };
 
 int main() {
