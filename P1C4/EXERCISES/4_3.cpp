@@ -47,4 +47,10 @@ struct TimerClass {
 };
 
 int main() {
+    TimerClass timer1 { "Timer 1" };
+    TimerClass timer2 { "Timer 2" };
+
+    timer2 = timer1;
+
+    TimerClass timer3{ "Timer 3" };
 }
