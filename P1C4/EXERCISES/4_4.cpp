@@ -4,7 +4,7 @@
 
 #include <cstdio>
 #include <chrono>
-#include <utility>
+#include <utility>  // std::move
 
 struct TimerClass {
     // Constructor:
@@ -53,7 +53,7 @@ struct TimerClass {
         name{ move.name }
     {
         printf("Move Constructor\n");
-        
+
         // Zero the fields on the moved from object:
         move.zeroFields();
     }

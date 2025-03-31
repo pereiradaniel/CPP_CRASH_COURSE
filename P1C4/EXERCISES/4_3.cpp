@@ -18,7 +18,7 @@ struct TimerClass {
         // Record the current time:
         auto currentTime = std::chrono::system_clock::now();
 
-        // Subtract the time at construction from the curret time:
+        // Subtract the time at construction from the current time:
         std::chrono::duration<double> elapsed_time = currentTime - timestamp;
         
         // Print the value containing the age of the timer:
@@ -31,11 +31,10 @@ struct TimerClass {
         name{ copy.name }
     {
         printf("Copy Constructor\n");
-
     }
 
     // Copy Assignment:
-    TimerClass& operator=(const TimerClass& copy)
+    TimerClass& operator=(const TimerClass &copy)
     {
         printf("Copy Assignment\n");
         if (this != &copy) {
