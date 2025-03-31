@@ -21,8 +21,9 @@ struct TimerClass {
         // Subtract the time at construction from the curret time:
         std::chrono::duration<double> elapsed_time = currentTime - timestamp;
         
-        // Print the value containing the age of the timer:
-        printf("Age of the timer: '%s': %f\n", name, elapsed_time.count());
+        // Print output only if timer has not been moved:
+        if (moved_from == false)
+            printf("Elapsed time of timer: '%s': %f\n", name, elapsed_time.count());
     }
 
     // Copy Constructor:
@@ -54,6 +55,18 @@ struct TimerClass {
     }
 
     // Move Assignment:
+    TimerClass& operator=(TimerClass&& move) noexcept
+    {
+        if (this != &move) {
+            timestamp = move.timestamp;
+            name = move.name;
+         
+            // Zero fields on move object:
+            move.name = nullptr;
+            move.moved_from = true;
+        }
+            return *this;
+    }
 
     private:
     std::chrono::time_point<std::chrono::system_clock> timestamp;   // Records the time of construction.
