@@ -29,12 +29,17 @@ struct TimerClass {
     TimerClass(const TimerClass &copy)
     :   timestamp{ copy.timestamp },
         name{ copy.name }
-    {}
+    {
+        printf("Copy Constructor\n");
+
+    }
 
     // Copy Assignment:
     TimerClass& operator=(const TimerClass& copy)
     {
+        printf("Copy Assignment\n");
         if (this != &copy) {
+            printf("Copying...\n");
             timestamp = copy.timestamp;
             name = copy.name;
         }

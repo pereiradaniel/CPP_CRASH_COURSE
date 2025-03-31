@@ -30,12 +30,16 @@ struct TimerClass {
     TimerClass(const TimerClass &copy)
     :   timestamp{ copy.timestamp },
         name{ copy.name }
-    {}
+    {
+        printf("Copy Constructor\n");
+    }
 
     // Copy Assignment:
     TimerClass& operator=(const TimerClass& copy)
     {
+        printf("Copy Assignment\n");
         if (this != &copy) {
+            printf("Copying...\n");
             timestamp = copy.timestamp;
             name = copy.name;
         }
@@ -47,6 +51,7 @@ struct TimerClass {
     :   timestamp{ move.timestamp },
         name{ move.name }
     {
+        printf("Move Constructor\n");
         // Zero the fields on the moved from object:
         move.zeroFields();
     }
@@ -54,14 +59,16 @@ struct TimerClass {
     // Move Assignment:
     TimerClass& operator=(TimerClass&& move) noexcept
     {
+        printf("Move Assignment\n");
         if (this != &move) {
+            printf("Moving...\n");
             timestamp = move.timestamp;
             name = move.name;
          
             // Zero the fields on the moved from object:
             move.zeroFields();
         }
-            return *this;
+        return *this;
     }
 
     // Function that zeroes the fields of a TimerClass object:
