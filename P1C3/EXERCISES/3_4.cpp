@@ -6,7 +6,7 @@ int main() {
     auto& original_ref = original;
     
     printf("Original: %d\n", original);         // Print the value of original.
-    printf("Reference: %d\n", original_ref);    // Print valed referred to by original, they are the same.
+    printf("Reference: %d\n", original_ref);    // Print value referred to by original, they are the same.
 
     auto new_value = 200;                        // Initialize another int.
     // Assign original_ref to new_value, it assigns the value of new_value to the object it points to.
