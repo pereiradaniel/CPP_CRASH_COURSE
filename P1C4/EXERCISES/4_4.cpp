@@ -47,7 +47,7 @@ struct TimerClass {
     :   timestamp{ move.timestamp },
         name{ move.name }
     {
-        // Zero the fields on the moved from object:s
+        // Zero the fields on the moved from object:
         move.zeroFields();
     }
 
@@ -58,7 +58,7 @@ struct TimerClass {
             timestamp = move.timestamp;
             name = move.name;
          
-            // Zero the fields on the moved from object:s
+            // Zero the fields on the moved from object:
             move.zeroFields();
         }
             return *this;
