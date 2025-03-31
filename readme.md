@@ -10,8 +10,8 @@ Navigate to the notes pages:
 
 1. [Part 1 notes](./P1C1/notes_part1.md), [Exercise solutions.](https://github.com/pereiradaniel/CPP_CRASH_COURSE/tree/master/P1C1/EXERCISES)
 2. [Part 2 notes](./P1C2/notes_part2.md), [Exercise solutions.](https://github.com/pereiradaniel/CPP_CRASH_COURSE/tree/master/P1C2/EXERCISES)
-3. [Part 3 notes.](./P1C3/notes_part3.md), [Exercise solutions.](https://github.com/pereiradaniel/CPP_CRASH_COURSE/tree/master/P1C3/EXERCISES)
-4. [Part 4 notes.](./P1C4/notes_part4.md)
+3. [Part 3 notes](./P1C3/notes_part3.md), [Exercise solutions.](https://github.com/pereiradaniel/CPP_CRASH_COURSE/tree/master/P1C3/EXERCISES)
+4. [Part 4 notes](./P1C4/notes_part4.md)
 
 ---
 
