@@ -15,9 +15,10 @@ struct ConsoleLogger {
 };
 
 struct Bank {
-    // 3 
+    // 3 Bank class has make_transfer method:
     void make_transfer(long from, long to, double amount) {
     // 4 Notionally processes the transaction:
+    
     // snip
 
     // 5 Logs the transaction:
