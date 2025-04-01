@@ -1,6 +1,5 @@
 // Listing 5-1
-
-// Bank and ConsoleLogger have separate concerns:
+// Bank and ConsoleLogger have separate concerns.
 // Bank deals with logic.
 // ConsoleLogger deals with logging.
 
