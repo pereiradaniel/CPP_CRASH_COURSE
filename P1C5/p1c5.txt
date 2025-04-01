@@ -1,3 +1,17 @@
 Part 1 Chapter 5: RUNTIME POLYMORPHISM
 --------------------------------------
 
+    Polymorphism
+
+    Code that can be reused with different types.
+    Loosely coupled, highly reusable.
+    Makes code more maintainable and readable.
+
+
+    Two polymorphic approaches:
+
+    Compile-time polymorphic code.
+        Incorporates polymorphic types you can determine at compile time.
+
+    Runtime polymorphism.
+        Incorporates types determined at runtime.
