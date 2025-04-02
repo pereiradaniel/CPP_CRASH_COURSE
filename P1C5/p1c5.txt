@@ -16,4 +16,13 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
     Runtime polymorphism.
         Incorporates types determined at runtime.
 
+    Adding New loggers
+
+    5-2 suffers several design problems:
+
+        1. You need to write a new logger type.
+        2. You need to add a new enum value to the enum class LoggerType.
+        3. You must add a new case in the switch statement.
+        4. You must add the new logging class as a member to Bank.
     
+    An alternative approach is one where Bank holds a pointer to a logger: Then the pointer can be set directyl, and you can get rid of LoggerType entirely.
