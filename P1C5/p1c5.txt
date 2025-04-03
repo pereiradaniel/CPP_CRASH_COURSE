@@ -62,3 +62,25 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         There is no interface keywords in C++.
         Interfaces are defined using antiquated inheritance mechanisms.
         Listing 5-3: A fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
+    
+
+    Base Class Inheritance
+
+        Derived classes declared using following syntax:
+
+        ```
+        struct DerivedClass : BaseClass {
+            --snip--
+        }
+        ```
+
+        ```
+        struct BaseClass {};
+        struct DerivedClass : BaseClass{};          // DerivedClass derives from BaseClass.
+        void are_belong_to_us(BaseClass& base) {}   // Takes reference to BaseClass argumnt 'base'.
+
+        int main() {
+            DerivedClass derived;
+            are_belong_to(derived);                 // Can be invoked with an instance of Derived class. 
+        }
+        ```
