@@ -96,6 +96,6 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
 
         int main() {
         BaseClass base;
-        all_about_that(base);                         // Invoking function yields compiler error.
+        all_about_that(base);                           // Invoking function yields compiler error.
         }
         ```
