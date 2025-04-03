@@ -59,4 +59,6 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
 
     Defining Interfaces
 
-    
+        There is no interface keywords in C++.
+        Interfaces are defined using antiquated inheritance mechanisms.
+        Listing 5-3: A fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
