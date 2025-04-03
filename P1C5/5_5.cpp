@@ -6,5 +6,5 @@ void all_about_that(DerivedClass& derived) {}   // Function taks DerivedClass ar
 
 int main() {
     BaseClass base;
-    all_about_that(base);                         // Invoking function yields compiler error.
+    // all_about_that(base);                         // Invoking function yields compiler error.
 }
