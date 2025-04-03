@@ -6,5 +6,5 @@ void are_belong_to_us(BaseClass& base) {}   // Takes reference to BaseClass argu
 
 int main() {
     DerivedClass derived;
-    are_belong_to_us(derived);                 // Can be invoked with an instance of Derived class. 
+    are_belong_to_us(derived);              // Can be invoked with an instance of Derived class. 
 }
