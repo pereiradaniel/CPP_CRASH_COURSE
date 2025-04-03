@@ -83,8 +83,7 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
 
         int main() {
             DerivedClass derived;
-            are_belong_to(derived);                 // Can be invoked with an instance of Derived class. 
+            are_belong_to_us(derived);                 // Can be invoked with an instance of Derived class. 
         }
         ```
-    
     
