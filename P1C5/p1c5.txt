@@ -31,6 +31,7 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
 
         Bank class doesn't need to know the implementation details of the Logger reference it holds, just how to invoke its methods.
     
+    
     Interfaces
 
         An interface is a shared boundary that contains no data or code.
@@ -43,3 +44,19 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         Bank class is not required to know anything about how ConsoleLogger performs its function, just how to call log_transfer.
 
         Interfaces are promote highly reusable and loosely coupled code.
+    
+
+    Object Composition and Implementation Inheritance
+
+        Design pattern where a class contains members of other class types.
+        
+        Implementation inheritance:
+            - Anitquated design pattern that achieves runtime polymorphism.
+            - Builds hierarchies of classes; each child inherits functionality from its parents.
+            - Found in legacy code.
+            - The way C++ interfaces has a shared lineage with implementation inheritance.
+        
+
+    Defining Interfaces
+
+    
