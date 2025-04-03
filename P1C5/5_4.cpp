@@ -1,4 +1,4 @@
-// Listing 5-4:
+// Listing 5-4: A program using a derived class in place of a base class.
 
 struct BaseClass {};
 struct DerivedClass : BaseClass{};          // DerivedClass derives from BaseClass.
