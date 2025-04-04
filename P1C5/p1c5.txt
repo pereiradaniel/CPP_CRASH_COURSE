@@ -99,3 +99,10 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
             all_about_that(base);                       // Invoking function yields compiler error.
         }
         ```
+    
+    Member Inheritance
+
+        Derived classes inherit non-private members from their base classes.
+        Most programmers avoid member inheritance, in favour of composition-based polymorphism.
+
+        
