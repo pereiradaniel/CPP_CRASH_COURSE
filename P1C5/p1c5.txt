@@ -105,4 +105,10 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         Derived classes inherit non-private members from their base classes.
         Most programmers avoid member inheritance, in favour of composition-based polymorphism.
 
-        
+    
+    virtual Methods
+
+        Overrides a base class's methods.
+        Declares that a derived class's implementation should be used if supplied.
+        Add override keyword tot he method's declaration.
+        See listing 5-7.
