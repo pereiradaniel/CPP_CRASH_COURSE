@@ -1,4 +1,5 @@
 // Listing 5-8: A refactor of 5-7 using a pure virtual method.
+
 #include <cstdio>
 
 struct BaseClass {

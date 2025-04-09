@@ -1,3 +1,5 @@
+// Listing 5-7: A program using virtual members.
+
 #include <cstdio>
 
 struct BaseClass {
