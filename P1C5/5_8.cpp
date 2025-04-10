@@ -3,19 +3,25 @@
 #include <cstdio>
 
 struct BaseClass {
-  virtual const char* final_message() const = 0;
+    // =0 suffix specifies a pure virtual method:
+    virtual const char* final_message() const = 0;
 };
 
+// DerivedClass still derives from BaseClass:
 struct DerivedClass : BaseClass {
-  const char* final_message() const override {
+    // Provide the requisite final_message:
+    const char* final_message() const override {
     return "We apologise for the inconvenience.";
   }
 };
 
 int main() {
-  // BaseClass base; // Bang!
-  DerivedClass derived;
-  BaseClass& ref = derived;
-  printf("DerivedClass: %s\n", derived.final_message());
-  printf("BaseClass&:   %s\n", ref.final_message());
+    // Attempting to instantiate a BaseClass results in compiler error:
+    // BaseClass base; // Bang!
+    DerivedClass derived;
+    BaseClass& ref = derived;
+  
+    // Both DerivedClass and BaseClass reference behave as before in Listing 5-7:
+    printf("DerivedClass: %s\n", derived.final_message());
+    printf("BaseClass&:   %s\n", ref.final_message());
 }
