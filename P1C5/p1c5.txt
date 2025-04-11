@@ -117,4 +117,12 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         Methods with both virtual keyword and =0 suffix are called pure virtual methods.
         A class containing any pure virtual methods cannot be instantiated.
         Listing 5-8 is a refactor of 5-7 that uses a pure virtual method in the base class.
-        
+
+        Note:
+
+            Virtual functions can incur runtime overhead, the cost is typically low: Within 25% of a regular function call.
+            Function tables (vtables): Compiler generates these, contains function pointers.
+            Consumer of an interface doesn't generally know its underlying type, but knows how to invoke the interface's methods via the vtable.
+            Linker can in some circumstances detect all uses of an interface and devirtualize a function call.
+            This removes the function call from the vtable and eliminates associated runtime cost.
+            
