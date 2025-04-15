@@ -1,4 +1,4 @@
-// Listing 5-5: This program attempts to use a bse classin place of a derived class. (This listing won't compile.)
+// Listing 5-5: This program attempts to use a base classin place of a derived class. (This listing won't compile.)
 
 struct BaseClass {};
 struct DerivedClass : BaseClass {};             // BaseClass does't derive from DerivedClass.
