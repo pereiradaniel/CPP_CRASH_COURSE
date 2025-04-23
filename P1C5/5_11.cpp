@@ -1,3 +1,4 @@
+// Listing 5-11: Logger, ConsoleLogger, and FileLogger.
 #include <cstdio>
 
 struct Logger {
