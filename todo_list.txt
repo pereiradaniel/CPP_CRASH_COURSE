@@ -5,6 +5,4 @@ TO DO:
 *   P1C3 Exercises
 *   P1C4 Exercises
 *   Quick review of P1C4 in preparation for video narration.
-    Finish reading chapter 5 and creating examples.
-    Pick examples from chapter 5 to make videos.
-    |-> Chapter 5 videos:
+    Finish reading chapter 5.
