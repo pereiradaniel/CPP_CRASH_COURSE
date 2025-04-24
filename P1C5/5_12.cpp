@@ -1,3 +1,4 @@
+// Listing 5-12: Refactoring Listing 5-2 using constructor injection, interfaces, and object composition to replace the clinky enum class approach.
 #include <cstdio>
 
 struct Logger {
