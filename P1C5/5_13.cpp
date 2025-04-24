@@ -1,3 +1,4 @@
+// Listing 5-13: Refactoring Listing 5-12 using property injection.
 #include <cstdio>
 
 struct Logger {
