@@ -19,6 +19,7 @@ struct FileLogger : Logger {
 };
 
 struct Bank {
+    Bank() {}
     Bank(Logger* logger): logger{logger} {}
     void set_logger(Logger* new_logger) {
         logger = new_logger;
@@ -29,7 +30,7 @@ struct Bank {
     }
 
     private:
-     Logger* logger{};
+    Logger* logger;
 };
 
 int main() {
