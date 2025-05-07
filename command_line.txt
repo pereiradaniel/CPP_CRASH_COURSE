@@ -1,10 +1,13 @@
 Important commands used while working on this repo:
+===================================================
 
     Compiling cpp files:
+    --------------------
 
         g++ -Wall -o file file.cpp
 
 
     Outputting valgrind results into text file:
+    -------------------------------------------
 
         valgrind ./program > output.txt 2>&1
