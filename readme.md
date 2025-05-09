@@ -20,4 +20,4 @@ Navigate to the notes pages:
 
 ---
 
-> Daniel Pereira 2024
+> Daniel Pereira 2025
