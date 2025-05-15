@@ -1,2 +1,20 @@
 Part 1 Chapter 6: COMPILE-TIME POLYMORPHISM
 -------------------------------------------
+
+    Compile-time polymorphism with templates.
+    Declare and use templates.
+    Enforce type safety.
+    Survey some of the templates more advanced usages.
+    Comparison of runtime and compile-time polymorphism in C++.
+
+
+Templates
+---------
+
+    Compile-time polymorphism is achieved in C++ through templates.
+    
+    What is a template?
+        - Class or function with template parameters.
+        - Params can stand in for any type.
+        - Compiler will stamp out a bespoke template instantiation when a template is used with a type.
+        
