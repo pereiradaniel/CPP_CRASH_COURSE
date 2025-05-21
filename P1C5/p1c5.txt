@@ -35,7 +35,7 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
     Interfaces
 
         An interface is a shared boundary that contains no data or code.
-        Definese function signatures that all implementations of the interface agree to supprot.
+        Definse function signatures that all implementations of the interface agree to supprot.
         Code or data that declares support for an interface.
         A contract between classes that implement the interface and users of the class.
         "Consumer" never needs to know the underlying implementation. (Listing 5-1 Bank is a consumer of ConsoleLogger).
@@ -43,7 +43,7 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         Consumer of an interface can use only the methods explicitly defined in the interface.
         Bank class is not required to know anything about how ConsoleLogger performs its function, just how to call log_transfer.
 
-        Interfaces are promote highly reusable and loosely coupled code.
+        *Interfaces are promote highly reusable and loosely coupled code.*
     
 
     Object Composition and Implementation Inheritance

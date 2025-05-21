@@ -2,7 +2,7 @@
 
 struct BaseClass {};
 struct DerivedClass : BaseClass{};          // DerivedClass derives from BaseClass.
-void are_belong_to_us(BaseClass& base) {}   // Takes reference to BaseClass argumnt 'base'.
+void are_belong_to_us(BaseClass& base) {}   // Takes reference to BaseClass argument 'base'.
 
 int main() {
     DerivedClass derived;
