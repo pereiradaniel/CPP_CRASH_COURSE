@@ -7,7 +7,7 @@
 
 struct ConsoleLogger {
   // 1 Implelement ConsoleLogger with a log_transfer method, which accepts the details of a transaction:
-    void log_transfer(long from, long to, double amount) {
+  void log_transfer(long from, long to, double amount) {
         // 2 Prints transaction details:
         printf("%ld -> %ld: %f\n", from, to, amount);
   }
