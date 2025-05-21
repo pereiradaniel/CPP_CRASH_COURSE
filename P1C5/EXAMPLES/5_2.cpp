@@ -63,3 +63,26 @@ int main() {
   bank.set_logger(LoggerType::File);
   bank.make_transfer(3000, 2000, 75.00);
 }
+
+/*
+Several design problems with this approach:
+
+  - Adding a new kind of logging requires several updates throughout the code:
+
+    1.  Need to write new logger type.
+    2.  Need to add a new enum value to the enum class LoggerType.
+    3.  Must add a new case in the switch statement. (5)
+    4.  Must add the new logging class as a member to bank.
+
+  This is too much work for a simple change.
+
+Alternative approach:
+
+  - Bank holds a pointer to a logger.
+  - You can set the pointer directly and get rid of LoggerType.
+  - Exploit the fact that loggers have the same function prototype.
+
+  Interface:
+    - The Bank cllass doesn't need to know the implementation details of the Logger reference which it holds.
+    - Only needs to know how to invoke its methods.
+*/
