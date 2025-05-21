@@ -3,10 +3,13 @@
 #include <cstdio>
 
 struct BaseClass {
+// PUBIC MEMBERS:
     // Base class has a public method:
     int the_answer() const { return 42; }
     // Base class has a public field:
     const char* member = "gold";
+
+// PRIVATE MEMBERS:
 private:
     // Base class has a private member:
     const char* holistic_detective = "Dirk Gently";

@@ -100,6 +100,8 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         }
         ```
     
+        *Main reason to derive from a class is to inherit its members!*
+
     Member Inheritance
 
         Derived classes inherit non-private members from their base classes.
