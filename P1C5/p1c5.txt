@@ -115,10 +115,15 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         Add override keyword tot he method's declaration.
         See listing 5-7.
 
-        if a derived class is required to implement the method, the =0 suffix can be appended to a method definition.
-        Methods with both virtual keyword and =0 suffix are called pure virtual methods.
-        A class containing any pure virtual methods cannot be instantiated.
-        Listing 5-8 is a refactor of 5-7 that uses a pure virtual method in the base class.
+        =0 suffix:
+
+            If a derived class is required to implement the method, the =0 suffix can be appended to a method definition.
+
+            *Methods with both virtual keyword and =0 suffix are called pure virtual methods.*
+            
+            *A class containing any pure virtual methods cannot be instantiated!!!*
+
+            Listing 5-8 is a refactor of 5-7 that uses a pure virtual method in the base class.
 
         Note:
 
