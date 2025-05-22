@@ -138,8 +138,15 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         Pure-virtual Classes:
         Interface inheritance is achieved through deriving from base classes that contain only pure-virtual methods.
 
+        What is a "pure-virtual class"?
+        A class that derives from a base class that contains only pure-virtual methods.
+
+        *Interfaces are always pure-virtual classes.*
+
         Resource leaks:
         It's possible to leak resources if you fail to mark destructors as virtual.
 
         Listing 5-9 illustrates the danger of not adding a virtual destructor.
+        
+        Listing 5-10 illustrates the implementation of a virtual destructor to correct the problems in 5-9.
         
