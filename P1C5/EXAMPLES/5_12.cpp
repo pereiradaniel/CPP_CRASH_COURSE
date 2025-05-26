@@ -2,11 +2,14 @@
 #include <cstdio>
 
 struct Logger {
+  // Logger is a pure virtual class (interface) with a default virtual destructor:
   virtual ~Logger() = default;
   virtual void log_transfer(long from, long to, double amount) = 0;
 };
 
+// ConsoleLogger are Logger implementations because they derive from the Logger interface:
 struct ConsoleLogger : Logger {
+  // log_transfer implemented and the override keyword placed:
   void log_transfer(long from, long to, double amount) override {
     printf("[cons] %ld -> %ld: %f\n", from, to, amount);
   }
