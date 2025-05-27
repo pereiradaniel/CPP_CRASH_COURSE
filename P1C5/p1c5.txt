@@ -107,7 +107,6 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         Derived classes inherit non-private members from their base classes.
         Most programmers avoid member inheritance, in favour of composition-based polymorphism.
 
-    
     virtual Methods
 
         Overrides a base class's methods.
@@ -149,4 +148,16 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
         Listing 5-9 illustrates the danger of not adding a virtual destructor.
         
         Listing 5-10 illustrates the implementation of a virtual destructor to correct the problems in 5-9.
+    
+    Implementing Interfaces
+    
+        Declare an interface by declaring a pure virtual class.
+        An interface is implemented by deriving from it.
+        Interfaces are pure virtual, so an implementation must implement all of the interface's methods.
+
+        override keyword
         
+            Good practise:
+                - Mark all interface methods with the override keyword. Communicates intention to override a virtual function, allows the compiler to save you from simple mistakes.
+    
+    
