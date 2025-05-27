@@ -160,4 +160,23 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
             Good practise:
                 - Mark all interface methods with the override keyword. Communicates intention to override a virtual function, allows the compiler to save you from simple mistakes.
     
+    Using Interfaces
+
+        Only deal in references or pointers to interfaces.
+        Compiler cannot know ahead of timehow much memory to alocate for the underlying type: Otherwise it would be better to use a template.
+    
+        Two options for how to set the member:
+
+            Constructor injection:
+                - Uses an interface reference.
+                - References cannot be reseated so they won't change for the lifetime of the object.
+                - Typically used when the injected field will not change throughout the lifetime of the object.
+            
+            Property injection:
+                - Uses a method to set a pointer member.
+                - Allows you to change the object to which the member points.
+                - Used when modification of the field is required.
+            
+            Methods can be combined by accepting an interface pointer in a constructor while also providing a method to set the pointer to something else.
+    
     
