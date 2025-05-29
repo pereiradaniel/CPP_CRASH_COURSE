@@ -179,4 +179,7 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
             
             Methods can be combined by accepting an interface pointer in a constructor while also providing a method to set the pointer to something else.
     
-    
+    Defining Interfaces
+
+        Interfaces are defined using antiquated interface mechanisms, this is a result of programming in a language more than 40 years old.
+        
