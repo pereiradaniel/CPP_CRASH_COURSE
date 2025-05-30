@@ -182,4 +182,19 @@ Part 1 Chapter 5: RUNTIME POLYMORPHISM
     Defining Interfaces
 
         Interfaces are defined using antiquated interface mechanisms, this is a result of programming in a language more than 40 years old.
-        
+
+        Listing 5-3:
+
+            - Illustrates fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
+            - There are FOUR constructions in this listing which should be unfamiliar.
+
+        Parsing Listing 5-3:
+
+            Things to understand in order to define an interface:
+            
+                1: Virtual destructor.
+                2: =0 suffix and pure-virtual methods.
+                3: Base class inheritance.
+                4: Override keyword.
+    
+        Base Class Inheritance
