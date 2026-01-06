@@ -17,4 +17,54 @@ Templates
         - Class or function with template parameters.
         - Params can stand in for any type.
         - Compiler will stamp out a bespoke template instantiation when a template is used with a type.
-        
+
+
+Declaring Templates and Template Class Definitions
+--------------------------------------------------
+
+    Example:
+
+        template<typename X, typename Y,, typename Z>
+        struct MytemplateClass {
+            X foo(Y&);
+        private:
+            Z* member;
+        }
+
+    Description:
+
+        - "template" keyword begins the template prefix.
+        - Declarations of one or more template parameters go inside the angle brackets.
+        - "typename" or "class" keywords are interchangable for declarig template parameters, followed by an identifier.
+        - Within MyTemplateClass, x, y, and z are used as if they were any fully specified type such as int or a user-defined class.
+        - The foo method takes a Y reference, returns an X.
+        - Members can be declared that include template parameters, such as a pointer to Z as in the example.
+        - Apart from the prefix beginning, this template class is almost identical to a non-template class.
+
+
+Template Function Definitions
+-----------------------------
+
+    - Template functions can be specified, and they can take template parameters.
+
+
+Instantiating Templates
+-----------------------
+
+    Example:
+
+        tc_name<t_param1, t_param2, ...>my_concrete_class{ ... };
+
+    Description:
+
+        - tc_name: Template class' name.
+        - t_param1, t_param2: Template parameters.
+        - Use any initialization syntax you prefer as if it were a normal type.
+    
+    Instantiating a Template Function is similar:
+
+        auto result = tf_name<t_param1, t_param2, ...>(f_param1, f_param2, ...);
+
+        - tf_name: Template Function's name.
+        - Fill in params as if it were a normal type.
+        - Template function instantiation invoked with parentheses and function parameters. 
