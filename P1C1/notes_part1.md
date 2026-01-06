@@ -27,6 +27,13 @@ int main() {        // C++ programs have a single entry point called main()
     - Performs basic source code manipulation.
     - Produces a single translation unit when finished processing a source file.
     - Each translation unit is passed to the compiler.
+
+    Example: The preprocessor includes the cstdio library upon the directive
+    
+    ```
+        #include <cstdio>.
+    ```
+
 2. Compiler
     - Reads a translation unit.
     - Generates an object file.
