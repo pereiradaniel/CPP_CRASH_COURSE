@@ -1,0 +1,23 @@
+==1533== Memcheck, a memory error detector
+==1533== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1533== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1533== Command: ./3_3
+==1533== 
+Traverse list from front to back:
+	stormtrooper TK-421
+	stormtrooper FN-2187
+	stormtrooper LS-5
+
+Traverse list from back to front:
+	stormtrooper LS-5
+	stormtrooper FN-2187
+	stormtrooper TK-421
+==1533== 
+==1533== HEAP SUMMARY:
+==1533==     in use at exit: 0 bytes in 0 blocks
+==1533==   total heap usage: 1 allocs, 1 frees, 512 bytes allocated
+==1533== 
+==1533== All heap blocks were freed -- no leaks are possible
+==1533== 
+==1533== For lists of detected and suppressed errors, rerun with: -s
+==1533== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

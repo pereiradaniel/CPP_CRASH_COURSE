@@ -9,6 +9,8 @@
         "ostream": "cpp",
         "sstream": "cpp",
         "stdexcept": "cpp",
-        "typeinfo": "cpp"
-    }
+        "typeinfo": "cpp",
+        "cstdio": "cpp"
+    },
+    "cmake.sourceDirectory": "C:/Users/perei/source/repos/cpp_crash_course/Exercises/ccc-master"
 }

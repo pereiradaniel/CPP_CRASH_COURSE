@@ -6,6 +6,12 @@
 
 ### An Object's Storage Duration
 
+An object is a region of storage that has a type and a value.
+
+When you declare a variable, an object is created.
+
+A variable is an object with a name.
+
 #### *Allocation, Deallocation, and Lifetime*
 
 - Allocation: Reserving storage for objects.
@@ -22,6 +28,10 @@ Object Life Stages
 5. Object's lifetime ends.
 6. Object's destructor is called.
 7. Object's storage duration ends, storage is deallocated.
+
+#### Memory Management
+
+Objects are created at runtime. C++ has not automatic memory manager or garabage collection. We must craft the oject' lifetimes.
 
 #### *Automatic Storage Duration*
 
@@ -94,7 +104,9 @@ new MyType[n_elements] {init_list}
 
 ### Memory Leaks
 
+- Dynamic objects MUST be deallocated.
 - Caused by failure to properly deallocate memory.
+- Resources that you lose, until program or machine is restarted.
 
 ### Tracing the Object Life Cycle
 
@@ -116,7 +128,7 @@ Thread-local:
 - When error occurs... throw and exception.
 - A thrown exception is "in flight", during this time normal execution is stopped and the program searches for an exception handler.
 - Objects that fall out of scope during this process are destroyed.
-- Exceptions are use in times when a good way to locally handle an error is not possible.
+- Exceptions are used in times when a good way to locally handle an error is not possible.
 - Object life cycle is crucially determined in these circumstances.
 
 The other option for communication error conditions:

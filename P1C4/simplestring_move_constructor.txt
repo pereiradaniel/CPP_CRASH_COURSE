@@ -1,0 +1,48 @@
+==5226== Memcheck, a memory error detector
+==5226== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==5226== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==5226== Command: ./simplestring_move_constructor
+==5226== 
+Create a SimpleString and append until max_length exceeded:
+A: First line.
+Second line.
+B: First line.
+Second line.
+Third line.
+Fourth line.
+String was not big enough to append another message!
+
+
+SimpleStringOwner and call stack unwinding:
+Constructed: x
+x is alive
+Constructed: a
+Constructed: b
+About to destroy: b
+About to destroy: a
+Exception: Not enough memory!
+
+
+Copy Semantics with Copy Assignment:
+a: We apologize for the
+b: Last message
+a: We apologize for the
+b: We apologize for the
+
+
+Move Semantics with Move Assignment:
+ba: We apologize for the
+bb: Last message
+bb: We apologize for the
+
+
+About to destroy: x
+==5226== 
+==5226== HEAP SUMMARY:
+==5226==     in use at exit: 0 bytes in 0 blocks
+==5226==   total heap usage: 14 allocs, 14 frees, 73,753 bytes allocated
+==5226== 
+==5226== All heap blocks were freed -- no leaks are possible
+==5226== 
+==5226== For lists of detected and suppressed errors, rerun with: -s
+==5226== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
