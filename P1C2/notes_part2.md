@@ -2,7 +2,7 @@
 
 [*Back to readme.md*](../readme.md)
 
-## Chapter 2 - _Types_
+## Chapter 2 - Types
 
 - A type declares how an object will be interpreted and used by the compiler.
 - Every C++ object has a type.
@@ -10,6 +10,7 @@
 ### Fundamental Types
 
 The most basic types of object:
+
 1. integer
 2. floating-point
 3. character
@@ -19,6 +20,7 @@ The most basic types of object:
 7. void
 
 Fundamental types...
+
 - Try to map a direct relationship from C++ to computer hardware.
 - Simplify writing cross-platform code.
 
@@ -37,17 +39,20 @@ Four types based on size:
 - Integer types are signed and *int* by default: short, long and long long can be used instead of short int, etc.
 
 Integer Type Size Variation across platform:
+
 - 64-bit Windows and Linux/Mac have different sizes for a long integer (4 and 8).
 - Compiler will usually warn of mismatch between format specifier and integer type.
 - Ensure that format specifiers are correct in printf statements.
 
 Enforce Guaranteed Integer Sizes:
-- Use integer types in the <cstdint> library.
+
+- Use integer types in the cstdint library.
 - int8_t, int_16t, int32_t, int64_t.
 
 a *literal* is a hardcoded value in a program.
 
 Four hardcoded *integer literal* representations:
+
 1. *binary* - use prefix 0b
 2. *octal* - uses the prefix 0
 3. *decimal* - default
@@ -57,6 +62,7 @@ Four hardcoded *integer literal* representations:
 > 1'000'000 = 1000000
 
 An unsigned integer can be printed in its hexadecimal or octal representations:
+
 - %x
 - %o
 
@@ -65,7 +71,8 @@ An unsigned integer can be printed in its hexadecimal or octal representations:
 - [int.cpp](./int.cpp)
 - [nondecimal.cpp](./nondecimal.cpp)
 
-#### *F
+#### F
+
 loating-Point Types*
 
 - Store approximations of real numbers (any number with a decimal and fractional part).
@@ -105,6 +112,7 @@ int main() {
     printf("%le\n", y);
 }
 ```
+
 file: [floatformatspecifiers](./floatformatspecifiers.cpp)
 
 #### *Character Types*
@@ -112,6 +120,7 @@ file: [floatformatspecifiers](./floatformatspecifiers.cpp)
 - Store human language data.
 
 Six character types:
+
 1. char
 2. char16_t
     - Used for 2-byte character sets. ex: UTF-16
@@ -131,10 +140,12 @@ Six character types:
 
 - Single, constant character.
 - Single quotation marks.
-- All char types other than just char must also have a prefix:
-    - L for wchar_t
-    - u for char16_t
-    - U for char32_t
+
+All char types other than just char must also have a prefix:
+
+- L for wchar_t
+- u for char16_t
+- U for char32_t
 
 ##### Escape Sequences
 
@@ -155,7 +166,7 @@ Six character types:
 
 Universal character names can be used:
 
-```
+```cpp
 \u0041
 ```
 
@@ -176,18 +187,21 @@ int main() {
     return 0;
 }
 ```
+
 file: [charformatspecifier.cpp](./charformatspecifier.cpp)
 
 #### *Boolean Types*
 
-- Have two states: _true_ and _false_.
-- *bool* and *integer* types can convert.
-    - _true_ converts to 1, and _false_ converts to 0.
-    - any non-zero integer converts to _true_, and 0 converts to _false_.
+- Have two states: *true* and *false*.
+
+*bool* and *integer* types can convert.
+    - *true* converts to 1, and *false* converts to 0.
+    - any non-zero integer converts to *true*, and 0 converts to *false*.
 
 ##### Boolean Literals
 
 Two:
+
 1. true
 2. false
 
@@ -195,7 +209,7 @@ Two:
 
 - No format specifier for bool.
 - Can use %d int specifier to output 0 for false or 1 for true.
-*Reason:* _printf()_ promotes any integral value smaller than an _int_ to an _int_.
+*Reason:* printf() promotes any integral value smaller than an int to an int.
 
 ```cpp
 // Illustrates declaration of a Boolean and
@@ -208,6 +222,7 @@ int main() {
     return 0;
 }
 ```
+
 file: [boolformatspecifier.cpp](./boolformatspecifier.cpp)
 
 ##### Comparison Operators
@@ -228,6 +243,7 @@ int main() {
     return 0;
 }
 ```
+
 file: [comparisonoperators.cpp](./comparisonoperators.cpp)
 
 #### *Logical Operators*
@@ -252,6 +268,7 @@ int main() {
     return 0;
 }
 ```
+
 file: [logicaloperators.cpp](./logicaloperators.cpp)
 
 #### *std:byte Type*
@@ -274,6 +291,7 @@ file: [logicaloperators.cpp](./logicaloperators.cpp)
 ##### Format Specifiers
 
 size_t:
+
 - %zu for decimal representation.
 - %zx for hexadecimal representation.
 
