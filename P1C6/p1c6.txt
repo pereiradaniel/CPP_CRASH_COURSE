@@ -68,3 +68,23 @@ Instantiating Templates
         - tf_name: Template Function's name.
         - Fill in params as if it were a normal type.
         - Template function instantiation invoked with parentheses and function parameters. 
+
+
+Named Conversion Functions
+--------------------------
+
+    What are they?
+    Language features that explicitly convert one type into another type.
+
+    When are they used?
+    Sparingly, in situations where implicit conversions or constructors cannot get the types that are required.
+
+    How do they work?
+    Accepting a single object parameter, the object that is to be cast, and a single type parameter (the parameter you are casting to).
+
+    Modifying a const object:
+        - const_cast required to cast away "const" qualifier.
+    
+    Similarity to Template Functions:
+    Conceptually very close, but technically not Template Functions.
+    
