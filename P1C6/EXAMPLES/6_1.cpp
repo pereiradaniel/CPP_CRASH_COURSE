@@ -11,5 +11,6 @@ struct MyTemplateClass {
 };
 
 int main() {
-    
+    // To instantiate a template class, use the following syntax:
+    MyTemplateClass<int, double, char> my_concrete_class{};
 }
