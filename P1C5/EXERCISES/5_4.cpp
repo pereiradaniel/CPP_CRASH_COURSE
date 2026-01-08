@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <exception>
 
+// Interface (Pure Virtual Functions only!)
 class Logger {
 public:
     virtual ~Logger() = default;
@@ -33,6 +34,7 @@ public:
     }
 };
 
+// Interface!
 class AccountDatabase {
 public:
     virtual ~AccountDatabase() = default;
