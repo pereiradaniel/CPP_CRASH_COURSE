@@ -2,5 +2,5 @@
 
 class AccountDatabase {
     virtual ~AccountDatabase() = default;
-    virtual void setAmount(long from, long, to, double amount) = 0;
+    virtual void setAmount(long from, long to, double amount) = 0;
 };
