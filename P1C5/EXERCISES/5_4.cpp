@@ -14,6 +14,7 @@ public:
     ConsoleLogger(const char* str)
     : prefix{ str } {}
     
+    // Functions for copy semantics:
     ConsoleLogger(const ConsoleLogger& other) = default;
     ConsoleLogger& operator=(const ConsoleLogger& other) = default;
 
