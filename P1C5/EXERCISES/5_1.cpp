@@ -4,3 +4,9 @@ class AccountDatabase {
     virtual ~AccountDatabase() = default;
     virtual void setAmount(long from, long to, double amount) = 0;
 };
+
+// Notes:
+// 1. An interface in C++ is typically defined as a class with pure virtual functions.
+// 2. The destructor is declared as virtual to ensure proper cleanup of derived classes.
+// 3. The = 0 syntax indicates that the function is pure virtual, meaning that derived classes must provide an implementation for it.
+// 4. The = default syntax for the destructor indicates that the default implementation is used.
