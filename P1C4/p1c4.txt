@@ -260,6 +260,8 @@ source: https://cplusplus.com/reference/stdexcept/
             overflow_error, Overflow error exception.
             underflow_error, Underflow error exception.
 
+GENERAL RULE: Treat all destrutors as sif they are noexcept.
+
 SimpleString Class
 
     Description:
