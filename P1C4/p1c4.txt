@@ -262,11 +262,14 @@ source: https://cplusplus.com/reference/stdexcept/
 
 GENERAL RULE: Treat all destrutors as sif they are noexcept.
 
+
 SimpleString Class
+==================
 
     RAII: Resource Acquisition is Initialization.
 
     CADRe: Constructor acquires, destructor releases.
+
 
     Description:
     ------------
@@ -280,4 +283,14 @@ SimpleString Class
 
     String Copy Function
     --------------------
-    strrncpy(char* destination, const char* source, std::size_t num);
+
+    strncpy(char* destination, const char* source, std::size_t num);
+
+    - Copies num bytes fro source into destination.
+    - Upon completion returns destination (which you then discard).
+    - Finish by adding a newline character \n and a null byte to the end of the buffer.
+    - Return true to indicate successfull appendixing.
+
+
+Using SimpleString
+==================
