@@ -264,6 +264,10 @@ GENERAL RULE: Treat all destrutors as sif they are noexcept.
 
 SimpleString Class
 
+    RAII: Resource Acquisition is Initialization.
+
+    CADRe: Constructor acquires, destructor releases.
+
     Description:
     ------------
 
@@ -271,6 +275,9 @@ SimpleString Class
 
     simplestring.cpp adds C-style strings together and then print the result.
 
-A class enclosing a SimpleString as a member must have the string fully constructed and class invariants established before it can complete.
+    A class enclosing a SimpleString as a member must have the string fully constructed and class invariants established before it can complete.
 
-Destructors work the opposite way.
+
+    String Copy Function
+    --------------------
+    strrncpy(char* destination, const char* source, std::size_t num);
