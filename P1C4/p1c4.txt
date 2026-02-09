@@ -199,6 +199,9 @@ The noexcept Keyword
 
     Functions marked noexcept will enable some code optimizations. The compiler can use move semantics.
 
+    -=[ CAUTION ]=-
+
+        Be extremely careful when you mark your own functions noexcept. If your program throws an exception inside a 'noexcept' functin, the C++ runtime cllas the functin std::terminate that will exit the program via abort. The prgogram cannot recover!
 
 Call Stacks and Exceptions
 
