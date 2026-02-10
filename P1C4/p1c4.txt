@@ -299,7 +299,15 @@ Exceptions and Performance
 
     Exception handling can sometimes be slower if an error does occur, but the program gains robustness and maintainability.
 
-    Embedded contexts:
-    ------------------
-        You will be without exceptions when developing for embedded systems!
-    
+
+Embedded Contexts
+=================
+You will be without exceptions when developing for embedded systems!
+
+    Alternatives:
+
+    Strucutred binding declaration
+    ------------------------------
+        Language feature allowing you to return multiple values from a function call.
+
+        Use this to return success flags alongside return value.
