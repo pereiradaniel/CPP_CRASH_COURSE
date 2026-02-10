@@ -391,3 +391,24 @@ You can perform only two operations on a moved-from object:
     2. Destruct.
 
 Just like with Copy Semantics, with Move Semantics you will be moving objects with Move Constructors and Move Assignment Operators.
+
+
+Value Categories
+================
+
+Every expression has TWO important characteristics:
+
+    1. Type.
+    2. Value Category.
+
+What are the categories?
+
+    Generalized lvalue      -->     glvalue
+    Pure rvalue             -->     prvalue
+    Expiring value          -->     xvalue
+
+To get a grasp on Move Semantics, just focus on lvalues and rvalues.
+
+lvalue: Any value that has a name.
+rvalue: Is anything that isn't an lvalue.
+
