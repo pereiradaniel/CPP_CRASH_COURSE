@@ -432,3 +432,8 @@ An lvalue reference can be cast to an rvalue reference using the std::move funct
 Use caution with std::move, it removes the safeguards keeping you from interacting with a moved-from object.
 
 If an lvalue is at hand, moving is suppressed, if an rvalue is at hand, moving is enabled.
+
+
+Move Construction
+=================
+
