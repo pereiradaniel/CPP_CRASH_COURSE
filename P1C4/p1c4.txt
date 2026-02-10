@@ -383,3 +383,11 @@ Consider the following criteria before implementing copy behaviour:
 Move Semantics
 ==============
 
+Copying can be time-consuming at runtime, especially when large amounts of data are involved. In this case, you may just want to transfer ownership of resources from one object to another. You can make a copy and destroy the original, but this is inefficient. This is when you would prefer to perform a "move".
+
+You can perform only two operations on a moved-from object:
+    
+    1. Re-assign.
+    2. Destruct.
+
+Just like with Copy Semantics, with Move Semantics you will be moving objects with Move Constructors and Move Assignment Operators.
