@@ -306,8 +306,38 @@ You will be without exceptions when developing for embedded systems!
 
     Alternatives:
 
-    Strucutred binding declaration
-    ------------------------------
-        Language feature allowing you to return multiple values from a function call.
+    1. Manually enforce class invariants by exposing a method that communicates whether the class invariants could be established.
 
-        Use this to return success flags alongside return value.
+    2. Strucutred binding declaration
+    
+        Language feature allowing you to return multiple values from a function call. Use this to return success flags alongside return value.
+
+
+Copy Semantics
+==============
+
+Extremely common, especially when pasing objects to functions by value.
+
+Member-wise copy: Passing by value will cause *each member* to be copied into the parameter.
+
+Double-free:
+------------
+    Occurs when you deallocate an object twice. Usually related to copy semantics errors.
+
+
+Copying
+=======
+
+Two ways to copy an object:
+
+    1. Copy Construction.
+
+        Creates a copy and assigns it to a brand-new object.
+        (Copy constructors get invoked when passing an object by value!)
+
+    2. Copy Assignment.
+
+        Create a copy of an object and assign it to another existing object.
+        Ex: (b = a).
+
+    Main difference between Copy Construction and Copy Assignment, is that in Copy Assignment, b might  already have a value, and b's resources must be cleaned up before copying a.
