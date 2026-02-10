@@ -298,3 +298,8 @@ Exceptions and Performance
     Errors are unavoidable, but if exceptions are used correctly and no errors occur, the program is faster than manually error-checked code.
 
     Exception handling can sometimes be slower if an error does occur, but the program gains robustness and maintainability.
+
+    Embedded contexts:
+    ------------------
+        You will be without exceptions when developing for embedded systems!
+    
