@@ -422,3 +422,13 @@ Tell the compiler that a function accepts lvalues or rvalues using lvalue refere
     rvalue reference: &&
 
 The compiler does a good job of determining whether an object is an lvalue or an rvalue.
+
+
+std::move Function
+==================
+
+An lvalue reference can be cast to an rvalue reference using the std::move function from the <utility> header.
+
+Use caution with std::move, it removes the safeguards keeping you from interacting with a moved-from object.
+
+If an lvalue is at hand, moving is suppressed, if an rvalue is at hand, moving is enabled.
