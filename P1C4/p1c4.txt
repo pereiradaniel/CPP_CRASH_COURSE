@@ -302,6 +302,7 @@ Exceptions and Performance
 
 Embedded Contexts
 =================
+
 You will be without exceptions when developing for embedded systems!
 
     Alternatives:
@@ -341,3 +342,44 @@ Two ways to copy an object:
         Ex: (b = a).
 
     Main difference between Copy Construction and Copy Assignment, is that in Copy Assignment, b might  already have a value, and b's resources must be cleaned up before copying a.
+
+
+Default Copy
+============
+
+The compiler will often generate default implementations for copy construction and copy assignment.
+
+The default implementation is to invoke copy construction or copy assignment on each of a class' members.
+
+BE CAREFUL with default copy semantics, they're likely wrong.
+
+    Default keyword
+    ---------------
+
+        Explicitly declare that default copy assignment and copy construction are acceptable for such classes using the default keyword.
+
+Any class that owns a resource (printer, network connection, file) should have an explicitly defined Copy Assignment operator and Copy Constructor.
+
+
+Copy Guidelines
+===============
+
+Consider the following criteria before implementing copy behaviour:
+
+    Correctness
+    -----------
+    Ensure that class invariants are maintained.
+    The Copy Constructor can violate invariants.
+
+    Independence
+    ------------
+    After copy asignment or construction, the original object and the copy should not be able to change each other's state during modifictation.
+
+    Equivalence
+    -----------
+    The original and copy should be the same. This can depend on context. An operation applied to the original should yield the same result when applied to the copy.
+
+
+Move Semantics
+==============
+
