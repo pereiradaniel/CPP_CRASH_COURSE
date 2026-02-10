@@ -412,3 +412,13 @@ To get a grasp on Move Semantics, just focus on lvalues and rvalues.
 lvalue: Any value that has a name.
 rvalue: Is anything that isn't an lvalue.
 
+
+lvalue and rvalue References
+============================
+
+Tell the compiler that a function accepts lvalues or rvalues using lvalue references and rvalue references.
+
+    lvalue reference: &
+    rvalue reference: &&
+
+The compiler does a good job of determining whether an object is an lvalue or an rvalue.
