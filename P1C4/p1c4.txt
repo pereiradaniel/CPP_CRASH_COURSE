@@ -437,3 +437,9 @@ If an lvalue is at hand, moving is suppressed, if an rvalue is at hand, moving i
 Move Construction
 =================
 
+Move Constructors look like Copy Constructors, except they take rvalue references instead of lvalue references.
+
+Executing a Move Constructor is less expensive than executing a Copy Constructor. Move Constructors are designed to not throw an exception.
+
+Note:
+Compilers may not be able to use exception throwing Move Constructors, and will use Copy Constructors instead.
