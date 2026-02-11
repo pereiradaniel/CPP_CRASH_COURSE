@@ -233,8 +233,9 @@ override keyword
 Using Interfaces
 ================
 
-    Only deal in references or pointers to interfaces.
-    Compiler cannot know ahead of timehow much memory to alocate for the underlying type: Otherwise it would be better to use a template.
+Only deal in references or pointers to interfaces.
+
+Compiler cannot know ahead of time how much memory to allocate for the underlying type: Otherwise it would be better to use a template.
 
     Two options for how to set the member:
 
@@ -248,24 +249,11 @@ Using Interfaces
             - Allows you to change the object to which the member points.
             - Used when modification of the field is required.
         
-        Methods can be combined by accepting an interface pointer in a constructor while also providing a method to set the pointer to something else.
+    Methods can be combined by accepting an interface pointer in a constructor while also providing a method to set the pointer to something else.
 
-Defining Interfaces
 
-    Interfaces are defined using antiquated interface mechanisms, this is a result of programming in a language more than 40 years old.
+Constructor Injection
+=====================
 
-    Listing 5-3:
+Use a reference that you pass into the class' constructor (see Listing 5-12).
 
-        - Illustrates fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
-        - There are FOUR constructions in this listing which should be unfamiliar.
-
-    Parsing Listing 5-3:
-
-        Things to understand in order to define an interface:
-        
-            1: Virtual destructor.
-            2: =0 suffix and pure-virtual methods.
-            3: Base class inheritance.
-            4: Override keyword.
-
-    Base Class Inheritance
