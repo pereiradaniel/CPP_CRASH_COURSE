@@ -1,203 +1,232 @@
 Part 1 Chapter 5: RUNTIME POLYMORPHISM
 --------------------------------------
 
-    Polymorphism
-    ============
+Polymorphism
+============
 
-    What is it?
-        Code that can be reused with different types.
-    
-    Loosely coupled, highly reusable.
-    Makes code more maintainable and readable.
+What is it?
+    Code that can be reused with different types.
+
+Features
+--------
+    - Loosely coupled, highly reusable.
+    - Makes code more maintainable and readable.
 
 
-    Two polymorphic approaches:
+Two polymorphic approaches:
+---------------------------
 
-    Compile-time polymorphic code.
+    1. Compile-time polymorphic code.
         Incorporates polymorphic types you can determine at compile time.
 
-    Runtime polymorphism.
+    2. Runtime polymorphism.
         Incorporates types determined at runtime.
 
-    Adding New loggers
 
-    5-2 suffers several design problems:
+Adding New loggers
+==================
 
-        1. You need to write a new logger type.
-        2. You need to add a new enum value to the enum class LoggerType.
-        3. You must add a new case in the switch statement.
-        4. You must add the new logging class as a member to Bank.
+5-2 suffers several design problems:
+
+    1. You need to write a new logger type.
+    2. You need to add a new enum value to the enum class LoggerType.
+    3. You must add a new case in the switch statement.
+    4. You must add the new logging class as a member to Bank.
+
+An alternative approach is one where Bank holds a pointer to a logger: Then the pointer can be set directyl, and you can get rid of LoggerType entirely.
+
+    - Expoloits the fact that loggers have the same function prototype.
+
+    - Bank class doesn't need to know the implementation details of the Logger reference it holds, just how to invoke its methods.
+
+
+Interfaces
+==========
+
+What is an interface?
+
+    An interface is a shared boundary that contains no data or code.
+
+What does an interface do?
+
+    Defines function signatures that all implementations of the interface agree to supprot.
+
+What is an implementation?
+
+    An implementation is code or data that declares support for an interface.
     
-    An alternative approach is one where Bank holds a pointer to a logger: Then the pointer can be set directyl, and you can get rid of LoggerType entirely.
     
-        Expoloits the fact that loggers have the same function prototype.
-
-        Bank class doesn't need to know the implementation details of the Logger reference it holds, just how to invoke its methods.
+Definition:
     
-    
-    Interfaces
+    An interface can be thought as a contract between classes that implements the interface and users of the class.
 
-        An interface is a shared boundary that contains no data or code.
-        Definse function signatures that all implementations of the interface agree to supprot.
-        Code or data that declares support for an interface.
-        A contract between classes that implement the interface and users of the class.
-        "Consumer" never needs to know the underlying implementation. (Listing 5-1 Bank is a consumer of ConsoleLogger).
-        Interfaces impose stringent requirements.
-        Consumer of an interface can use only the methods explicitly defined in the interface.
-        Bank class is not required to know anything about how ConsoleLogger performs its function, just how to call log_transfer.
+"Consumer" never needs to know the underlying implementation. (Listing 5-1 Bank is a consumer of ConsoleLogger).
 
-        *Interfaces are promote highly reusable and loosely coupled code.*
-    
+Features:
+---------
+    - Interfaces impose stringent requirements.
+    - Consumer of an interface can use only the methods explicitly defined in the interface.
+    - Bank class is not required to know anything about how ConsoleLogger performs its function, just how to call log_transfer.
 
-    Object Composition and Implementation Inheritance
+*Interfaces are promote highly reusable and loosely coupled code.*
+
+
+Object Composition and Implementation Inheritance
+=================================================
+
+    What is it?
 
         Design pattern where a class contains members of other class types.
-        
-        Implementation inheritance:
-            - Anitquated design pattern that achieves runtime polymorphism.
-            - Builds hierarchies of classes; each child inherits functionality from its parents.
-            - Found in legacy code.
-            - The way C++ interfaces has a shared lineage with implementation inheritance.
-        
-
-    Defining Interfaces
-
-        There is no interface keywords in C++.
-        Interfaces are defined using antiquated inheritance mechanisms.
-        Listing 5-3: A fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
     
+    Implementation inheritance:
+    ---------------------------
+        - Anitquated design pattern that achieves runtime polymorphism.
+    
+        - Builds hierarchies of classes; each child inherits functionality from its parents.
+    
+        - Found in legacy code.
+    
+        - The way C++ interfaces has a shared lineage with implementation inheritance.
+    
+
+Defining Interfaces
+
+    There is no interface keywords in C++.
+    Interfaces are defined using antiquated inheritance mechanisms.
+    Listing 5-3: A fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
+
+
+Base Class Inheritance
+
+    Derived classes declared using following syntax:
+
+    ```
+    struct DerivedClass : BaseClass {
+        --snip--
+    }
+    ```
+
+    ```
+    // Listing 5-4: A program using a derived class in place of a base class.
+
+    struct BaseClass {};
+    struct DerivedClass : BaseClass{};          // DerivedClass derives from BaseClass.
+    void are_belong_to_us(BaseClass& base) {}   // Takes reference to BaseClass argumnt 'base'.
+
+    int main() {
+        DerivedClass derived;
+        are_belong_to_us(derived);              // Can be invoked with an instance of Derived class. 
+    }
+    ```
+
+    ```
+    // Listing 5-5: This program attempts to use a bse classin place of a derived class. (This listing won't compile.)
+
+    struct BaseClass {};
+    struct DerivedClass : BaseClass {};             // BaseClass does't derive from DerivedClass.
+    void all_about_that(DerivedClass& derived) {}   // Function taks DerivedClass argument.
+
+    int main() {
+        BaseClass base;
+        all_about_that(base);                       // Invoking function yields compiler error.
+    }
+    ```
+
+    *Main reason to derive from a class is to inherit its members!*
+
+Member Inheritance
+
+    Derived classes inherit non-private members from their base classes.
+    Most programmers avoid member inheritance, in favour of composition-based polymorphism.
+
+virtual Methods
+
+    Overrides a base class's methods.
+    Declares that a derived class's implementation should be used if supplied.
+    Add override keyword tot he method's declaration.
+    See listing 5-7.
+
+    =0 suffix:
+
+        If a derived class is required to implement the method, the =0 suffix can be appended to a method definition.
+
+        *Methods with both virtual keyword and =0 suffix are called pure virtual methods.*
+        
+        *A class containing any pure virtual methods cannot be instantiated!!!*
+
+        Listing 5-8 is a refactor of 5-7 that uses a pure virtual method in the base class.
+
+    Note:
+
+        Virtual functions can incur runtime overhead, the cost is typically low: Within 25% of a regular function call.
+        Function tables (vtables): Compiler generates these, contains function pointers.
+        Consumer of an interface doesn't generally know its underlying type, but knows how to invoke the interface's methods via the vtable.
+        Linker can in some circumstances detect all uses of an interface and devirtualize a function call.
+        This removes the function call from the vtable and eliminates associated runtime cost.
+
+Pure-Virtual Classes and Virtual Destructors
+
+    Pure-virtual Classes:
+    Interface inheritance is achieved through deriving from base classes that contain only pure-virtual methods.
+
+    What is a "pure-virtual class"?
+    A class that derives from a base class that contains only pure-virtual methods.
+
+    *Interfaces are always pure-virtual classes.*
+
+    Resource leaks:
+    It's possible to leak resources if you fail to mark destructors as virtual.
+
+    Listing 5-9 illustrates the danger of not adding a virtual destructor.
+    
+    Listing 5-10 illustrates the implementation of a virtual destructor to correct the problems in 5-9.
+
+Implementing Interfaces
+
+    Declare an interface by declaring a pure virtual class.
+    An interface is implemented by deriving from it.
+    Interfaces are pure virtual, so an implementation must implement all of the interface's methods.
+
+    override keyword
+    
+        Good practise:
+            - Mark all interface methods with the override keyword. Communicates intention to override a virtual function, allows the compiler to save you from simple mistakes.
+
+Using Interfaces
+
+    Only deal in references or pointers to interfaces.
+    Compiler cannot know ahead of timehow much memory to alocate for the underlying type: Otherwise it would be better to use a template.
+
+    Two options for how to set the member:
+
+        Constructor injection:
+            - Uses an interface reference.
+            - References cannot be reseated so they won't change for the lifetime of the object.
+            - Typically used when the injected field will not change throughout the lifetime of the object.
+        
+        Property injection:
+            - Uses a method to set a pointer member.
+            - Allows you to change the object to which the member points.
+            - Used when modification of the field is required.
+        
+        Methods can be combined by accepting an interface pointer in a constructor while also providing a method to set the pointer to something else.
+
+Defining Interfaces
+
+    Interfaces are defined using antiquated interface mechanisms, this is a result of programming in a language more than 40 years old.
+
+    Listing 5-3:
+
+        - Illustrates fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
+        - There are FOUR constructions in this listing which should be unfamiliar.
+
+    Parsing Listing 5-3:
+
+        Things to understand in order to define an interface:
+        
+            1: Virtual destructor.
+            2: =0 suffix and pure-virtual methods.
+            3: Base class inheritance.
+            4: Override keyword.
 
     Base Class Inheritance
-
-        Derived classes declared using following syntax:
-
-        ```
-        struct DerivedClass : BaseClass {
-            --snip--
-        }
-        ```
-
-        ```
-        // Listing 5-4: A program using a derived class in place of a base class.
-
-        struct BaseClass {};
-        struct DerivedClass : BaseClass{};          // DerivedClass derives from BaseClass.
-        void are_belong_to_us(BaseClass& base) {}   // Takes reference to BaseClass argumnt 'base'.
-
-        int main() {
-            DerivedClass derived;
-            are_belong_to_us(derived);              // Can be invoked with an instance of Derived class. 
-        }
-        ```
-    
-        ```
-        // Listing 5-5: This program attempts to use a bse classin place of a derived class. (This listing won't compile.)
-
-        struct BaseClass {};
-        struct DerivedClass : BaseClass {};             // BaseClass does't derive from DerivedClass.
-        void all_about_that(DerivedClass& derived) {}   // Function taks DerivedClass argument.
-
-        int main() {
-            BaseClass base;
-            all_about_that(base);                       // Invoking function yields compiler error.
-        }
-        ```
-    
-        *Main reason to derive from a class is to inherit its members!*
-
-    Member Inheritance
-
-        Derived classes inherit non-private members from their base classes.
-        Most programmers avoid member inheritance, in favour of composition-based polymorphism.
-
-    virtual Methods
-
-        Overrides a base class's methods.
-        Declares that a derived class's implementation should be used if supplied.
-        Add override keyword tot he method's declaration.
-        See listing 5-7.
-
-        =0 suffix:
-
-            If a derived class is required to implement the method, the =0 suffix can be appended to a method definition.
-
-            *Methods with both virtual keyword and =0 suffix are called pure virtual methods.*
-            
-            *A class containing any pure virtual methods cannot be instantiated!!!*
-
-            Listing 5-8 is a refactor of 5-7 that uses a pure virtual method in the base class.
-
-        Note:
-
-            Virtual functions can incur runtime overhead, the cost is typically low: Within 25% of a regular function call.
-            Function tables (vtables): Compiler generates these, contains function pointers.
-            Consumer of an interface doesn't generally know its underlying type, but knows how to invoke the interface's methods via the vtable.
-            Linker can in some circumstances detect all uses of an interface and devirtualize a function call.
-            This removes the function call from the vtable and eliminates associated runtime cost.
-    
-    Pure-Virtual Classes and Virtual Destructors
-
-        Pure-virtual Classes:
-        Interface inheritance is achieved through deriving from base classes that contain only pure-virtual methods.
-
-        What is a "pure-virtual class"?
-        A class that derives from a base class that contains only pure-virtual methods.
-
-        *Interfaces are always pure-virtual classes.*
-
-        Resource leaks:
-        It's possible to leak resources if you fail to mark destructors as virtual.
-
-        Listing 5-9 illustrates the danger of not adding a virtual destructor.
-        
-        Listing 5-10 illustrates the implementation of a virtual destructor to correct the problems in 5-9.
-    
-    Implementing Interfaces
-    
-        Declare an interface by declaring a pure virtual class.
-        An interface is implemented by deriving from it.
-        Interfaces are pure virtual, so an implementation must implement all of the interface's methods.
-
-        override keyword
-        
-            Good practise:
-                - Mark all interface methods with the override keyword. Communicates intention to override a virtual function, allows the compiler to save you from simple mistakes.
-    
-    Using Interfaces
-
-        Only deal in references or pointers to interfaces.
-        Compiler cannot know ahead of timehow much memory to alocate for the underlying type: Otherwise it would be better to use a template.
-    
-        Two options for how to set the member:
-
-            Constructor injection:
-                - Uses an interface reference.
-                - References cannot be reseated so they won't change for the lifetime of the object.
-                - Typically used when the injected field will not change throughout the lifetime of the object.
-            
-            Property injection:
-                - Uses a method to set a pointer member.
-                - Allows you to change the object to which the member points.
-                - Used when modification of the field is required.
-            
-            Methods can be combined by accepting an interface pointer in a constructor while also providing a method to set the pointer to something else.
-    
-    Defining Interfaces
-
-        Interfaces are defined using antiquated interface mechanisms, this is a result of programming in a language more than 40 years old.
-
-        Listing 5-3:
-
-            - Illustrates fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
-            - There are FOUR constructions in this listing which should be unfamiliar.
-
-        Parsing Listing 5-3:
-
-            Things to understand in order to define an interface:
-            
-                1: Virtual destructor.
-                2: =0 suffix and pure-virtual methods.
-                3: Base class inheritance.
-                4: Override keyword.
-    
-        Base Class Inheritance
