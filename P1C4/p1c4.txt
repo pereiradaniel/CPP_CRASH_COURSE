@@ -454,3 +454,32 @@ The Move Assignment operator takes an rvalue reference rather than a const lvalu
 
 It is usually marked noexcept.
 
+
+Compiler-Generated Methods
+==========================
+
+"The Rule of Five"
+------------------
+
+Five methods that govern move and copy behaviour:
+
+    1. Destructor.
+    2. Copy Constructor.
+    3. Move Constructor.
+    4. Copy Assignment Operator.
+    5. Move Assignment Operator.
+
+Under certain circumstance, the compiler can generate default implementations for each.
+
+The rules for which methods get generated are compilcated and not the same across compilers.
+
+This complexity can be eliminated by setting these methods to default/delete or by implementing them as appropriate.
+
+"The Rule of Zero"
+------------------
+
+If you provide nothing, the compiler will generate all five destruct/copy/move functions.
+
+If you explicity define any of destructor/copy constructor/copy assignment operator, you get all three.
+
+If you provide only move semantics for a class, the compiler will not automatically generate anything except a destructor.
