@@ -90,15 +90,18 @@ Object Composition and Implementation Inheritance
     
 
 Defining Interfaces
+-------------------
 
-    There is no interface keywords in C++.
-    Interfaces are defined using antiquated inheritance mechanisms.
-    Listing 5-3: A fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
+Important points:    
+    - There is no interface keyword in C++.
+    - Interfaces are defined using antiquated inheritance mechanisms.
+    - Listing 5-3: A fully specified Logger interface and corresponding ConsoleLogger implementing that interface.
 
 
 Base Class Inheritance
+======================
 
-    Derived classes declared using following syntax:
+    Derived classes are declared using following syntax:
 
     ```
     struct DerivedClass : BaseClass {
@@ -111,7 +114,7 @@ Base Class Inheritance
 
     struct BaseClass {};
     struct DerivedClass : BaseClass{};          // DerivedClass derives from BaseClass.
-    void are_belong_to_us(BaseClass& base) {}   // Takes reference to BaseClass argumnt 'base'.
+    void are_belong_to_us(BaseClass& base) {}   // Takes reference to BaseClass argument 'base'.
 
     int main() {
         DerivedClass derived;
@@ -120,11 +123,11 @@ Base Class Inheritance
     ```
 
     ```
-    // Listing 5-5: This program attempts to use a bse classin place of a derived class. (This listing won't compile.)
+    // Listing 5-5: This program attempts to use a base class in place of a derived class. (This listing won't compile.)
 
     struct BaseClass {};
-    struct DerivedClass : BaseClass {};             // BaseClass does't derive from DerivedClass.
-    void all_about_that(DerivedClass& derived) {}   // Function taks DerivedClass argument.
+    struct DerivedClass : BaseClass {};             // BaseClass doesn't derive from DerivedClass.
+    void all_about_that(DerivedClass& derived) {}   // Function takes DerivedClass argument.
 
     int main() {
         BaseClass base;
@@ -134,7 +137,9 @@ Base Class Inheritance
 
     *Main reason to derive from a class is to inherit its members!*
 
+
 Member Inheritance
+==================
 
     Derived classes inherit non-private members from their base classes.
     Most programmers avoid member inheritance, in favour of composition-based polymorphism.
