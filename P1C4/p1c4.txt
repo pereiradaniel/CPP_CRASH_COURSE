@@ -443,3 +443,14 @@ Executing a Move Constructor is less expensive than executing a Copy Constructor
 
 Note:
 Compilers may not be able to use exception throwing Move Constructors, and will use Copy Constructors instead.
+
+
+Move Assignment
+===============
+
+Using the operator= syntax you can create an analogue to Copy Assignment.
+
+The Move Assignment operator takes an rvalue reference rather than a const lvalue referece.
+
+It is usually marked noexcept.
+
