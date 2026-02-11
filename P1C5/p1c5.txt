@@ -141,45 +141,60 @@ Base Class Inheritance
 Member Inheritance
 ==================
 
-    Derived classes inherit non-private members from their base classes.
-    Most programmers avoid member inheritance, in favour of composition-based polymorphism.
+Derived classes inherit non-private members from their base classes.
+
+Most programmers avoid member inheritance, in favour of composition-based polymorphism.
+
+Supposed benefit of Member Inheritance:
+---------------------------------------
+    You can define functionality once in a base class and not have to repeat it in the derived classes.
+
+Downside of Member Inheritance:
+-------------------------------
+    Can yield brittle code that is difficult to fathom compared to *composition-based polymorphism*.
+
 
 virtual Methods
+===============
 
-    Overrides a base class's methods.
-    Declares that a derived class's implementation should be used if supplied.
-    Add override keyword tot he method's declaration.
-    See listing 5-7.
+Overrides a base class's methods.
+Declares that a derived class's implementation should be used if supplied.
+Add override keyword tot he method's declaration.
+See listing 5-7.
 
-    =0 suffix:
+=0 suffix:
 
-        If a derived class is required to implement the method, the =0 suffix can be appended to a method definition.
+    If a derived class is required to implement the method, the =0 suffix can be appended to a method definition.
 
-        *Methods with both virtual keyword and =0 suffix are called pure virtual methods.*
-        
-        *A class containing any pure virtual methods cannot be instantiated!!!*
+    *Methods with both virtual keyword and =0 suffix are called pure virtual methods.*
+    
+    *A class containing any pure virtual methods cannot be instantiated!!!*
 
-        Listing 5-8 is a refactor of 5-7 that uses a pure virtual method in the base class.
+    Listing 5-8 is a refactor of 5-7 that uses a pure virtual method in the base class.
 
-    Note:
+Note:
 
-        Virtual functions can incur runtime overhead, the cost is typically low: Within 25% of a regular function call.
-        Function tables (vtables): Compiler generates these, contains function pointers.
-        Consumer of an interface doesn't generally know its underlying type, but knows how to invoke the interface's methods via the vtable.
-        Linker can in some circumstances detect all uses of an interface and devirtualize a function call.
-        This removes the function call from the vtable and eliminates associated runtime cost.
+    Virtual functions can incur runtime overhead, the cost is typically low: Within 25% of a regular function call.
+    Function tables (vtables): Compiler generates these, contains function pointers.
+    Consumer of an interface doesn't generally know its underlying type, but knows how to invoke the interface's methods via the vtable.
+    Linker can in some circumstances detect all uses of an interface and devirtualize a function call.
+    This removes the function call from the vtable and eliminates associated runtime cost.
 
 Pure-Virtual Classes and Virtual Destructors
+--------------------------------------------
 
-    Pure-virtual Classes:
+Pure-virtual Classes:
+
     Interface inheritance is achieved through deriving from base classes that contain only pure-virtual methods.
 
-    What is a "pure-virtual class"?
+What is a "pure-virtual class"?
+
     A class that derives from a base class that contains only pure-virtual methods.
 
     *Interfaces are always pure-virtual classes.*
 
-    Resource leaks:
+Resource leaks:
+
     It's possible to leak resources if you fail to mark destructors as virtual.
 
     Listing 5-9 illustrates the danger of not adding a virtual destructor.
@@ -192,10 +207,10 @@ Implementing Interfaces
     An interface is implemented by deriving from it.
     Interfaces are pure virtual, so an implementation must implement all of the interface's methods.
 
-    override keyword
+override keyword
     
-        Good practise:
-            - Mark all interface methods with the override keyword. Communicates intention to override a virtual function, allows the compiler to save you from simple mistakes.
+    Good practise:
+        - Mark all interface methods with the override keyword. Communicates intention to override a virtual function, allows the compiler to save you from simple mistakes.
 
 Using Interfaces
 
