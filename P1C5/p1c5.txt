@@ -257,3 +257,35 @@ Constructor Injection
 
 Use a reference that you pass into the class' constructor (see Listing 5-12).
 
+
+Property Injection
+==================
+
+Instead of using Constructor Injection to insert a Logger into a Bank, you could use Property Injection.
+
+How does it work?
+
+    - This approach uses a pointer instead of a reference.
+    - Because pointers can be reseated (unlike references) their behaviour can be changed.
+
+Listing 5-13 is a property-injected variant of 5-12.
+
+
+Choosing Constructor or Property Injection
+==========================================
+
+Design requirements will determine whether you should choose Constructor or Property Injection.
+
+    Pointers and Property Injector Method
+    -------------------------------------
+    When to use this method:
+    
+        When you need to modify underlyiing types of an obnject's memers throught the object's life cycle.
+
+    - This comes at  a cost! You must make sure that you don't set pointers to nullptr, or that you check for this condition.
+
+    -Must also ask what the default behaviour should be.
+
+There is also the option of providing constructor and property injection. This will encourage anyone who uses the class to think about intializing it.
+
+Listing 5-14 illustrates the way to implement this strategy.
