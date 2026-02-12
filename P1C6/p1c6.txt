@@ -1,5 +1,5 @@
 Part 1 Chapter 6: COMPILE-TIME POLYMORPHISM
--------------------------------------------
+===========================================
 
     Compile-time polymorphism with templates.
     Declare and use templates.
@@ -9,18 +9,40 @@ Part 1 Chapter 6: COMPILE-TIME POLYMORPHISM
 
 
 Templates
----------
+=========
 
     Compile-time polymorphism is achieved in C++ through templates.
     
     What is a template?
+    -------------------
         - Class or function with template parameters.
         - Params can stand in for any type.
         - Compiler will stamp out a bespoke template instantiation when a template is used with a type.
 
 
-Declaring Templates and Template Class Definitions
---------------------------------------------------
+    What is Template Instantiation?
+    -------------------------------
+        - The Process of creating a class or a function from a template.
+        - Template instantiations are sometimes called concrete classes and conrete types.
+    
+    What are templates for?
+    -----------------------
+        - Instead of having redundant code, a single template may be written. The compiler then generates new template instances whenever a new combination of types in the template parameters is encountered.
+
+
+Declaring Templates
+===================
+
+    How are templates declared?
+    ---------------------------
+        - With a template prefix consisting of the word "template" wrapped in angle brackets <>.
+        - One or more template paramters are placed inside the angle brackets.
+        - Parameters are declared using either the typename or class keywords followed by an identifier.
+        - template<typename T> declares that the template takes a template parameter T.
+
+
+Template Class Definitions
+==========================
 
     Example:
 
@@ -40,7 +62,6 @@ Declaring Templates and Template Class Definitions
         - The foo method takes a Y reference, returns an X.
         - Members can be declared that include template parameters, such as a pointer to Z as in the example.
         - Apart from the prefix beginning, this template class is almost identical to a non-template class.
-
 
 Template Function Definitions
 -----------------------------
