@@ -12,6 +12,7 @@ public:
 
 class ConsoleLogger : public Logger {
 public:
+    // ConsoleLogger accpts a const char* at construction, which is stored in the prefix member variable.
     ConsoleLogger(const char* str)
     : prefix{ str } {}
     
@@ -19,6 +20,7 @@ public:
     ConsoleLogger(const ConsoleLogger& other) = default;
     ConsoleLogger& operator=(const ConsoleLogger& other) = default;
 
+    // String prefix is prepended to the logging output when log_transfer is called.
     virtual void log_transfer(long from, long to, double amount) override {
         printf("%s %ld -> %ld: %.2f\n", prefix, from, to, amount);
     }

@@ -6,6 +6,7 @@ class AccountDatabase {
     virtual void setAmount(long from, long to, double amount) = 0;
 };
 
+// InMemoryAccountDatabase is a derived class of AccountDatabase!
 class InMemoryAccountDatabase : AccountDatabase {
     public:
         void setAmount(long from, long to, double amount) override {
