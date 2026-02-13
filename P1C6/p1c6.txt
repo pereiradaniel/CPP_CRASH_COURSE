@@ -109,9 +109,11 @@ Named Conversion Functions
     Conceptually very close, but technically not Template Functions.
 
     const_cast
-    ==========
+    ----------
 
         - Removes const modifier so that const values can be modified.
+        - 
 
     static_cast
-    ===========
+    -----------
+
