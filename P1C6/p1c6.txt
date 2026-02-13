@@ -160,3 +160,25 @@ Named Conversion Functions
 
     // The implicit conversion of short* to void* is well defined. Attempting ill-defined conversions with static_cast, such as converting char* to a float* will result in a compile-time error.
     ```
+
+    reinterpret_cast
+    ----------------
+    Low-level programming sometimes requires that you perform type conversions that are not well defined.
+
+    Complete control over memory is often a requirement of system and embedded programming.
+
+    ```
+    // This program demonstrates how to use a pointer to access a memory-mapped timer. It casts the address 0x1000 to a pointer to an unsigned long and prints the value at that address.
+
+    #include <cstdio>
+
+    int main() {
+    // reinterpret_cast takes a type parameter that corresponds to the desired pointer type. In this case, we want to treat the address 0x1000 as a pointer to an unsigned long.
+    auto timer = reinterpret_cast<const unsigned long*>(0x1000);
+    printf("Timer is %lu.", *timer);
+    }
+    ```
+
+    The compiler will not know whether the memory at address 0x1000 contains an unsigned long, it is the programmer's responsibility to ensure correctness.
+
+    The compiler forces you to employ reinterpret_cast, because the programmer takes full responsibility.
