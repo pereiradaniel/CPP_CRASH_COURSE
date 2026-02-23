@@ -228,3 +228,16 @@ See listing 6-8.
     -Genericizing mean-
 
     To support mean calculations for other numeric types (such as float or long), listing 6-8 can be modified with functin overloads to accept a long array.
+
+    (See listing 6-9).
+
+    Essentially you have copy and pasted the same function from listing 6-8. If you wanted to support additional integral types, a different approach should be considered (generic programming).
+
+    What is generic programming?
+    A programming style where you program with yet-to-be-specified types.
+
+    How is this achieved?
+    By the use of templates. Templates allow the compiler to instantiate custom classes or functions based on the types you would like to use.
+
+    Listing 6-10 will be a refactor of listing 6-8 into a template function.
+    
