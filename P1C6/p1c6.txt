@@ -247,4 +247,11 @@ See listing 6-8.
 
     Listing 6-12 shows the template instantiations that result from explicit instantiation as a result of creating a template in Listing 6-11.
 
-    
+    -Template Type Deduction-
+
+    In listing 6-11, you will ntice that the pointed-to array type has to be entered twice:
+        - Once to declare the array.
+        - Second time to specify a template parameter.
+    This has the potential to cause errors when the template parameter doesn't match, which results in a compiler error or can cause unintended casting.
+
+    The template parameters can usually be omitted when invoking a template function. The compiler uses a process called "template type deduction" to determine the correct template parameters.
