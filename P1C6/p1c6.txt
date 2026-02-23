@@ -1,5 +1,4 @@
-Part 1 Chapter 6: COMPILE-TIME POLYMORPHISM
-===========================================
+=Part 1 Chapter 6: COMPILE-TIME POLYMORPHISM=
 
     Compile-time polymorphism with templates.
     Declare and use templates.
@@ -8,41 +7,38 @@ Part 1 Chapter 6: COMPILE-TIME POLYMORPHISM
     Comparison of runtime and compile-time polymorphism in C++.
 
 
-Templates
-=========
+=Templates=
 
     Compile-time polymorphism is achieved in C++ through templates.
     
-    What is a template?
-    -------------------
+    -What is a template?-
+    
         - Class or function with template parameters.
         - Params can stand in for any type.
         - Compiler will stamp out a bespoke template instantiation when a template is used with a type.
 
 
-    What is Template Instantiation?
-    -------------------------------
+    -What is Template Instantiation?-
+    
         - The Process of creating a class or a function from a template.
         - Template instantiations are sometimes called concrete classes and conrete types.
     
-    What are templates for?
-    -----------------------
+    -What are templates for?-
+ 
         - Instead of having redundant code, a single template may be written. The compiler then generates new template instances whenever a new combination of types in the template parameters is encountered.
 
 
-Declaring Templates
-===================
+=Declaring Templates=
 
-    How are templates declared?
-    ---------------------------
+    -How are templates declared?-
+ 
         - With a template prefix consisting of the word "template" wrapped in angle brackets <>.
         - One or more template paramters are placed inside the angle brackets.
         - Parameters are declared using either the typename or class keywords followed by an identifier.
         - template<typename T> declares that the template takes a template parameter T.
 
 
-Template Class Definitions
-==========================
+=Template Class Definitions=
 
     Example:
         ```
@@ -63,12 +59,12 @@ Template Class Definitions
         - Members can be declared that include template parameters, such as a pointer to Z as in the example.
         - Apart from the prefix beginning, this template class is almost identical to a non-template class.
 
-Template Function Definitions
------------------------------
+-Template Function Definitions-
+
     Template functions can be specified, and they can take template parameters. (Listing 6_2.cpp)
 
-Instantiating Templates
------------------------
+-Instantiating Templates-
+
     How do you instantiate a template class?
 
         ```
@@ -91,8 +87,7 @@ Instantiating Templates
         - Template function instantiation invoked with parentheses and function parameters. 
 
 
-Named Conversion Functions
-==========================
+=Named Conversion Functions=
     What are they?
     Language features that explicitly convert one type into another type.
 
@@ -108,8 +103,8 @@ Named Conversion Functions
     Similarity to Template Functions:
     Conceptually very close, but technically not Template Functions.
 
-    const_cast
-    ----------
+    -const_cast-
+ 
     Removes const modifier so that const values can be modified.
 
     ```
@@ -128,8 +123,8 @@ Named Conversion Functions
     }
     ```
 
-    static_cast
-    -----------
+    -static_cast-
+    
     Reverses a well-defined implicit conversion, for example: An integer type to another integer type.
 
     The object-to-cast is of some type that the desired-type implicitly converts to.
@@ -161,8 +156,8 @@ Named Conversion Functions
     // The implicit conversion of short* to void* is well defined. Attempting ill-defined conversions with static_cast, such as converting char* to a float* will result in a compile-time error.
     ```
 
-    reinterpret_cast
-    ----------------
+    -reinterpret_cast-
+    
     Low-level programming sometimes requires that you perform type conversions that are not well defined.
 
     Complete control over memory is often a requirement of system and embedded programming.
@@ -183,8 +178,8 @@ Named Conversion Functions
 
     The compiler forces you to employ reinterpret_cast, because the programmer takes full responsibility.
 
-    narrow_cast
-    -----------
+    -narrow_cast-
+    
     Listing 6-6 shows a custom static_cast that performs a runtime check for narrowing (a loss of information).
 
     When converting from an int to a short, if the value of int fits in to the short, the conversion is reversible and no narrowing occurs.
@@ -224,3 +219,5 @@ Named Conversion Functions
         }
     }
     ```
+
+    
