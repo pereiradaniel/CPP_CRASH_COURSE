@@ -269,3 +269,18 @@ Where to find out more information:
 -In the ISO standard [temp].
 -Item 1 of Effecttive Modern C++ by Scott Meyers.
 -Section 23.5.1 of the C++ Programming Language, 4th Edition by Bjarne Stroustrup.
+
+Times when template arguments cannot be deduced:
+    - If a template function's return type is a template argument that is entirely independent of other function template arguments.
+
+
+=SimpleUniquePointer: A Teplate Class Example=
+
+What is a "unique pointer"?
+
+An RAII (Resource Acquisistion Is Initialization) wrapper around a free-store-allocated object.
+
+    - The unique pointer has a single owner at a time.
+    - When a unique pointer's lifetime ends, the pointed-to object is destructed.
+    - Because the underlying object's type in unique pointers does not matter, the unique pointer is a prime candidate for a template class.
+

@@ -1,0 +1,11 @@
+=Glossary of Important Terms=
+
+    -RAII-
+
+        Resource Acquisition is Initialization.
+
+        When an object is created, its constructor acquires the resource and ensures it is available for use.
+
+        When the object goes out of scope, its destructor automatically releases the resource.
+
+        This guarantees exception safety and prevents resource leaks as cleanup happens automatically regardless of how control leaves the scope.
