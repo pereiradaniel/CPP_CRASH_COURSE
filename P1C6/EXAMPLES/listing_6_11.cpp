@@ -13,9 +13,8 @@ T mean(const T* values, size_t length) {
 }
 
 int main() {
-  const double nums_d[]{ 1.0, 2.0, 3.0, 4.0 };
-  
   // Template is instantiated with double, so T is double.
+  const double nums_d[]{ 1.0, 2.0, 3.0, 4.0 };  
   const auto result1 = mean<double>(nums_d, 4);
   printf("double: %f\n", result1);
   
