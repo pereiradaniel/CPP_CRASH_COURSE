@@ -255,3 +255,17 @@ See listing 6-8.
     This has the potential to cause errors when the template parameter doesn't match, which results in a compiler error or can cause unintended casting.
 
     The template parameters can usually be omitted when invoking a template function. The compiler uses a process called "template type deduction" to determine the correct template parameters.
+
+=Template Type Deduction=
+
+The compiler can usually deduce template function parameters from usage.
+
+Listing 6-13 is a refactor of 6-11 that demonstrates this.
+
+How does it work?
+Mostly the way it would be expected, aside from some nuance, which is more necessary if you are planning to write a lot of generic code.
+
+Where to find out more information:
+-In the ISO standard [temp].
+-Item 1 of Effecttive Modern C++ by Scott Meyers.
+-Section 23.5.1 of the C++ Programming Language, 4th Edition by Bjarne Stroustrup.
