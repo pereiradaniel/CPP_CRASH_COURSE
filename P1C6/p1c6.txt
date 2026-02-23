@@ -240,4 +240,9 @@ See listing 6-8.
     By the use of templates. Templates allow the compiler to instantiate custom classes or functions based on the types you would like to use.
 
     Listing 6-10 will be a refactor of listing 6-8 into a template function.
+
+    Now mean can be used with many different types. When the compiler encounters a usage of mean with a new type, template instatntiaion occurs.
+
+    Template instatiation: The process of generating a concrete function or class from a function or class template by replacing template parameters with specific types or values. This occurs either implicity when the compiler creates an instance upon a function call or class usage, or explicity when the programmer directly requests instantiation using the template keyword.
+
     
