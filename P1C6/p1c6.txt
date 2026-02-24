@@ -349,4 +349,22 @@ Introduced to improve template programming, concepts provide a way to specify re
         ```
 
     -Type Traits-
+    Concepts validate type parametrs.
+    Types are manipulated withing Concepts for inspection of their properties.
+
+    Two choices:
+        1. These manipulations can be hand rolled.
+        2. The type support library built into stdlib can be used.
+    
+    <type_traits> header:
+    If one chooses to use the utilities in stdlib, these utilities are called, "Type Traits". They are part of the std namespace.
+
+    Each type trait is a template class that takes a single template parameter (the one to be inspected).
+
+    Results are extracgted using the template's static member "value".
+
+    If the "value" member equals "true", then the type parameter meets the criteria. Otherwise, it will be qual to "false".
+
+    Listing 6-18 demonstrates the investigation of type traits with several types.
+
     
