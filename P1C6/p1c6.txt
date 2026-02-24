@@ -284,3 +284,5 @@ An RAII (Resource Acquisistion Is Initialization) wrapper around a free-store-al
     - When a unique pointer's lifetime ends, the pointed-to object is destructed.
     - Because the underlying object's type in unique pointers does not matter, the unique pointer is a prime candidate for a template class.
 
+
+=Type Checking in Templates=
