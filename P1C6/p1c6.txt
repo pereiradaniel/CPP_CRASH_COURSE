@@ -286,3 +286,25 @@ An RAII (Resource Acquisistion Is Initialization) wrapper around a free-store-al
 
 
 =Type Checking in Templates=
+
+Templates are type safe!
+    - During template instantiation, template parameters are pasted in by the compiler.
+    - The compiler will not generate the instantiation if the resulting code is incorrect.
+
+Pointers don't support multiplication!
+
+Similarities with duck-typed languages:
+    - In duck-type languages such as Python, type checking is deferred until runtime.
+
+What is duck-typed language?
+    - If an object looks like a duck and quacks like a duck, then it must be some type of duck.
+
+Implications:
+    - This means that you will not know whether an object supports a particular operation until the program is executed.
+
+One cannot know whether an instantiation will succeed until one tries to compile it.
+
+Duck-typed languages might blow up at runtime.
+Templates might blow up at compile time.
+
+C++ programmers feel this is unacceptable, and has resulted in a solution to this problem called "Concepts".
