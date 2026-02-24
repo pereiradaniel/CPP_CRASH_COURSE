@@ -371,4 +371,59 @@ Introduced to improve template programming, concepts provide a way to specify re
         - Forming the building blocks of a Concept.
         - They can tell one what types are.
 
-    Sometimes one must also specify how the template will use the types. The solution to this problem is the use of "requirements".
+    Sometimes one must also specify how the template will use the types. The solution to this problem is the use of "Requirements".
+
+    -Requirements-
+
+    What are Requirements?
+        - Ad hoc constraints on template parameters.
+        - A Concept can specify any number of Requirements on its template parameters.
+        - Requirements are encoded into requires expressions denoted by the "requires" keyword, followed by function arguments and a body.
+    
+    What is a Requirement composed of?
+        - A sequence of syntactic requirements comprises the Requirements expression's body.
+        - Each syntactic requirement puts a constraint on the template parameters.
+    
+    ```
+    requires (arg-1, arg-2, ...) {
+        {expression1} -> return-type1;
+        {expression2} -> return-type2;
+        --snip--
+    }
+    ```
+
+    The arguments have types derived from template parameters.
+    An arbitrary expression is placed within each of the braces.
+    The expression can involve any number of the arguments to the argument expression.
+
+    Failure:
+        - If an instantiation causes a syntactic expression not to compile, that syntactic requirement fails.
+    
+    Success:
+        - If the expression evaluation succeeds, the next check is whether the return type of that expression matches the type given after the arrow ->.
+        
+        If the expression result's evaluated type can't implicitly convert to the return type:
+            - The syntactic requirement fails.
+        
+        If any of the syntactic requirements fail:
+            - The Requires expression evaluates to "false".
+        
+        If all of the syntactic requirements pass:
+            - The Requires expression evaluates to "true".
+    
+    Determine whether one can compare objects of types T and U using the equality and inequality operators:
+
+    ```
+    // T, U are types:
+    requires (T t, U u) {
+        {t==u} -> bool; // syntactic requirement 1
+        {u==t} -> bool; // syntactic requirement 2
+        {t!=u} -> bool; // syntactic requirement 3
+        {u!=t} -> bool; // syntactic requirement 4
+    }
+    ```
+
+    Explanation:
+        - The Requires expression takes two arguments.
+        - All four requirements enforce a bool result.
+        - Any two types that satisfy this Requires expression are guaranteed to support comparison with == and !=.
