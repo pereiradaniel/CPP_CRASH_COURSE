@@ -308,3 +308,45 @@ Duck-typed languages might blow up at runtime.
 Templates might blow up at compile time.
 
 C++ programmers feel this is unacceptable, and has resulted in a solution to this problem called "Concepts".
+
+
+=Concepts=
+
+What do "Concepts" do?
+    - Constrain template parameters.
+    - Allow for parameter checking at the point of instantiation, rather than the point of first use.
+
+Why is this good?
+    - Catching usage issues at the point of instantiation allows the compiler to give an informative error code.
+    - Allows the programmer to express requirements on template parameters directly in the language.
+
+Concepts are officially part of the C++ language as part of the C++20 Standard.
+
+Introduced to improve template programming, concepts provide a way to specify requirements on template arguments using compile-time Boolean predicates.  They were formally standardized in C++20 after years of development and revisions, including the removal of an earlier version (C++0x concepts) due to complexity.
+
+(As of the writing of CP Crash Course, Concepts are NOT officially part of the C++ language!)
+
+    -Defining a Concept-
+
+        What is a Concept?
+        - A Concept is a template.
+        - A constant expression involving template arguments, evaluated at compile time.
+        - A function that evaluates to true or false.
+
+        How do Concepts work?
+        - A set of template parameters must meet the criteria for a given concept.
+        - If the Concept evaluates to true when instantiated with those parameters, the template instantiation succeeds.
+        - If the Concept evaluates to false, the the template instantiation fails.
+
+        Declaration:
+        - Concepts are declared using the keyword, "concept".
+
+        ```
+        template <typename T1, typename T2, ...>
+        concept bool ConceptName() {
+            --snip--
+        }
+        ```
+
+    -Type Traits-
+    
