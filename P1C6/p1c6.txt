@@ -367,4 +367,8 @@ Introduced to improve template programming, concepts provide a way to specify re
 
     Listing 6-18 demonstrates the investigation of type traits with several types.
 
-    
+    What are type traits good for?
+        - Forming the building blocks of a Concept.
+        - They can tell one what types are.
+
+    Sometimes one must also specify how the template will use the types. The solution to this problem is the use of "requirements".
