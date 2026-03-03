@@ -453,4 +453,9 @@ Introduced to improve template programming, concepts provide a way to specify re
     Requirement can be enforced directly in the template prefix.
 
     Requires expressions can be embeded directly into the template definition.
-    
+
+=static_assert: The Preconcepts Stopgap=
+
+Before the implementation of Concepts, there is a stopgap: The static_assert exression. Knowledge of this may be useful as Concepts are not necessarily available across compilers, especially older ones.
+
+These combined with type_traits can be included in the bodies of templates to assist users in diagnosing usage errors.
