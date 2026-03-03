@@ -481,3 +481,31 @@ This allows you to inject a value into the generic code at compile time.
 
 Allows you to write templates that must take in an unknown number of arguments. This is to avoid having to write multiple different templates each for different numebrs of arguments.
 
+
+=Advanced Template Topics=
+
+    -Template Specialization-
+    Different versions of templates can be created depending on the characteristics of the parameters. If a type parameter is Ordered instead of Regular, you might be able to make a generic program more efficient. This type of programming is called "template specialization".
+
+    The ISO standard temp.spec should be referred to for more information.
+
+    -Name Binding-
+    Helps determine the rules for when the compiler matches a named element withing a template to a concrete implementation.
+
+    -Type Function-
+    Takes types as arguments and returns a type.
+
+    Type functions can be combined with compile time control structures to do general computation, such as programming control flow at compile time. Using these techniques is called, "template metaprogramming".
+
+    -Template Metaprogramming-
+    Easier once Concepts are part of the C++ standard.
+
+=Template Source Code Organization=
+
+Templates should be implemented entirely within header files.
+
+Advantages to this approach:
+    - Easy for others to use your code.
+    - Easy for compilers to inline header-only templates, leads to faster code at runtime.
+    - Compilers can do a better job of optimizing code when all of the source is available.
+
