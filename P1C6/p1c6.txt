@@ -427,3 +427,30 @@ Introduced to improve template programming, concepts provide a way to specify re
         - The Requires expression takes two arguments.
         - All four requirements enforce a bool result.
         - Any two types that satisfy this Requires expression are guaranteed to support comparison with == and !=.
+
+    -Building Concepts from Requires Expressions-
+
+    Requires expressions are evaluated at compile time, so Concepts can contain any number of them.
+
+    -Using Concepts-
+
+    After defining a Concept, use that concept's name in place of the typename keyword in a template declaration.
+
+    When you try to use it with a type that is not compatible, the compiler error mssage will be much better than from a raw template.
+
+    (Check current C++ standards for impleimentation of Concepts!)
+
+    Whenever a Concept is used as apart of a function definition, that function becomes a template, and the template prefix can be omitted.
+
+    ```
+    return-type function-name(Concept arg-1, ...) {
+        --snip--
+    }
+    ```
+
+    -Ad Hoc Requires Expressions-
+
+    Requirement can be enforced directly in the template prefix.
+
+    Requires expressions can be embeded directly into the template definition.
+    
