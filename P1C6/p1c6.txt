@@ -459,3 +459,20 @@ Introduced to improve template programming, concepts provide a way to specify re
 Before the implementation of Concepts, there is a stopgap: The static_assert exression. Knowledge of this may be useful as Concepts are not necessarily available across compilers, especially older ones.
 
 These combined with type_traits can be included in the bodies of templates to assist users in diagnosing usage errors.
+
+
+=Non-Type Template Parameters=
+
+A template parameter declared with the typename or class keyword is called a "type template parameter". It is a stand-in for some yet-to-be-specified type.
+
+Non-type template parameters can also be used as stand-ins for a yet-to-be-specified value.
+
+They can be any of the following:
+    - integral
+    - lvalue ref
+    - pointer (or pointed-to member)
+    - std::nullptr_t (the type of nullptr)
+    - enum class
+
+This allows you to inject a value into the generic code at compile time.
+
