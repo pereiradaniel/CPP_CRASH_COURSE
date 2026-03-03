@@ -509,3 +509,11 @@ Advantages to this approach:
     - Easy for compilers to inline header-only templates, leads to faster code at runtime.
     - Compilers can do a better job of optimizing code when all of the source is available.
 
+
+=Polymorphism at Runtime vs. Compile Time=
+
+Templates should be used to achieve polymorphism. Sometimes this cannot be done because you don't know the types used with your code until runtime.
+
+Template instantiation only occurs when a template's parameters are paired with types. The compiler can instantiate a custom class for you.
+
+In such cases, use runtime polymorphism. The template is the mechanism for achieving compile-time polymorphism- runtime polymorphism is the interface.
