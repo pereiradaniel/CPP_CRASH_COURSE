@@ -476,3 +476,8 @@ They can be any of the following:
 
 This allows you to inject a value into the generic code at compile time.
 
+
+=Variadic Templates=
+
+Allows you to write templates that must take in an unknown number of arguments. This is to avoid having to write multiple different templates each for different numebrs of arguments.
+
