@@ -3,7 +3,6 @@
 // Implement mode as a template function.
 
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 template <typename T>
