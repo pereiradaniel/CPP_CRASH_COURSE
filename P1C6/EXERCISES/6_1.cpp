@@ -16,7 +16,7 @@ int mode(const int* values, size_t length);
 // Mode function body
 int mode(const int* values, size_t length) {
     // Return 0 if length of array is 0:
-    if (length == 0)
+    if (length <= 0)
         return 0;
 
     int  maxCount = 0;          // Maximum count of occurrences.
