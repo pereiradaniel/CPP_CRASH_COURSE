@@ -1,4 +1,3 @@
 // Listing 6-2
 
-// Implement mod as a template function.
-
+// Implement mode as a template function.
