@@ -5,7 +5,9 @@
 #include <cstdio>
 struct Account {
     public:
-    Account() : m_balance{0.0} {}
+    int m_account_number;
+
+    Account(int account_number, double m_balance) : m_account_number{account_number}, m_balance{m_balance} {}
     explicit Account(const double amount) : m_balance{amount} {}
 
     void deposit (const double amount) {
@@ -57,7 +59,10 @@ struct Bank {
     template <typename account1, typename account2>
     void make_transfer(account1 &from, account2 &to, const double amount) {
 
-        // if (logger) logger->log_transfer(from, to, amount);
+        // Log the transfer:
+        if (logger) logger->log_transfer(from.m_account_number, to.m_account_number, amount);
+
+        // Perform the transfer:
         from.withdraw(amount);
         to.deposit(amount);
     }
@@ -70,16 +75,22 @@ int main() {
     ConsoleLogger console_logger;
     FileLogger file_logger;
     Bank bank{};
-    Account account1(100.0);
-    Account account2(0.0);
+    
+    // Set up two accounts to be used in the example:
+    Account account1(100, 100.0);
+    Account account2(200, 0.0);
+
+    // Print starting balances to the console:
     account1.print_balance();
     account2.print_balance();
+
+    // Use the console logger
     bank.set_logger(&console_logger);
+    
+    // Use template to make a transfer:
     bank.make_transfer(account1, account2, 75.00);
+    
+    // Print balances to the console to show that transfer worked:
     account1.print_balance();
     account2.print_balance();
-
-
-    //     bank.set_logger(&file_logger);
-    //     bank.make_transfer(2000, 4000, 20.00);
 }
