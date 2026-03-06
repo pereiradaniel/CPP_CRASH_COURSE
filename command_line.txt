@@ -4,7 +4,16 @@ Important commands used while working on this repo:
     Compiling cpp files:
     --------------------
 
+        No C++ version specified:
         g++ -Wall -o file file.cpp
+
+        Specify C++ version:
+        g++ -std=c++20 -Wall -o file file.cpp
+
+    Outputting results of compilation to a text file:
+    -------------------------------------------------
+
+        g++ -std=c++20 -Wall -o file file.cpp > output.txt 2>&1
 
 
     Outputting valgrind results into text file:

@@ -1,0 +1,15 @@
+6_3.cpp: In function ‘int main()’:
+6_3.cpp:78:37: error: no matching function for call to ‘mode(float [4], size_t&)’
+   78 |         printf("\nMode is : %f",mode(test_array3, array_length3));
+      |                                 ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+6_3.cpp:13:3: note: candidate: ‘template<class T>  requires  Integral<T> T mode(const T*, size_t)’
+   13 | T mode(const T* values, size_t length) {
+      |   ^~~~
+6_3.cpp:13:3: note:   template argument deduction/substitution failed:
+6_3.cpp:13:3: note: constraints not satisfied
+6_3.cpp: In substitution of ‘template<class T>  requires  Integral<T> T mode(const T*, size_t) [with T = float]’:
+6_3.cpp:78:30:   required from here
+6_3.cpp:10:9:   required for the satisfaction of ‘Integral<T>’ [with T = float]
+6_3.cpp:10:36: note: the expression ‘std::is_integral<_Tp>::value [with T = float]’ evaluated to ‘false’
+   10 | concept Integral = is_integral<T>::value;
+      |                                    ^~~~~
