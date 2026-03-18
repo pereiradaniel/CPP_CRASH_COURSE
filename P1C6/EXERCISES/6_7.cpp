@@ -10,9 +10,6 @@ struct Account {
     public:
     int m_account_number;
     double m_balance;
-
-    private:
-
 };
 
 struct ChequingAccount : public Account {
