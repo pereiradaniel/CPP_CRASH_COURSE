@@ -77,9 +77,7 @@ struct Bank {
         logger = new_logger;
     }
 
-    // make_transfer is now a template method that accepts parameters of type T for account numbers.
-    template <typename account1, typename account2>
-    void make_transfer(account1 &from, account2 &to, const double amount) {
+    void make_transfer(T& from, T& to, const double amount) {
 
         // Log the transfer:
         if (logger) logger->log_transfer(from.m_account_number, to.m_account_number, amount);
