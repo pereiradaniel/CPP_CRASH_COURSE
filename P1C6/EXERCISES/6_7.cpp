@@ -97,10 +97,10 @@ int main() {
 
     // Set up accounts to be used in the example:
     ChequingAccount chequingA(100, 100.0);
-    ChequingAccount chequingB(200, 100.0);
+    ChequingAccount chequingB(200, 200.0);
 
-    SavingsAccount savingsA(300, 100.0);
-    SavingsAccount savingsB(400, 100.0);
+    SavingsAccount savingsA(300, 300.0);
+    SavingsAccount savingsB(400, 400.0);
 
     // // Print starting balances to the console:
     chequingA.print_balance();
