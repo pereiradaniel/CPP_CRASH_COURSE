@@ -45,7 +45,6 @@ struct FileLogger : Logger {
     }
 };
 
-// Bank is now a template class that accepts a type parameter T for account numbers.
 struct Bank {
     Bank() {}
     // The constructor and set_logger method remain unchanged, as they still work with Logger pointers.
