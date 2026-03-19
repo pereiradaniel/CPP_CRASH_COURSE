@@ -24,7 +24,7 @@ struct ChequingAccount : public Account {
         m_balance -= amount;
     }
     void print_balance() const {
-        printf("Balance: %f\n", m_balance);
+        printf("Balance: %.2f\n", m_balance);
     }
 };
 
@@ -40,7 +40,7 @@ struct SavingsAccount : Account {
         m_balance -= amount;
     }
     void print_balance() const {
-        printf("Balance: %f\n", m_balance);
+        printf("Balance: %.2f\n", m_balance);
     }
 };
 
@@ -53,13 +53,13 @@ struct Logger {
 // ConsoleLogger and FileLogger remain unchanged, as they still work with long account numbers.
 struct ConsoleLogger : Logger {
     void log_transfer(long from, long to, double amount) override {
-        printf("[cons] %ld -> %ld: %f\n", from, to, amount);
+        printf("[cons] %ld -> %ld: %.2f\n", from, to, amount);
     }
 };
 
 struct FileLogger : Logger {
     void log_transfer(long from, long to, double amount) override {
-        printf("[file] %ld,%ld,%f\n", from, to, amount);
+        printf("[file] %ld,%ld,%.2f\n", from, to, amount);
     }
 };
 
