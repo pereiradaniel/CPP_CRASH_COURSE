@@ -1,1 +1,18 @@
 =Part 1 Chapter 7: EXPRESSIONS=
+
+-Operators-
+Operators do work on arguments called operands.
+
+-Logical Operators-
+Regular operators.
+Bitwise logical operators. (Perform a boolean operation at the bit level and return an integral type matching the operands).
+
+-Arithmetic Operators-
+Unary and binary arithmetic operators work with integral and floating-point types. Used for mathetmatical computations.
+
+-Binary Arithmetic Operators-
+Five: Addition, subtraction, multiplication, division, and modulo. Promotion on the operands. Double + long double = long double, etc.
+
+If one argument is signed, both operands become signed. Size of the largest operand is used to promote the other operand.
+
+Promotion is the set of rules for interpreting literals.
