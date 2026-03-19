@@ -16,3 +16,53 @@ Five: Addition, subtraction, multiplication, division, and modulo. Promotion on 
 If one argument is signed, both operands become signed. Size of the largest operand is used to promote the other operand.
 
 Promotion is the set of rules for interpreting literals.
+
+-Assignment Operators-
+Performs a given operation and assigns the result to the first operand.
+
+```
+x = y;
+```
+
+Promotion rules don't apply.
+
+-Increment and Decrement Operators-
+```
+++x;
+```
+
+-Comparison Operators-
+Evaluate to bool.
+
+```
+x==y;
+```
+
+-Member Access Operators-
+Interact with pointers, arrays, and many classes.
+
+```
+*x; // pointer-to-member-of-object
+```
+
+Provides access to the element pointed to by x.
+
+-Ternary Conditional Operator-
+```
+x ? y : z;
+```
+x is evaluated as a boolean expression and returns the second operand or the third.
+
+-The Comma Operator-
+Allows several expressions separated by commas to be evaluated withing a larger expression, evaluating from left to right. The rightmost is the return value.
+
+```
+return x = 9, x++, x / 2;
+```
+
+-Operator Overloading-
+```
+FunctionName operator+(unsign int other) const {
+    //...
+}
+```
