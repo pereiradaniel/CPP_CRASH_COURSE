@@ -1,0 +1,17 @@
+heap_bucket.cpp: In member function ‘void* Heap::allocate(size_t)’:
+heap_bucket.cpp:12:23: error: expected ‘;’ before ‘i’
+   12 |         for (size_t{} i; i < n_heap_buckets; ++i) {
+      |                       ^
+heap_bucket.cpp:12:24: warning: statement has no effect [-Wunused-value]
+   12 |         for (size_t{} i; i < n_heap_buckets; ++i) {
+      |                        ^
+heap_bucket.cpp:12:26: error: ‘i’ was not declared in this scope
+   12 |         for (size_t{} i; i < n_heap_buckets; ++i) {
+      |                          ^
+heap_bucket.cpp: In member function ‘void Heap::free(void*)’:
+heap_bucket.cpp:22:22: warning: statement has no effect [-Wunused-value]
+   22 |         for (size_t{}; i< n_heap_buckets; ++i) {
+      |                      ^
+heap_bucket.cpp:22:24: error: ‘i’ was not declared in this scope
+   22 |         for (size_t{}; i< n_heap_buckets; ++i) {
+      |                        ^
