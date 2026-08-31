@@ -4,3 +4,4 @@
 [C++ Made Easier: Plain Old Data](https://www.drdobbs.com/c-made-easier-plain-old-data/184401508/)
 [The C++ Standard](https://isocpp.org/std/the-standard/)
 [CPP Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/)
+[devdocs C++ reference](https://devdocs.io/cpp/)
