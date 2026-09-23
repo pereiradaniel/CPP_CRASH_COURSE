@@ -34,6 +34,7 @@ int main() {
 - Super c IS *NOT* idiomatic C++.
 - In some environments (embedded software, some operating sytem kernels, heterogeneous computing), the available tool chains have incomplete C++ support.
 - Some C-supported constructs won't work in C++, see: [*C Constructs that Don't Work in C++*](https://lospi.net/c/c++/programming/developing/software/2019/04/28/c-constructs-that-dont-work-in-cpp.html) [notes](#c-constructs-that-don't-work-in-c++)
+- 2026 follow-up: [*C Constructs That Still Don't Work in C++*](https://lospino.so/blog/c-constructs-that-still-dont-work-in-cpp/) covers C++20, C23, and language-mode-specific compatibility notes.
 
 ## Function Overloading
 
