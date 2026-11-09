@@ -3,6 +3,7 @@
 #include <type_traits>
 
 template <typename T>
+// violates c++20 standard
 concept bool Averageable() {
   return std::is_default_constructible<T>::value && std::is_copy_constructible<T>::value && requires(T a, T b) {
     { a + b }
