@@ -61,8 +61,28 @@ return x = 9, x++, x / 2;
 ```
 
 -Operator Overloading-
-```
-FunctionName operator+(unsign int other) const {
-    //...
-}
-```
+ Custom behaviour can be specified by naming the method with the word operator immediately followed by the operator:
+
+    CheckedInteger operator+(unsigned int other) const
+
+
+-Overloading Operator new-
+Objects with dynamic storage duration are allocated using operator "new".
+Default is to allocate memory on the free store (heap).
+See HeapAlloc on Windows or malloc on Linux macOS.
+
+
+-Free Store Avaialability-
+Free store operators can be overloaded, so you can take control over allocations.
+
+
+-The <new> Header-
+Free store operators deal in raw, uninitialized memory.
+
+If you define any of the four free store operators, the compiler will use your versions as defaults.
+
+Memory Fragmentation: One of the major issues making free store management a complicated task. This can lead to situations where there is enough memory for a desired allocation, but is too noncontiguous for it to be stored anywhere.
+
+
+-Buckets-
+Allocated memory can be chopped into buckets of a fixed size. When memory is requested, a whole bucket is allocated even if not all the memory was requested. This causes some overhead.
