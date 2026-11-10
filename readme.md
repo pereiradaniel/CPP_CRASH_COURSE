@@ -2,6 +2,8 @@
 
 ---
 
+NOTE: Since starting this repo, I was distracted by school, work, and other things. But I am still working away on this book in my spare time, because I am something of a completionist. Besides, it also acts as a nice refresher on basic information that is sometimes forgotten. This is especially helpful for me, as I am currently using Unity, and this requires use of C#.
+
 This repo contains notes and code samples that were made during the reading of *C++ Crash Course*. Some of the code examples are taken from the book, some are inspired by the book, and some are completely my own making. Do not assume that every code sample you read here is from the book. This is just a workspace where I can organize my notes and experiments.
 
 This repo does not necessarily reflect the content found in the book, though it may give you an idea if you'd like to buy it.
